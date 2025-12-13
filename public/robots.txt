@@ -7,7 +7,7 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-User-agent: linkedln
+User-agent: inkedln
 Allow: /
 
 User-agent: Github
