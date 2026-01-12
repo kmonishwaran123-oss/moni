@@ -70,13 +70,18 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               <div className="max-w-4xl mx-auto">
                 {/* Image Carousel */}
                 <div className="relative aspect-video rounded-xl overflow-hidden mb-6 bg-muted/30">
-                  <img
-                    src={project.images[currentImage]}
-                    alt={`${project.title} screenshot ${currentImage + 1}`}
-                    className="w-full h-full object-cover"
-                  />
+                  {(() => {
+                    const imgSrc = project.images?.[currentImage] ?? '/placeholder.svg';
+                    return (
+                      <img
+                        src={imgSrc}
+                        alt={`${project.title} screenshot ${currentImage + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    );
+                  })()}
                   
-                  {project.images.length > 1 && (
+                  {project.images && project.images.length > 1 && (
                     <>
                       <button
                         onClick={() => setCurrentImage((prev) => (prev - 1 + project.images.length) % project.images.length)}

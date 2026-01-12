@@ -6,7 +6,6 @@ import { Projects } from '@/components/Projects';
 import { Events } from '@/components/Events';
 import { Certificates } from '@/components/Certificates';
 import { Skills } from '@/components/Skills';
-import { Timeline } from '@/components/Timeline';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 import { ParticleBackground } from '@/components/ParticleBackground';
@@ -38,11 +37,10 @@ const Index = () => {
         <main>
           <Hero />
           <AboutMe />
-          <Projects />
+          <Skills />
           <Events />
           <Certificates />
-          <Skills />
-          <Timeline />
+          <Projects />
           <Contact />
         </main>
         

@@ -4,7 +4,7 @@ import { projects, type Project } from '@/data/projects';
 import { ProjectCard } from './ProjectCard';
 import { ProjectModal } from './ProjectModal';
 
-const filterTags = ['All', 'IT', 'Core'as const];
+const filterTags = ['All', 'IT', 'Core'] as const;
 
 export function Projects() {
   const [activeFilter, setActiveFilter] = useState<string>('All');

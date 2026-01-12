@@ -95,8 +95,9 @@ export function Skills() {
   const allSkills = [
     ...skills.programming.map(s => s.name),
     ...skills.web.map(s => s.name),
-    ...skills.embedded.map(s => s.name),
     ...skills.mechanical.map(s => s.name),
+    ...skills.embedded.map(s => s.name),
+    
   ];
   
   return (
@@ -125,8 +126,9 @@ export function Skills() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <SkillCategory title="Programming" items={skills.programming} delay={0.1} />
           <SkillCategory title="Web Development" items={skills.web} delay={0.2} />
-          <SkillCategory title="Embedded Systems" items={skills.embedded} delay={0.3} />
-          <SkillCategory title="Mechanical/CAD" items={skills.mechanical} delay={0.4} />
+          <SkillCategory title="Mechanical Engineering" items={skills.mechanical} delay={0.3} />
+          <SkillCategory title="Embedded Systems" items={skills.embedded} delay={0.4} />
+          
         </div>
         
         {/* Tag Cloud */}

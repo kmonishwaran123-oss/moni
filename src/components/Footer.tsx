@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
+import { Heart, Smile, SmileIcon } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -16,7 +16,7 @@ export function Footer() {
           </p>
           
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Built with <Heart size={14} className="text-red-500 fill-red-500" /> using React & Framer Motion
+            Built with using React & Framer Motion
           </p>
         </motion.div>
       </div>

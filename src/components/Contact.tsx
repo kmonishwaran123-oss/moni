@@ -52,7 +52,7 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 relative">
       {/* Background Glow */}
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] pointer--none" />
       
       <div className="container mx-auto px-6 relative">
         {/* Section Header */}

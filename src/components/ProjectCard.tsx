@@ -40,12 +40,18 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
       
       {/* Project Image */}
       <div className="relative aspect-video rounded-xl overflow-hidden mb-4 bg-muted/30">
-        <img
-          src={project.images[0]}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
+        {/** Use the first image if available, otherwise fall back to placeholder from public folder */}
+        {(() => {
+          const imgSrc = project.images?.[0] ?? '/placeholder.svg';
+          return (
+            <img
+              src={imgSrc}
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          );
+        })()}
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
       </div>
       
