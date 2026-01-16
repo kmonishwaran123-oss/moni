@@ -196,7 +196,7 @@ export function Hero() {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
-                <span className="text-xl">💻</span>
+                <span className="text-xl"> 💻</span>
               </motion.div>
               
               <motion.div

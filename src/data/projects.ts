@@ -88,26 +88,28 @@ export const projects: Project[] = [
 export const skills = {
   programming: [
     { name: "Python", level: 70 },
-    { name: "JavaScript/TypeScript", level: 65 },
     { name: "C/C++", level: 70 },
+    { name: "JavaScript/TypeScript", level: 65 },
     { name: "Java", level: 60 },
   ],
   web: [
+    { name: "Next.js", level: 65 },
+    { name: "Tailwind CSS", level: 60 },
     { name: "React", level: 58 },
     { name: "Node.js", level: 52 },
-    { name: "Tailwind CSS", level: 60 },
-    { name: "Next.js", level: 65 },
+    
+    
   ],
   embedded: [
     { name: "Arduino", level: 75 },
-    { name: "ESP32", level: 60 },
     { name: "Raspberry Pi", level: 65 },
+    { name: "ESP32", level: 60 },
   ],
   mechanical: [
-    { name: "SolidWorks", level: 68 },
     { name: "AutoCAD", level: 75 },
+    { name: "SolidWorks", level: 65 },
+     { name: "ANSYS", level: 60 },
     { name: "CATIA", level: 55 },
-    { name: "ANSYS", level: 60 },
   ],
 };
 
