@@ -1,7 +1,9 @@
 import bajaImage from "@/assets/baja-e.jpg";
 import nsdcLogo from "@/assets/nsdc-logo.jpg";
 import IOTImage from "@/assets/IOT.jpg";
-import resumeImage from "@/assets/resume.png";
+import resumeImage from "@/assets/resume.jpeg";
+import f1Image from "@/assets/f1.png";
+
 export interface Project {
   id: string;
   title: string;
@@ -68,6 +70,21 @@ export const projects: Project[] = [
     result: "Successfully extracted key information from resumes with high accuracy and provided actionable insights for recruiters.",
     images: [resumeImage],
     tech: ['Python', 'LLM', 'Machine Learning'],
+  },
+  {
+    id: "F1-RoadMap tracker",
+    title: "F1 RoadMap Tracker",
+    tags: ['ALL','IT' ],
+    shortDesc: "A tool to track and analyze F1 race data.",
+    longDesc: "Developed a tool to track and analyze F1 race data, providing insights into driver performance and race strategies.",
+    challenge: "Designing an efficient data analysis system and extracting meaningful insights from complex race data.",
+    approach: "Implemented a data analysis system using Python and machine learning techniques to extract insights from F1 race data.",
+    result: "Successfully analyzed F1 race data with high accuracy and provided actionable insights for teams and drivers.",
+    images: [f1Image],
+    tech: ['Python', 'Machine Learning', 'Data Analysis'],
+  },
+  {
+    
   }
 ];
 
