@@ -18,7 +18,7 @@ const events = [
     location: "India",
     description:
       "Designing and fabricating an off-road electric vehicle for SAE India H-Baja.",
-    achievement: "Ongoing",
+    achievement: "TI-Clearance for Final Round",
     icon: "🚗",
     image: bajaImage,
   },
