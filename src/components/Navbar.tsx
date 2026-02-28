@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
             >
               <Link to="/" className="flex items-center">
                 <img
-                  src="/logo.png"
+                  src={`${import.meta.env.BASE_URL}logo.png`}
                   alt="MONISHWARAN K"
                   className="h-8 md:h-10 w-auto object-contain brightness-110 contrast-125"
                 />
