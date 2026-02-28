@@ -2,7 +2,6 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Home, AlertTriangle, ArrowLeft } from "lucide-react";
-import ParticleBackground from "@/components/ParticleBackground";
 import Navbar from "@/components/Navbar";
 
 const NotFound = () => {
@@ -15,7 +14,6 @@ const NotFound = () => {
   return (
     <div className="relative min-h-screen bg-transparent overflow-hidden">
       <div className="film-grain" aria-hidden="true" />
-      <ParticleBackground />
       <Navbar />
 
       <main className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-6 pt-20">

@@ -20,8 +20,8 @@ import {
     Layers
 } from 'lucide-react';
 import Navbar from "@/components/Navbar";
-import ParticleBackground from "@/components/ParticleBackground";
 import TechStackRadar from '@/components/TechStackRadar';
+import { useTilt } from '@/hooks/useTilt';
 
 // Skill data with official brand logos and original colors
 const skillsData = [
@@ -94,10 +94,12 @@ const timeline = [
 ];
 
 const AboutPage = () => {
+    const portraitRef = useTilt<HTMLDivElement>({ maxTilt: 10, scale: 1.02 });
+    const quoteRef = useTilt<HTMLDivElement>({ maxTilt: 5, scale: 1.01 });
+
     return (
         <div className="relative min-h-screen">
             <div className="film-grain" aria-hidden="true" />
-            <ParticleBackground />
 
             <div className="relative z-10">
                 <Navbar />
@@ -107,20 +109,49 @@ const AboutPage = () => {
                         {/* Cinematic Hero Header */}
                         <div className="flex flex-col lg:flex-row gap-20 items-center mb-32">
                             <motion.div
+                                ref={portraitRef}
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 1.2, ease: "easeOut" }}
-                                className="relative group flex-shrink-0"
+                                className="relative group flex-shrink-0 cursor-crosshair"
                             >
                                 <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 to-violet-500/30 blur-[60px] opacity-20 group-hover:opacity-100 transition-opacity" />
-                                <div className="w-64 aspect-[3/4] md:w-80 md:h-[500px] rounded-[48px] overflow-hidden glass-card border-white/10 group-hover:border-primary/50 transition-all duration-700 p-2 shadow-2xl relative">
-                                    <div className="w-full h-full rounded-[40px] bg-gray-900 flex items-center justify-center relative overflow-hidden">
+                                <div className="w-64 aspect-[3/4] md:w-80 md:h-[520px] rounded-[48px] overflow-hidden glass-card border-white/10 group-hover:border-primary/50 transition-all duration-700 p-2 shadow-[0_0_50px_-12px_rgba(6,182,212,0.3)] relative">
+                                    <div className="w-full h-full rounded-[40px] bg-gray-950 flex items-center justify-center relative overflow-hidden">
+                                        {/* HUD Scanning Line */}
+                                        <motion.div
+                                            animate={{ top: ['0%', '100%', '0%'] }}
+                                            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                                            className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent z-20 pointer-events-none opacity-0 group-hover:opacity-100"
+                                        />
+
                                         <img
                                             src={`${import.meta.env.BASE_URL}monish-profile.jpg`}
                                             alt="Monishwaran K"
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 origin-top"
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 origin-top brightness-[0.9] group-hover:brightness-110 contrast-[1.1]"
                                         />
-                                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" />
+                                        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
+
+                                        {/* Decorative HUD Corners */}
+                                        {[
+                                            "top-4 left-4 border-t border-l",
+                                            "top-4 right-4 border-t border-r",
+                                            "bottom-4 left-4 border-b border-l",
+                                            "bottom-4 right-4 border-b border-r"
+                                        ].map((style, i) => (
+                                            <div key={i} className={`absolute w-4 h-4 border-primary/40 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${style}`} />
+                                        ))}
+
+                                        {/* Floating Badge HUD */}
+                                        <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
+                                            <div className="flex flex-col">
+                                                <span className="text-[8px] font-bold tracking-[0.2em] text-cyan-400 uppercase mb-1">Status</span>
+                                                <span className="text-[10px] font-mono text-white/80 tracking-tighter">CORE_ACTIVE</span>
+                                            </div>
+                                            <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center backdrop-blur-md">
+                                                <Sparkles size={12} className="text-primary animate-pulse" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </motion.div>
@@ -146,9 +177,31 @@ const AboutPage = () => {
                                             <span className="text-gray-400 font-light hidden md:block italic">Mechanical x Software</span>
                                         </div>
                                     </div>
-                                    <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl border-l-[3px] border-primary/30 pl-10 py-4 mb-12 hover:border-primary transition-colors">
-                                        A <span className="text-white font-medium italic underline decoration-primary underline-offset-8">Mechanical Engineer</span> by education, a <span className="text-white font-medium hover:text-primary transition-colors">Software Architect</span> by intuition. I specialize in merging tactile precision with digital intelligence.
-                                    </p>
+                                    <motion.div
+                                        ref={quoteRef}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        className="relative group mt-12 mb-16 transform-gpu transition-all"
+                                    >
+                                        <div className="absolute -inset-y-4 -inset-x-8 bg-primary/2 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                                        <div className="absolute left-0 inset-y-0 w-[5px] bg-gradient-to-b from-primary via-violet-500 to-transparent rounded-full shadow-[0_0_20px_rgba(6,182,212,0.5)]" />
+
+                                        <p className="text-2xl md:text-4xl lg:text-5xl text-gray-300 font-extralight leading-[1.1] pl-10 py-2 max-w-4xl tracking-tighter">
+                                            <span className="relative inline-block group/me">
+                                                <span className="text-white font-black italic bg-clip-text text-transparent bg-gradient-to-r from-gray-100 via-white to-gray-500 animate-pulse">Mechanical</span>
+                                                <span className="absolute -bottom-2 left-0 w-full h-[3px] bg-primary/20 group-hover:bg-primary transition-all duration-500 shadow-[0_0_15px_rgba(6,182,212,0.4)]" />
+                                            </span> by degree, <br className="hidden md:block" />
+                                            <span className="relative inline-block group/sa">
+                                                <span className="text-white font-black bg-clip-text text-transparent bg-gradient-to-r from-primary via-violet-400 to-cyan-400 drop-shadow-[0_0_15px_rgba(124,58,237,0.4)] group-hover/sa:drop-shadow-[0_0_25px_rgba(124,58,237,0.7)] transition-all">Software</span>
+                                                <span className="absolute -left-3 top-0 bottom-0 w-[2px] bg-primary/0 group-hover/sa:bg-primary/50 transition-all" />
+                                                <span className="absolute -right-3 top-0 bottom-0 w-[2px] bg-primary/0 group-hover/sa:bg-primary/50 transition-all" />
+                                            </span> by destiny. <br className="hidden md:block" />
+                                            <span className="text-xl md:text-2xl text-gray-400 mt-10 block font-mono tracking-tighter opacity-60 group-hover:opacity-100 transition-opacity border-l border-white/5 pl-8 py-2">
+                                                I bridge the gap between <span className="text-white italic underline decoration-primary/30 decoration-dashed underline-offset-8 transition-colors hover:decoration-primary">hardware logic</span> <br className="hidden lg:block" /> and <span className="text-violet-400 font-bold">software innovation</span>.
+                                            </span>
+                                        </p>
+                                    </motion.div>
                                 </motion.div>
 
                                 <div className="flex flex-wrap gap-5">

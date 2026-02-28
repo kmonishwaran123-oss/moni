@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import SearchBar from "../components/SearchBar";
 import Navbar from "@/components/Navbar";
-import ParticleBackground from "@/components/ParticleBackground";
 
 // Images
 import bajaImage from "@/assets/baja-e.jpg";
@@ -184,7 +183,6 @@ const EventsPage: React.FC = () => {
     return (
         <div className="relative min-h-screen">
             <div className="film-grain" aria-hidden="true" />
-            <ParticleBackground />
             <div className="relative z-10">
                 <Navbar />
                 <main className="min-h-screen pt-16 lg:pt-20 bg-transparent text-white relative">

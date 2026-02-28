@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, MessageCircle, Clock, Globe, ArrowRight, Sparkles } from 'lucide-react';
 import Navbar from "@/components/Navbar";
-import ParticleBackground from "@/components/ParticleBackground";
 import { Button } from '@/components/ui/button';
 
 interface ContactFormData {
@@ -46,7 +45,6 @@ const ContactPage = () => {
     return (
         <div className="relative min-h-screen">
             <div className="film-grain" aria-hidden="true" />
-            <ParticleBackground />
 
             <div className="relative z-10">
                 <Navbar />

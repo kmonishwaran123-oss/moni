@@ -32,7 +32,6 @@ import {
     Cell,
 } from "recharts";
 import Navbar from "@/components/Navbar";
-import ParticleBackground from "@/components/ParticleBackground";
 
 // GitHub Configuration
 const GITHUB_USERNAME = "kmonishwaran123-oss";
@@ -520,7 +519,6 @@ const StatsPage: React.FC = () => {
     return (
         <div className="relative min-h-screen">
             <div className="film-grain" aria-hidden="true" />
-            <ParticleBackground />
             <div className="relative z-10">
                 <Navbar />
                 <main className="min-h-screen py-20 lg:py-28">

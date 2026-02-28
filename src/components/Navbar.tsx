@@ -89,6 +89,7 @@ const Navbar: React.FC = () => {
                         to={item.path}
                         onMouseEnter={() => handlePrefetch(item.path)}
                         onMouseDown={() => handlePrefetch(item.path)}
+                        onPointerDown={() => handlePrefetch(item.path)}
                         className={`relative block px-4 py-2 text-sm font-semibold tracking-wide rounded-full transition-colors duration-200 ${active
                           ? "text-cyan-100"
                           : "text-gray-300 hover:text-cyan-200"
@@ -161,6 +162,7 @@ const Navbar: React.FC = () => {
                     to={item.path}
                     onMouseEnter={() => handlePrefetch(item.path)}
                     onMouseDown={() => handlePrefetch(item.path)}
+                    onPointerDown={() => handlePrefetch(item.path)}
                     onTouchStart={() => handlePrefetch(item.path)}
                     className={`relative block px-4 py-2.5 text-base font-semibold transition-colors duration-200 rounded-full overflow-hidden ${active
                       ? "text-cyan-200"

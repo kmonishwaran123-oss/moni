@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import SearchBar from "../components/SearchBar";
 import Navbar from "@/components/Navbar";
-import ParticleBackground from "@/components/ParticleBackground";
 
 // Premium Assets
 import mongoDBicon from "@/assets/mongodb.jpg";
@@ -186,7 +185,6 @@ const CertificationsPage: React.FC = () => {
 
     return (
         <div className="min-h-screen relative bg-gray-900 text-white overflow-hidden">
-            <ParticleBackground />
             <Navbar />
 
             <main className="pt-32 pb-24">

@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense, lazy } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -23,34 +23,20 @@ const EventsPage = lazy(() => import("./pages/EventsPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const StatsPage = lazy(() => import("./pages/StatsPage"));
 
-const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gray-900">
-    <div className="w-12 h-12 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
-  </div>
-);
+
 
 function AppContent(): JSX.Element {
   const location = useLocation();
-  const [mounted, setMounted] = useState(false);
 
   usePrefetch();
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
     applyPageSEO(location.pathname);
-    window.scrollTo({ top: 0, behavior: "auto" });
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, [location.pathname]);
 
   return (
-    <motion.div
-      className="min-h-screen bg-gray-900 text-white overflow-x-hidden select-none"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: mounted ? 1 : 0 }}
-      transition={{ duration: 0.15, ease: "easeOut" }}
-    >
+    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden select-none">
       <Suspense fallback={null}>
         <ParticleBackground />
       </Suspense>
@@ -66,15 +52,15 @@ function AppContent(): JSX.Element {
       <Navbar />
 
       <main className="relative z-10">
-        <Suspense fallback={<PageLoader />}>
-          <AnimatePresence initial={false} mode="popLayout">
-            <motion.div
-              key={location.pathname}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.1, ease: "linear" }}
-            >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.1, ease: "linear" }}
+          >
+            <Suspense fallback={null}>
               <Routes location={location}>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
@@ -88,13 +74,13 @@ function AppContent(): JSX.Element {
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
-            </motion.div>
-          </AnimatePresence>
-        </Suspense>
+            </Suspense>
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       <Footer />
-    </motion.div>
+    </div>
   );
 }
 

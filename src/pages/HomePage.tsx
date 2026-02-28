@@ -19,14 +19,20 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
-import ParticleBackground from '@/components/ParticleBackground';
 import { IntroAnimation } from '@/components/IntroAnimation';
 import TypewriterEffect from '@/components/TypewriterEffect';
 import { Button } from '@/components/ui/button';
 
 const HomePage = () => {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(() => {
+    return !sessionStorage.getItem('introShown');
+  });
   const navigate = useNavigate();
+
+  const markIntroAsShown = () => {
+    sessionStorage.setItem('introShown', 'true');
+    setShowIntro(false);
+  };
 
   useEffect(() => {
     document.title = "Monishwaran K | Portfolio";
@@ -67,13 +73,12 @@ const HomePage = () => {
   };
 
   if (showIntro) {
-    return <IntroAnimation onComplete={() => setShowIntro(false)} />;
+    return <IntroAnimation onComplete={markIntroAsShown} />;
   }
 
   return (
     <div className="relative min-h-screen">
       <div className="film-grain" aria-hidden="true" />
-      <ParticleBackground />
 
       <div className="relative z-10">
         <Navbar />

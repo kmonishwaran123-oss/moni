@@ -15,7 +15,7 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
       setProgress(prev => Math.min(prev + 1, 100));
     }, 25);
 
-    const timer = setTimeout(() => onComplete(), 3600);
+    const timer = setTimeout(() => onComplete(), 2500);
     return () => {
       clearTimeout(timer);
       clearInterval(glitchInterval);
