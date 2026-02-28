@@ -65,21 +65,28 @@ const Navbar: React.FC = () => {
         <div className="px-2 sm:px-4 md:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20 w-full max-w-7xl mx-auto rounded-full bg-gray-900/70 border border-cyan-500/15 shadow-[0_0_26px_rgba(6,182,212,0.16)] px-3 sm:px-5 lg:px-6">
             <motion.div
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               className="flex items-center"
             >
-              <Link to="/" className="flex items-center">
-                <img
-                  src={`${import.meta.env.BASE_URL}logo.png`}
-                  alt="MONISHWARAN K"
-                  className="h-8 md:h-10 w-auto object-contain brightness-110 contrast-125"
-                />
+              <Link to="/" className="flex items-center gap-3 group">
+                <div className="relative">
+                  <div className="absolute -inset-2 bg-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <img
+                    src={`${import.meta.env.BASE_URL}logo.png`}
+                    alt="Logo"
+                    className="h-9 md:h-11 w-auto object-contain brightness-110 contrast-125 relative z-10"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm md:text-base font-black tracking-[0.2em] text-white leading-none">MONISHWARAN K</span>
+                  <span className="text-[8px] md:text-[10px] font-bold tracking-[0.4em] text-primary uppercase mt-1 opacity-70 group-hover:opacity-100 transition-all">Hybrid Engineer</span>
+                </div>
               </Link>
             </motion.div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:block">
-              <div className="flex items-center space-x-4 rounded-full bg-gray-900/60 px-2 py-2 border border-cyan-500/10 shadow-[0_0_20px_rgba(6,182,212,0.08)]">
+              <div className="flex items-center space-x-2 rounded-full bg-gray-950/40 px-3 py-2 border border-white/5 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
                 {navItems.map((item) => {
                   const active = isActive(item.path);
 
@@ -87,18 +94,17 @@ const Navbar: React.FC = () => {
                     <motion.div key={item.path} className="relative">
                       <Link
                         to={item.path}
-                        onMouseEnter={() => handlePrefetch(item.path)}
-                        onMouseDown={() => handlePrefetch(item.path)}
                         onPointerDown={() => handlePrefetch(item.path)}
-                        className={`relative block px-4 py-2 text-sm font-semibold tracking-wide rounded-full transition-colors duration-200 ${active
-                          ? "text-cyan-100"
-                          : "text-gray-300 hover:text-cyan-200"
+                        onMouseEnter={() => handlePrefetch(item.path)}
+                        className={`relative block px-5 py-2.5 text-xs font-black tracking-[0.2em] uppercase transition-colors duration-300 ${active
+                          ? "text-white"
+                          : "text-gray-400 hover:text-white"
                           }`}
                       >
                         {active && (
                           <motion.span
                             layoutId="tubelight-desktop"
-                            className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 via-cyan-400/10 to-violet-500/20 border border-cyan-400/25 shadow-[0_0_25px_rgba(6,182,212,0.25)]"
+                            className="absolute inset-0 rounded-full bg-white/5 border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.1)]"
                             transition={{
                               type: "spring",
                               stiffness: 350,
@@ -115,23 +121,26 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
               <motion.button
                 whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.1 }}
                 onClick={toggleDarkMode}
-                className="p-2 rounded-full glass-card border-cyan-500/20 text-gray-400 hover:text-cyan-400 transition-colors"
+                className="relative p-2.5 rounded-full glass-card border-white/10 text-gray-400 hover:text-primary transition-all duration-300 group"
                 title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
               >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 blur-md transition-opacity" />
+                <div className="absolute -inset-1 border border-primary/20 rounded-full opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-110 transition-all duration-500" />
+                {isDarkMode ? <Sun size={18} className="relative z-10" /> : <Moon size={18} className="relative z-10" />}
               </motion.button>
 
               <div className="lg:hidden">
                 <motion.button
-                  whileTap={{ scale: 0.95 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={() => setIsOpen(!isOpen)}
-                  className="text-gray-300 hover:text-cyan-400 transition-colors p-2"
+                  className="text-gray-300 hover:text-primary transition-colors p-2 glass-card border-white/10 rounded-xl"
                 >
-                  {isOpen ? <X size={24} /> : <Menu size={24} />}
+                  {isOpen ? <X size={20} /> : <Menu size={20} />}
                 </motion.button>
               </div>
             </div>

@@ -87,9 +87,9 @@ const skillsData = [
 ];
 
 const timeline = [
-    { id: 1, year: "2024", title: "Engineering Genesis", description: "Began BE.Mechanical at Meenakshi Sundararajan Engineering College.", icon: GraduationCap },
-    { id: 2, year: "2026", title: "IoT Innovation", description: "Won Second place in National Level IoT Hackathon.", icon: Zap },
-    { id: 3, year: "2027", title: "Software Horizon", description: "Spearheading React-based digital transformation projects.", icon: Code },
+    { id: 1, year: "2024", title: "Engineering", description: "Began BE.Mechanical at Meenakshi Sundararajan Engineering College.", icon: GraduationCap },
+    { id: 2, year: "2026", title: "IoT Innovation", description: "Won Second place in  IoT Hackathon.", icon: Zap },
+    { id: 3, year: "2027", title: "Gaining Software Knowledge", description: "Spearheading React-based digital transformation projects.", icon: Code },
     { id: 4, year: "2028", title: "Global Impact", description: "Bridging the gap between engineering and software at scale.", icon: Rocket },
 ];
 
@@ -252,7 +252,9 @@ const AboutPage = () => {
                         <div className="mb-32">
                             <div className="flex flex-col items-center mb-16">
                                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                                    <h2 className="text-4xl md:text-5xl font-bold font-sora text-center text-white mb-4">Core <span className="gradient-text">Tech Stack</span></h2>
+                                    <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-center text-white mb-4 uppercase">
+                                        Developer <span className="text-primary italic">Skills</span>
+                                    </h2>
                                     <div className="h-1 w-24 bg-gradient-to-r from-primary to-transparent rounded-full mx-auto" />
                                 </motion.div>
                             </div>
@@ -261,35 +263,40 @@ const AboutPage = () => {
                                 {Array.from(new Set(skillsData.map(s => s.category))).map((category, idx) => (
                                     <div key={idx} className="space-y-10">
                                         <div className="flex items-center gap-6">
-                                            <h3 className="text-xs font-black tracking-[0.6em] uppercase text-primary/60">{category}</h3>
+                                            <h3 className="text-[10px] font-black tracking-[0.6em] uppercase text-primary/40">{category}</h3>
                                             <div className="h-px flex-1 bg-white/5" />
                                         </div>
-                                        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6">
+                                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
                                             {skillsData.filter(s => s.category === category).map((skill, i) => (
                                                 <motion.div
                                                     key={i}
-                                                    whileHover={{ scale: 1.05, y: -5, rotateZ: 1 }}
-                                                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                                    className="group glass-card p-4 relative flex flex-col items-center justify-center overflow-hidden h-36 cursor-pointer border-white/5 active:scale-95"
+                                                    whileHover={{ y: -8, scale: 1.02 }}
+                                                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                                                    className="group relative h-40"
                                                 >
-                                                    <div className="relative z-10 w-16 h-16 bg-white/[0.03] rounded-2xl flex items-center justify-center shadow-inner group-hover:shadow-glow-sm transition-all mb-4 overflow-hidden border border-white/5">
-                                                        {skill.type === 'devicon' ? (
-                                                            <img
-                                                                src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
-                                                                alt={skill.name}
-                                                                className="w-10 h-10 object-contain transition-all duration-300 group-hover:scale-110"
-                                                                loading="lazy"
-                                                            />
-                                                        ) : (
-                                                            <img
-                                                                src={skill.icon}
-                                                                alt={skill.name}
-                                                                className={`${skill.name === 'SolidWorks' ? 'w-14 h-14' : 'w-10 h-10'} object-contain transition-all duration-300 group-hover:scale-110`}
-                                                                loading="lazy"
-                                                            />
-                                                        )}
+                                                    <div className="absolute inset-0 bg-primary/5 rounded-[32px] blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                    <div className="relative glass-card h-full p-6 flex flex-col items-center justify-center border-white/5 group-hover:border-primary/40 transition-all duration-500 overflow-hidden">
+                                                        <div className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 mb-4 bg-gray-950/50 border border-white/5 group-hover:border-primary/20 shadow-inner">
+                                                            {skill.type === 'devicon' ? (
+                                                                <img
+                                                                    src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
+                                                                    alt={skill.name}
+                                                                    className="w-10 h-10 object-contain brightness-90 group-hover:brightness-110"
+                                                                />
+                                                            ) : (
+                                                                <img
+                                                                    src={skill.icon}
+                                                                    alt={skill.name}
+                                                                    className={`${skill.name === 'SolidWorks' ? 'w-12 h-12' : 'w-10 h-10'} object-contain brightness-90 group-hover:brightness-110`}
+                                                                />
+                                                            )}
+                                                        </div>
+                                                        <span className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-500 group-hover:text-white transition-colors text-center">{skill.name}</span>
+                                                        
+                                                        <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                            <Sparkles size={8} className="text-primary animate-pulse" />
+                                                        </div>
                                                     </div>
-                                                    <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 group-hover:text-white transition-colors text-center px-1">{skill.name}</div>
                                                 </motion.div>
                                             ))}
                                         </div>

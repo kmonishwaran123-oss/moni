@@ -12,16 +12,18 @@ import {
   Layers,
   Sparkles,
   Trophy,
-  Target,
-  Code2,
   Cpu,
-  GraduationCap
+  GraduationCap,
+  Monitor,
+  Activity,
+  Code2
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import { IntroAnimation } from '@/components/IntroAnimation';
 import TypewriterEffect from '@/components/TypewriterEffect';
 import { Button } from '@/components/ui/button';
+import { useTilt } from '@/hooks/useTilt';
 
 const HomePage = () => {
   const [showIntro, setShowIntro] = useState(() => {
@@ -221,46 +223,95 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Quick Navigation Cards */}
-          <section className="py-24 relative">
+          {/* Quick Navigation Cards - Cinematic Redesign */}
+          <section className="py-32 relative">
             <div className="container mx-auto px-6">
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-3 gap-10">
                 {[
-                  { title: "The Lab", desc: "Interactive experiments & production code.", path: "/projects", icon: Rocket, bgIcon: Cpu, color: "from-blue-600 to-cyan-500" },
-                  { title: "Academy", desc: "Professional certifications & hackathons.", path: "/certifications", icon: GraduationCap, bgIcon: Trophy, color: "from-amber-500 to-orange-500" },
-                  { title: "Frontlines", desc: "Timeline of events & achievements.", path: "/events", icon: Target, bgIcon: Sparkles, color: "from-rose-500 to-pink-500" }
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    onClick={() => navigate(item.path)}
-                    className="group glass-card p-10 cursor-pointer relative overflow-hidden bg-gray-900/40 border-white/5 hover:border-primary/50 transition-all"
-                  >
-                    <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${item.color} opacity-[0.03] group-hover:opacity-10 transition-opacity`} />
+                  {
+                    title: "The Lab",
+                    subTitle: "Projects",
+                    desc: "Precision engineering meets scalable code.",
+                    path: "/projects",
+                    icon: Rocket,
+                    color: "from-cyan-500 to-blue-600",
+                    glow: "shadow-cyan-500/20"
+                  },
+                  {
+                    title: "Academy",
+                    subTitle: "Certifications",
+                    desc: "Validated expertise in hardware & software.",
+                    path: "/certifications",
+                    icon: GraduationCap,
+                    color: "from-violet-500 to-purple-600",
+                    glow: "shadow-violet-500/20"
+                  },
+                  {
+                    title: "Frontlines",
+                    subTitle: "Events",
+                    desc: "Chronicles of growth and achievements.",
+                    path: "/events",
+                    icon: Activity,
+                    color: "from-rose-500 to-pink-500",
+                    glow: "shadow-rose-500/20"
+                  }
+                ].map((item, i) => {
+                  const cardRef = useTilt<HTMLDivElement>({ maxTilt: 15, scale: 1.05 });
 
-                    {/* Background Decorative Icon */}
-                    <div className="absolute -bottom-6 -right-6 opacity-[0.03] group-hover:opacity-[0.08] transition-all duration-700 group-hover:-translate-y-4 group-hover:-translate-x-4">
-                      <item.bgIcon size={180} className="text-white" />
-                    </div>
+                  return (
+                    <motion.div
+                      key={i}
+                      ref={cardRef}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.15, type: "spring", stiffness: 100 }}
+                      onClick={() => navigate(item.path)}
+                      className="group cursor-pointer relative"
+                    >
+                      {/* Floating Background Glow */}
+                      <div className={`absolute -inset-1 rounded-[32px] bg-gradient-to-r ${item.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`} />
 
-                    {/* Creative Grid Pattern */}
-                    <div className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500"
-                      style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+                      <div className="relative glass-card p-12 h-full flex flex-col items-center text-center overflow-hidden border-white/5 bg-gray-950/40 backdrop-blur-2xl group-hover:border-primary/30 transition-all duration-500">
+                        {/* Decorative HUD Corners */}
+                        <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/10 group-hover:border-primary/40 transition-colors" />
+                        <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/10 group-hover:border-primary/40 transition-colors" />
+                        <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/10 group-hover:border-primary/40 transition-colors" />
+                        <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/10 group-hover:border-primary/40 transition-colors" />
 
-                    <div className="p-4 rounded-2xl bg-white/5 w-fit mb-8 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
-                      <item.icon size={32} className="text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors relative z-10">{item.title}</h3>
-                    <div className="w-12 h-0.5 bg-primary/30 group-hover:w-20 group-hover:bg-primary transition-all duration-500 mb-4 relative z-10" />
-                    <p className="text-gray-400 mb-8 font-light relative z-10">{item.desc}</p>
-                    <div className="flex items-center text-primary font-bold text-xs tracking-widest uppercase group-hover:gap-3 transition-all relative z-10">
-                      Access Terminal <ArrowRight size={16} className="ml-2" />
-                    </div>
-                  </motion.div>
-                ))}
+                        {/* Animated Background Orb */}
+                        <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${item.color} rounded-full blur-[60px] opacity-[0.05] group-hover:opacity-20 transition-opacity duration-700`} />
+
+                        {/* Icon Strategy */}
+                        <div className="relative mb-10">
+                          <div className={`absolute -inset-6 bg-gradient-to-r ${item.color} rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+                          <div className={`relative z-10 p-6 rounded-3xl bg-white/5 border border-white/10 group-hover:border-primary/40 group-hover:bg-white/10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3`}>
+                            <item.icon size={40} className="text-white group-hover:text-primary transition-colors" />
+                          </div>
+                        </div>
+
+                        {/* Content Hierarchy */}
+                        <div className="flex flex-col flex-1 relative z-10">
+                          <span className="text-[10px] font-black tracking-[0.5em] uppercase text-primary/60 mb-2 group-hover:text-primary transition-colors">{item.subTitle}</span>
+                          <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-primary transition-colors font-sora">{item.title}</h3>
+                          <div className="w-12 h-1 bg-gradient-to-r from-primary to-transparent mb-6 mx-auto group-hover:w-24 transition-all duration-500" />
+                          <p className="text-gray-400 font-light leading-relaxed mb-10 group-hover:text-gray-300 transition-colors">{item.desc}</p>
+
+                          <div className="mt-auto flex items-center justify-center gap-3 text-white/40 group-hover:text-primary transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                            <span className="text-xs font-bold tracking-[0.2em] uppercase">Access Memory</span>
+                            <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+                          </div>
+                        </div>
+
+                        {/* Hover Scanline Effect */}
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent h-1/2 -top-full group-hover:top-full transition-all duration-[1.5s] pointer-events-none"
+                          style={{ mixBlendMode: 'overlay' }}
+                        />
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </section>
