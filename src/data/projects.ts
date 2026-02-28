@@ -4,6 +4,11 @@ import IOTImage from "@/assets/IOT.jpg";
 import resumeImage from "@/assets/resume.jpeg";
 import f1Image from "@/assets/f1.png";
 import mscart from "@/assets/mscart.png";
+import cyberShieldImage from "@/assets/Screenshot 2026-02-27 104840.png";
+import trustBiteImage from "@/assets/trustbite.png";
+import hbdImage from "@/assets/hbd.png";
+import safeFlowImage from "@/assets/safe flow.png";
+import jarvisImage from "@/assets/jarvis.png";
 
 export interface Project {
   id: string;
@@ -72,6 +77,7 @@ export const projects: Project[] = [
     result: "Successfully extracted key information from resumes with high accuracy and provided actionable insights for recruiters.",
     images: [resumeImage],
     tech: ['Streamlit', 'LangChain', 'Ollama'],
+    repoUrl: "https://github.com/kmonishwaran123-oss/RAG-ChatBot",
     featured: true,
   },
   {
@@ -85,6 +91,7 @@ export const projects: Project[] = [
     result: "Successfully analyzed F1 race data with high accuracy and provided actionable insights for teams and drivers.",
     images: [f1Image],
     tech: ['Python', 'Machine Learning', 'Data Analysis'],
+    repoUrl: "https://github.com/kmonishwaran123-oss/F1",
     featured: false,
   },
   {
@@ -98,7 +105,64 @@ export const projects: Project[] = [
     result: "Successfully launched the e-commerce platform with a growing user base and positive feedback from customers.",
     images: [mscart],
     tech: ['React', 'Node.js', 'Stripe', 'MongoDB', 'Express', 'Tailwind CSS'],
+    repoUrl: "https://github.com/kmonishwaran123-oss/E-commerce",
     featured: true,
+  },
+  {
+    id: "cyber-shield",
+    title: "Cyber Shield",
+    tags: ['ALL', 'IT', 'AI', 'Cyber'],
+    shortDesc: "Intelligent AI-powered phishing detection system with real-time multi-engine analysis.",
+    longDesc: "Cyber Shield is an advanced security platform designed to detect and prevent phishing attacks in real-time. It integrates Gemini AI for semantic reasoning, VirusTotal for file/URL intelligence, and AbuseIPDB for IP reputation analysis. The system uses an ML ensemble scoring model to evaluate threats accurately, providing a comprehensive dashboard for security monitoring.",
+    challenge: "Combining multiple security intelligence feeds and AI reasoning to provide high-accuracy detection without compromising on-demand scan speeds.",
+    approach: "Developed a parallel processing engine that queries multiple security APIs and feeds the results into a custom ML model, complemented by Gemini's natural language understanding for content analysis.",
+    result: "Achieved high detection rates for zero-day phishing attempts with an average response time of 1041ms, as demonstrated in live security trials.",
+    images: [cyberShieldImage],
+    tech: ['React', 'Gemini AI', 'Python', 'ML Ensemble', 'API Integration', 'Tailwind CSS'],
+    repoUrl: "https://github.com/kmonishwaran123-oss/Cyber-Security-Project",
+    featured: true,
+  },
+  {
+    id: "trust-bite",
+    title: "Trust Bite",
+    tags: ['ALL', 'IT', 'AI'],
+    shortDesc: "Blockchain-powered food supply chain transparency and safety monitoring system.",
+    longDesc: "Trust Bite leverages blockchain and IoT to ensure food safety and transparency throughout the supply chain. It provides real-time tracking of food origins and storage conditions to build consumer trust.",
+    challenge: "Integrating disparate data sources from various stages of the supply chain into a unified, immutable ledger.",
+    approach: "Utilized Ethereum smart contracts and IoT sensors for automated verification and logging of supply chain events.",
+    result: "Successfully demonstrated a transparent tracking system that reduces recall times and improves consumer confidence.",
+    images: [trustBiteImage],
+    tech: ['Blockchain', 'IoT', 'React', 'Smart Contracts'],
+    repoUrl: "https://github.com/kmonishwaran123-oss/trustbite",
+    featured: false,
+  },
+  {
+    id: "birthday-wish",
+    title: "Birthday Wish",
+    tags: ['ALL', 'IT', 'Entertainment'],
+    shortDesc: "A personalized, interactive digital birthday celebration platform with animations.",
+    longDesc: "An engaging web-based 3D platform for sending and experiencing personalized birthday wishes, featuring interactive elements and smooth animations tailored for a premium feel.",
+    challenge: "Creating high-quality animations that perform well across all device types and screen sizes.",
+    approach: "Leveraged Framer Motion and Three.js elements to build a lightweight yet visually stunning interactive experience.",
+    result: "Created a highly shareable platform with over 90% positive user engagement score.",
+    images: [hbdImage],
+    tech: ['React', 'Framer Motion', 'CSS3 Animation'],
+    repoUrl: "https://github.com/kmonishwaran123-oss/Birthday",
+    featured: false,
+  },
+  {
+    id: "safe-flow",
+    title: "Safe Flow",
+    tags: ['ALL', 'Core', 'IT'],
+    shortDesc: "Intelligent industrial fluid management and safety monitoring system.",
+    longDesc: "Safe Flow is a hybrid engineering solution designed for industrial environments to monitor fluid flow, detect leaks, and ensure operational safety using real-time sensor data.",
+    challenge: "Developing a low-latency alert system that can process high volumes of sensor data in real-time.",
+    approach: "Built a centralized monitoring hub that uses edge computing modules to analyze flow patterns and trigger automated shut-offs.",
+    result: "Reduced manual inspection time by 40% and improved response time to potential leaks by 3x.",
+    images: [safeFlowImage],
+    tech: ['IoT', 'Embedded Systems', 'React', 'Dashboard'],
+    repoUrl: "https://github.com/kmonishwaran123-oss/Safe-Flow",
+    featured: false,
   },
 ];
 

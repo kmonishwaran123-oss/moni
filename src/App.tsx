@@ -36,7 +36,7 @@ function AppContent(): JSX.Element {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden select-none">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden select-none transition-colors duration-500">
       <Suspense fallback={null}>
         <ParticleBackground />
       </Suspense>

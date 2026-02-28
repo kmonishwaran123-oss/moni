@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import solidWorksIcon from '../assets/solidwords.png';
+import awsIcon from '../assets/aws.png';
 import {
     GraduationCap,
     Target,
@@ -17,7 +18,9 @@ import {
     Sparkles,
     Server,
     Cloud,
-    Layers
+    Layers,
+    Download,
+    ExternalLink
 } from 'lucide-react';
 import Navbar from "@/components/Navbar";
 import TechStackRadar from '@/components/TechStackRadar';
@@ -26,69 +29,73 @@ import { useTilt } from '@/hooks/useTilt';
 // Skill data with official brand logos and original colors
 const skillsData = [
     // Web Ecosystems
-    { name: "HTML5", icon: "html5", type: "devicon", category: "Web Ecosystems" },
-    { name: "CSS3", icon: "css3", type: "devicon", category: "Web Ecosystems" },
-    { name: "React", icon: "react", type: "devicon", category: "Web Ecosystems" },
-    { name: "Next.js", icon: "nextjs", type: "devicon", category: "Web Ecosystems" },
-    { name: "Node.js", icon: "nodejs", type: "devicon", category: "Web Ecosystems" },
-    { name: "Tailwind CSS", icon: "tailwindcss", type: "devicon", category: "Web Ecosystems" },
+    { name: "HTML5", icon: "html5", type: "devicon", category: "Web Ecosystems", color: "#E34F26" },
+    { name: "CSS3", icon: "css3", type: "devicon", category: "Web Ecosystems", color: "#1572B6" },
+    { name: "React", icon: "react", type: "devicon", category: "Web Ecosystems", color: "#61DAFB" },
+    { name: "Next.js", icon: "nextjs", type: "devicon", category: "Web Ecosystems", color: "#FFFFFF" },
+    { name: "Node.js", icon: "nodejs", type: "devicon", category: "Web Ecosystems", color: "#339933" },
+    { name: "Tailwind CSS", icon: "tailwindcss", type: "devicon", category: "Web Ecosystems", color: "#06B6D4" },
 
     // Core Languages
-    { name: "JavaScript", icon: "javascript", type: "devicon", category: "Languages" },
-    { name: "TypeScript", icon: "typescript", type: "devicon", category: "Languages" },
-    { name: "Python", icon: "python", type: "devicon", category: "Languages" },
-    { name: "Java", icon: "java", type: "devicon", category: "Languages" },
-    { name: "C/C++", icon: "cplusplus", type: "devicon", category: "Languages" },
+    { name: "JavaScript", icon: "javascript", type: "devicon", category: "Languages", color: "#F7DF1E" },
+    { name: "TypeScript", icon: "typescript", type: "devicon", category: "Languages", color: "#3178C6" },
+    { name: "Python", icon: "python", type: "devicon", category: "Languages", color: "#3776AB" },
+    { name: "Java", icon: "java", type: "devicon", category: "Languages", color: "#007396" },
+    { name: "C/C++", icon: "cplusplus", type: "devicon", category: "Languages", color: "#00599C" },
 
     // Data Engine
-    { name: "MySQL", icon: "mysql", type: "devicon", category: "Data Engine" },
-    { name: "PostgreSQL", icon: "postgresql", type: "devicon", category: "Data Engine" },
-    { name: "MongoDB", icon: "mongodb", type: "devicon", category: "Data Engine" },
+    { name: "MySQL", icon: "mysql", type: "devicon", category: "Data Engine", color: "#4479A1" },
+    { name: "PostgreSQL", icon: "postgresql", type: "devicon", category: "Data Engine", color: "#4169E1" },
+    { name: "MongoDB", icon: "mongodb", type: "devicon", category: "Data Engine", color: "#47A248" },
 
     // Cloud Infrastructure
-    { name: "Firebase", icon: "https://cdn.simpleicons.org/firebase/FFCA28", type: "url", category: "Cloud Infrastructure" },
-    { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/3ECF8E", type: "url", category: "Cloud Infrastructure" },
-    { name: "AWS", icon: "https://cdn.simpleicons.org/amazonwebservices/FF9900", type: "url", category: "Cloud Infrastructure" },
+    { name: "Firebase", icon: "https://cdn.simpleicons.org/firebase/FFCA28", type: "url", category: "Cloud Infrastructure", color: "#FFCA28" },
+    { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/3ECF8E", type: "url", category: "Cloud Infrastructure", color: "#3ECF8E" },
+    { name: "AWS", icon: awsIcon, type: "url", category: "Cloud Infrastructure", color: "#FF9900" },
 
     // Physical Computing
-    { name: "Arduino", icon: "arduino", type: "devicon", category: "Physical Computing" },
-    { name: "ESP32", icon: "https://cdn.simpleicons.org/espressif/E7352C", type: "url", category: "Physical Computing" },
-    { name: "Raspberry Pi", icon: "raspberrypi", type: "devicon", category: "Physical Computing" },
-    { name: "Linux", icon: "linux", type: "devicon", category: "Physical Computing" },
+    { name: "Arduino", icon: "arduino", type: "devicon", category: "Physical Computing", color: "#00979D" },
+    { name: "ESP32", icon: "https://cdn.simpleicons.org/espressif/E7352C", type: "url", category: "Physical Computing", color: "#E7352C" },
+    { name: "Raspberry Pi", icon: "raspberrypi", type: "devicon", category: "Physical Computing", color: "#C51A4A" },
+    { name: "Linux", icon: "linux", type: "devicon", category: "Physical Computing", color: "#FCC624" },
 
     // Mechanical Intelligence
     {
         name: "AutoCAD (via Autodesk)",
         icon: "https://cdn.simpleicons.org/autodesk/0696D7",
         type: "url",
-        category: "Mechanical Intelligence"
+        category: "Mechanical Intelligence",
+        color: "#0696D7"
     },
     {
         name: "SolidWorks",
         icon: solidWorksIcon,
         type: "url",
-        category: "Mechanical Intelligence"
+        category: "Mechanical Intelligence",
+        color: "#DA291C"
     },
     {
         name: "ANSYS",
         icon: "https://cdn.simpleicons.org/ansys/ffb71b",
         type: "url",
-        category: "Mechanical Intelligence"
+        category: "Mechanical Intelligence",
+        color: "#FFB71B"
     },
 
     // Utilities
-    { name: "Git", icon: "git", type: "devicon", category: "Utilities" },
-    { name: "GitHub", icon: "github", type: "devicon", category: "Utilities" },
-    { name: "VS Code", icon: "vscode", type: "devicon", category: "Utilities" },
-    { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/white", type: "url", category: "Utilities" },
-    { name: "Netlify", icon: "https://cdn.simpleicons.org/netlify/00ADBB", type: "url", category: "Utilities" },
-    { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E", type: "url", category: "Utilities" },
-    { name: "Docker", icon: "docker", type: "devicon", category: "Utilities" },
+    { name: "Git", icon: "git", type: "devicon", category: "Utilities", color: "#F05032" },
+    { name: "GitHub", icon: "github", type: "devicon", category: "Utilities", color: "#FFFFFF" },
+    { name: "VS Code", icon: "vscode", type: "devicon", category: "Utilities", color: "#007ACC" },
+    { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/white", type: "url", category: "Utilities", color: "#FFFFFF" },
+    { name: "Netlify", icon: "https://cdn.simpleicons.org/netlify/00ADBB", type: "url", category: "Utilities", color: "#00ADBB" },
+    { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E", type: "url", category: "Utilities", color: "#F24E1E" },
+    { name: "Docker", icon: "docker", type: "devicon", category: "Utilities", color: "#2496ED" },
 ];
+
 
 const timeline = [
     { id: 1, year: "2024", title: "Engineering", description: "Began BE.Mechanical at Meenakshi Sundararajan Engineering College.", icon: GraduationCap },
-    { id: 2, year: "2026", title: "IoT Innovation", description: "Won Second place in  IoT Hackathon.", icon: Zap },
+    { id: 2, year: "2026", title: "Cyber Security & IoT", description: "Launched 'Cyber Shield' AI Phishing Defense and won IoT Hackathon.", icon: Zap, current: true },
     { id: 3, year: "2027", title: "Gaining Software Knowledge", description: "Spearheading React-based digital transformation projects.", icon: Code },
     { id: 4, year: "2028", title: "Global Impact", description: "Bridging the gap between engineering and software at scale.", icon: Rocket },
 ];
@@ -96,6 +103,15 @@ const timeline = [
 const AboutPage = () => {
     const portraitRef = useTilt<HTMLDivElement>({ maxTilt: 10, scale: 1.02 });
     const quoteRef = useTilt<HTMLDivElement>({ maxTilt: 5, scale: 1.01 });
+
+    const handleDownload = () => {
+        const link = document.createElement("a");
+        link.href = `${import.meta.env.BASE_URL}Monishwaran_K_Resume.pdf`;
+        link.download = "Monishwaran_K_Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
     return (
         <div className="relative min-h-screen">
@@ -165,16 +181,16 @@ const AboutPage = () => {
                                         About <span className="gradient-text">Me</span>
                                     </h1>
                                     <div className="space-y-6 mb-12">
-                                        <h2 className="text-4xl lg:text-6xl font-bold text-white tracking-tight">
-                                            Monishwaran K
+                                        <h2 className="text-5xl lg:text-8xl font-bold text-white tracking-tighter">
+                                            Monishwaran <span className="text-primary italic">K</span>
                                         </h2>
-                                        <div className="flex items-center gap-6">
+                                        <div className="flex flex-wrap items-center gap-6">
                                             <div className="flex items-center gap-3">
-                                                <span className="h-3 w-3 rounded-full bg-primary animate-pulse" />
+                                                <span className="h-3 w-3 rounded-full bg-primary animate-pulse shadow-[0_0_10px_rgba(6,182,212,0.8)]" />
                                                 <span className="text-xl font-medium tracking-widest uppercase text-white hover:text-primary transition-colors cursor-default">Hybrid Engineer</span>
                                             </div>
                                             <div className="h-4 w-px bg-white/10 hidden md:block" />
-                                            <span className="text-gray-400 font-light hidden md:block italic">Mechanical x Software</span>
+                                            <span className="text-gray-400 font-light italic tracking-widest">Mechanical x Software</span>
                                         </div>
                                     </div>
                                     <motion.div
@@ -204,47 +220,91 @@ const AboutPage = () => {
                                     </motion.div>
                                 </motion.div>
 
-                                <div className="flex flex-wrap gap-5">
-                                    {[
-                                        { label: "Self-Learner", icon: Brain, color: "text-rose-400", bg: "bg-rose-500/10" },
-                                        { label: "Quick Learner", icon: Zap, color: "text-amber-400", bg: "bg-amber-500/10" },
-                                        { label: "Creative Thinker", icon: Sparkles, color: "text-emerald-400", bg: "bg-emerald-500/10" },
-                                        { label: "Team Player", icon: Users, color: "text-blue-400", bg: "bg-blue-500/10" },
-                                        { label: "Problem Solver", icon: Puzzle, color: "text-violet-400", bg: "bg-violet-500/10" }
-                                    ].map((badge, i) => (
-                                        <motion.div
-                                            key={i}
-                                            whileHover={{ scale: 1.1, y: -4, rotate: -1 }}
-                                            className={`${badge.bg} ${badge.color} px-6 py-3 rounded-3xl flex items-center gap-3 border border-white/5 backdrop-blur-xl shadow-lg transition-all`}
-                                        >
-                                            <badge.icon size={18} />
-                                            <span className="text-[10px] font-black tracking-[0.2em] uppercase">{badge.label}</span>
-                                        </motion.div>
-                                    ))}
+                                <div className="flex flex-wrap items-center gap-5">
+                                    <motion.button
+                                        whileHover={{ scale: 1.05, y: -2 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        onClick={handleDownload}
+                                        className="btn-primary group relative overflow-hidden px-8 py-4 rounded-2xl flex items-center gap-3 shadow-glow"
+                                    >
+                                        <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                                        <Download size={18} className="relative z-10" />
+                                        <span className="text-sm font-bold tracking-widest uppercase relative z-10">Get Resume</span>
+                                    </motion.button>
+
+                                    <div className="flex flex-wrap gap-4">
+                                        {[
+                                            { label: "Self-Learner", icon: Brain, color: "text-rose-400", bg: "bg-rose-500/10" },
+                                            { label: "Quick Learner", icon: Zap, color: "text-amber-400", bg: "bg-amber-500/10" },
+                                            { label: "Creative Thinker", icon: Sparkles, color: "text-emerald-400", bg: "bg-emerald-500/10" },
+                                            { label: "Team Player", icon: Users, color: "text-blue-400", bg: "bg-blue-500/10" },
+                                            { label: "Problem Solver", icon: Puzzle, color: "text-violet-400", bg: "bg-violet-500/10" }
+                                        ].map((badge, i) => (
+                                            <motion.div
+                                                key={i}
+                                                whileHover={{ scale: 1.1, y: -4, rotate: -1 }}
+                                                className={`${badge.bg} ${badge.color} px-5 py-3 rounded-2xl flex items-center gap-3 border border-white/5 backdrop-blur-xl transition-all`}
+                                            >
+                                                <badge.icon size={16} />
+                                                <span className="text-[10px] font-black tracking-[0.1em] uppercase">{badge.label}</span>
+                                            </motion.div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Narrative Cards */}
                         <div className="grid lg:grid-cols-2 gap-12 mb-32">
-                            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass-card p-10 relative overflow-hidden group border-white/5">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -z-10" />
-                                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-4">
-                                    <Brain className="text-primary" /> My Journey
+                            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass-card p-10 relative overflow-hidden group border-white/5 bg-gray-950/40 backdrop-blur-3xl">
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] -z-10 group-hover:bg-primary/10 transition-colors duration-700" />
+
+                                {/* Decorative HUD Elements */}
+                                <div className="absolute top-6 right-6 flex gap-1 transform group-hover:scale-110 transition-transform duration-500">
+                                    <div className="w-1 h-3 bg-primary/20 rounded-full" />
+                                    <div className="w-1 h-3 bg-primary/40 rounded-full" />
+                                    <div className="w-1 h-3 bg-primary/60 rounded-full animate-pulse" />
+                                </div>
+
+                                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-5">
+                                    <div className="p-3 rounded-2xl bg-primary/10 border border-primary/20 group-hover:border-primary/50 transition-colors">
+                                        <Brain className="text-primary w-6 h-6" />
+                                    </div>
+                                    <span className="tracking-tight">The Origin Story</span>
                                 </h3>
-                                <p className="text-gray-400 leading-relaxed font-light">
-                                    I am a Second-Year Mechanical Engineering student with a deep passion for software development. I enjoy merging the precision of engineering with the creativity of frontend technologies, especially React. My goal is to orchestrate digital experiences that are as stable as they are beautiful.
+                                <p className="text-gray-400 leading-relaxed font-light text-lg">
+                                    I am a Second-Year Mechanical Engineering student with a deep-seated passion for the digital realm. My journey is defined by the intersection of <span className="text-white font-medium">physical precision</span> and <span className="text-primary font-medium">software scalability</span>. I don't just write code; I engineer systems that are built to last and designed to inspire.
                                 </p>
+
+                                <div className="mt-10 pt-8 border-t border-white/5 flex items-center justify-between text-[10px] font-black tracking-[0.3em] uppercase text-gray-500">
+                                    <span>Core.Experience</span>
+                                    <span className="text-primary/60">Active_Status: Stable</span>
+                                </div>
                             </motion.div>
 
-                            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="glass-card p-10 relative overflow-hidden group border-white/5">
-                                <div className="absolute bottom-0 left-0 w-32 h-32 bg-violet-600/5 rounded-full blur-3xl -z-10" />
-                                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-4">
-                                    <Rocket className="text-violet-400" /> What Drives Me
+                            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="glass-card p-10 relative overflow-hidden group border-white/5 bg-gray-950/40 backdrop-blur-3xl">
+                                <div className="absolute bottom-0 left-0 w-64 h-64 bg-violet-600/5 rounded-full blur-[100px] -z-10 group-hover:bg-violet-600/10 transition-colors duration-700" />
+
+                                {/* Decorative HUD Elements */}
+                                <div className="absolute top-6 right-6 flex gap-2">
+                                    <div className="w-8 h-[1px] bg-violet-500/20" />
+                                    <div className="w-2 h-[1px] bg-violet-500/50 animate-pulse" />
+                                </div>
+
+                                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-5">
+                                    <div className="p-3 rounded-2xl bg-violet-500/10 border border-violet-500/20 group-hover:border-violet-500/50 transition-colors">
+                                        <Rocket className="text-violet-400 w-6 h-6" />
+                                    </div>
+                                    <span className="tracking-tight">Technical Mission</span>
                                 </h3>
-                                <p className="text-gray-400 leading-relaxed font-light">
-                                    I am motivated by building clean, user-centric solutions. Whether it's crafting high-performance interfaces or exploring the future of IoT, I thrive on turning complex problems into elegant, efficient code. For me, every project is an opportunity to learn and innovate.
+                                <p className="text-gray-400 leading-relaxed font-light text-lg">
+                                    My motivation lies in bridging the gap between <span className="text-white font-medium">mechanical complexity</span> and <span className="text-violet-400 font-medium">elegant UX</span>. Whether I'm optimizing a CAD model or architecting a React component, I thrive on the challenge of turning abstract problems into performant, user-centric realities.
                                 </p>
+
+                                <div className="mt-10 pt-8 border-t border-white/5 flex items-center justify-between text-[10px] font-black tracking-[0.3em] uppercase text-gray-500">
+                                    <span>System.Vision</span>
+                                    <span className="text-violet-400/60">Optimization_Level: High</span>
+                                </div>
                             </motion.div>
                         </div>
 
@@ -253,7 +313,7 @@ const AboutPage = () => {
                             <div className="flex flex-col items-center mb-16">
                                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                                     <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-center text-white mb-4 uppercase">
-                                        Developer <span className="text-primary italic">Skills</span>
+                                        Technical <span className="text-primary italic"> Stacks</span>
                                     </h2>
                                     <div className="h-1 w-24 bg-gradient-to-r from-primary to-transparent rounded-full mx-auto" />
                                 </motion.div>
@@ -274,27 +334,52 @@ const AboutPage = () => {
                                                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                                     className="group relative h-40"
                                                 >
-                                                    <div className="absolute inset-0 bg-primary/5 rounded-[32px] blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                                                    <div className="relative glass-card h-full p-6 flex flex-col items-center justify-center border-white/5 group-hover:border-primary/40 transition-all duration-500 overflow-hidden">
-                                                        <div className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 mb-4 bg-gray-950/50 border border-white/5 group-hover:border-primary/20 shadow-inner">
+                                                    {/* Brand Specific Glow */}
+                                                    <div
+                                                        className="absolute inset-0 rounded-[32px] blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                                                        style={{ backgroundColor: skill.color }}
+                                                    />
+
+                                                    <div
+                                                        className="relative glass-card h-full p-6 flex flex-col items-center justify-center border-white/5 transition-all duration-500 overflow-hidden"
+                                                        style={{
+                                                            borderColor: 'rgba(255, 255, 255, 0.05)'
+                                                        } as React.CSSProperties}
+                                                    >
+                                                        {/* Dynamic Border Glow on Hover */}
+                                                        <div
+                                                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                                                            style={{
+                                                                border: `1px solid ${skill.color}40`,
+                                                                borderRadius: 'inherit'
+                                                            }}
+                                                        />
+
+                                                        <div className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 mb-4 bg-gray-950/50 border border-white/5 group-hover:border-primary/20 shadow-inner overflow-hidden">
+                                                            {/* Background Light Beam */}
+                                                            <div
+                                                                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
+                                                                style={{ backgroundColor: skill.color }}
+                                                            />
+
                                                             {skill.type === 'devicon' ? (
                                                                 <img
                                                                     src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
                                                                     alt={skill.name}
-                                                                    className="w-10 h-10 object-contain brightness-90 group-hover:brightness-110"
+                                                                    className="w-10 h-10 object-contain brightness-90 group-hover:brightness-110 relative z-10"
                                                                 />
                                                             ) : (
                                                                 <img
                                                                     src={skill.icon}
                                                                     alt={skill.name}
-                                                                    className={`${skill.name === 'SolidWorks' ? 'w-12 h-12' : 'w-10 h-10'} object-contain brightness-90 group-hover:brightness-110`}
+                                                                    className={`${['SolidWorks', 'AWS'].includes(skill.name) ? 'w-14 h-14' : 'w-10 h-10'} object-contain brightness-90 group-hover:brightness-110 relative z-10`}
                                                                 />
                                                             )}
                                                         </div>
-                                                        <span className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-500 group-hover:text-white transition-colors text-center">{skill.name}</span>
-                                                        
+                                                        <span className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-500 group-hover:text-white transition-colors text-center relative z-10">{skill.name}</span>
+
                                                         <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                            <Sparkles size={8} className="text-primary animate-pulse" />
+                                                            <Sparkles size={8} style={{ color: skill.color }} className="animate-pulse" />
                                                         </div>
                                                     </div>
                                                 </motion.div>
@@ -312,8 +397,8 @@ const AboutPage = () => {
                                 <h3 className="text-2xl font-bold text-white mb-8">Ecosystem Expertise</h3>
                                 {[
                                     { area: "Frontend Development", value: 85, icon: Layout },
-                                    { area: "Backend Development", value: 65, icon: Server },
-                                    { area: "Database Management", value: 75, icon: Database },
+                                    { area: "Backend Development", value: 75, icon: Server },
+                                    { area: "Database Management", value: 72, icon: Database },
                                     { area: "Embedded Systems", value: 70, icon: Cpu },
                                 ].map((item, i) => (
                                     <div key={i} className="space-y-3">
@@ -349,14 +434,20 @@ const AboutPage = () => {
                                         className={`flex flex-col md:flex-row items-center gap-8 ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
                                     >
                                         <div className="md:w-1/2 flex justify-end">
-                                            <div className={`p-8 glass-card border-white/10 relative group hover:border-primary/50 transition-all ${i % 2 !== 0 ? 'text-left' : 'text-right'}`}>
+                                            <div className={`p-8 glass-card border-white/10 relative group hover:border-primary/50 transition-all ${i % 2 !== 0 ? 'text-left' : 'text-right'} ${item.current ? 'border-primary/30 bg-primary/5' : ''}`}>
+                                                {item.current && (
+                                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary rounded-full text-[10px] font-black tracking-widest text-white animate-bounce shadow-glow-sm">
+                                                        CURRENT_PHASE
+                                                    </div>
+                                                )}
                                                 <div className={`text-sm font-bold text-primary mb-2 ${i % 2 !== 0 ? '' : 'justify-end'} flex`}>{item.year}</div>
                                                 <h4 className="text-xl font-bold text-white mb-4">{item.title}</h4>
                                                 <p className="text-gray-400 font-light leading-relaxed text-sm">{item.description}</p>
                                             </div>
                                         </div>
-                                        <div className="relative z-10 w-14 h-14 rounded-2xl glass-card border-primary/40 flex items-center justify-center text-primary shadow-glow-sm bg-gray-900">
-                                            <item.icon size={20} />
+                                        <div className="relative z-10 w-14 h-14 rounded-2xl glass-card border-primary/40 flex items-center justify-center text-primary shadow-glow-sm bg-gray-900 group-hover:scale-110 transition-transform">
+                                            {item.current && <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-ping" />}
+                                            <item.icon size={20} className="relative z-10" />
                                         </div>
                                         <div className="md:w-1/2" />
                                     </motion.div>

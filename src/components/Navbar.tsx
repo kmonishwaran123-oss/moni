@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { LayoutGroup, motion } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
-import { useDarkMode } from "../hooks/useDarkMode";
+import { Menu, X } from "lucide-react";
 
 // Prefetch imports for instant navigation - Adjusted to match current project file structure
 const prefetchModules: Record<string, () => Promise<any>> = {
@@ -18,7 +17,6 @@ const prefetchModules: Record<string, () => Promise<any>> = {
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
   const location = useLocation();
 
   const navItems = [
@@ -63,7 +61,7 @@ const Navbar: React.FC = () => {
     >
       <LayoutGroup id="tubelight">
         <div className="px-2 sm:px-4 md:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20 w-full max-w-7xl mx-auto rounded-full bg-gray-900/70 border border-cyan-500/15 shadow-[0_0_26px_rgba(6,182,212,0.16)] px-3 sm:px-5 lg:px-6">
+          <div className="flex items-center justify-between h-16 lg:h-20 w-full max-w-7xl mx-auto rounded-full bg-background/80 backdrop-blur-xl border border-primary/20 shadow-lg px-3 sm:px-5 lg:px-6 transition-colors duration-500">
             <motion.div
               whileHover={{ scale: 1.02 }}
               className="flex items-center"
@@ -78,15 +76,15 @@ const Navbar: React.FC = () => {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-sm md:text-base font-black tracking-[0.2em] text-white leading-none">MONISHWARAN K</span>
-                  <span className="text-[8px] md:text-[10px] font-bold tracking-[0.4em] text-primary uppercase mt-1 opacity-70 group-hover:opacity-100 transition-all">Hybrid Engineer</span>
+                  <span className="text-sm md:text-base font-black tracking-[0.2em] text-white leading-none text-glow-sm"></span>
+                  <span className="text-[8px] md:text-[10px] font-bold tracking-[0.4em] text-primary uppercase mt-1 opacity-70 group-hover:opacity-100 transition-all"></span>
                 </div>
               </Link>
             </motion.div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:block">
-              <div className="flex items-center space-x-2 rounded-full bg-gray-950/40 px-3 py-2 border border-white/5 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+              <div className="flex items-center space-x-2 rounded-full bg-card/40 px-3 py-2 border border-border/50 shadow-sm backdrop-blur-md transition-colors duration-500">
                 {navItems.map((item) => {
                   const active = isActive(item.path);
 
@@ -122,17 +120,6 @@ const Navbar: React.FC = () => {
 
             {/* Action Buttons */}
             <div className="flex items-center gap-4">
-              <motion.button
-                whileTap={{ scale: 0.9 }}
-                whileHover={{ scale: 1.1 }}
-                onClick={toggleDarkMode}
-                className="relative p-2.5 rounded-full glass-card border-white/10 text-gray-400 hover:text-primary transition-all duration-300 group"
-                title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-              >
-                <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 blur-md transition-opacity" />
-                <div className="absolute -inset-1 border border-primary/20 rounded-full opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-110 transition-all duration-500" />
-                {isDarkMode ? <Sun size={18} className="relative z-10" /> : <Moon size={18} className="relative z-10" />}
-              </motion.button>
 
               <div className="lg:hidden">
                 <motion.button
@@ -157,7 +144,7 @@ const Navbar: React.FC = () => {
           transition={{ duration: 0.15, ease: "easeInOut" }}
           className="lg:hidden w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6"
         >
-          <div className="rounded-[28px] bg-gray-900/80 border border-cyan-500/25 shadow-[0_10px_40px_rgba(6,182,212,0.12)] backdrop-blur px-3 sm:px-4 py-3 space-y-1.5 mt-2">
+          <div className="rounded-[28px] bg-background/90 border border-primary/25 shadow-xl backdrop-blur px-3 sm:px-4 py-3 space-y-1.5 mt-2 transition-colors duration-500">
             {navItems.map((item) => {
               const active = isActive(item.path);
 

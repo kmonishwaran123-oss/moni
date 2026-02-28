@@ -4,11 +4,11 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 
 const TechStackRadar: React.FC = () => {
     const data = [
-        { subject: 'Frontend', A: 75, fullMark: 100 },
-        { subject: 'Backend', A: 64, fullMark: 100 },
-        { subject: 'Mobile', A: 62, fullMark: 100 },
-        { subject: 'Database', A: 60, fullMark: 100 },
-        { subject: 'AI/ML', A: 60, fullMark: 100 },
+        { subject: 'Frontend', A: 85, fullMark: 100 },
+        { subject: 'Backend', A: 74, fullMark: 100 },
+        { subject: 'Mobile', A: 72, fullMark: 100 },
+        { subject: 'Database', A: 70, fullMark: 100 },
+        { subject: 'AI/ML', A: 65, fullMark: 100 },
     ];
 
     return (

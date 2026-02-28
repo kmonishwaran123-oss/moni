@@ -15,6 +15,7 @@ import {
     Star,
     GitFork,
     ExternalLink,
+    Shield
 } from "lucide-react";
 import SearchBar from "../components/SearchBar";
 import Navbar from "@/components/Navbar";
@@ -31,6 +32,7 @@ const ProjectsPage: React.FC = () => {
 
     const categories = [
         { id: "ALL", label: "All Projects", icon: LayoutGrid },
+        { id: "Cyber", label: "Cyber Security", icon: Shield },
         { id: "IT", label: "Information Tech", icon: Code2 },
         { id: "Core", label: "Core Engineering", icon: Layers },
         { id: "AI", label: "Machine Learning/AI", icon: Cpu },

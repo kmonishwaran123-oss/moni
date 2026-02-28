@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, MessageCircle, Clock, Globe, ArrowRight, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, MessageCircle, Clock, Globe, ArrowRight, Sparkles, Activity } from 'lucide-react';
 import Navbar from "@/components/Navbar";
 import { Button } from '@/components/ui/button';
 
@@ -17,7 +17,7 @@ const contactInfo = [
     { icon: Mail, title: "Email", value: "k.monishwaran123@gmail.com", href: "mailto:k.monishwaran123@gmail.com", description: "Inquiry or collaboration" },
     { icon: Phone, title: "Phone", value: "+91 7358996358", href: "tel:+917358996358", description: "Emergency or consulting" },
     { icon: MapPin, title: "Location", value: "Chennai, Tamil Nadu", href: "#", description: "Based in South India" },
-    { icon: Clock, title: "SLA", value: "Within 24 hours", href: "#", description: "Typically much faster" },
+    { icon: Activity, title: "Uptime", value: "90.99%", href: "#", description: "Always operational" },
 ];
 
 const ContactPage = () => {
@@ -167,11 +167,11 @@ const ContactPage = () => {
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
                                             <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 block">Identity Name</label>
-                                            <input {...register("name", { required: true })} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700" placeholder="Agent 001" />
+                                            <input {...register("name", { required: true })} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700" placeholder="Name" />
                                         </div>
                                         <div className="space-y-2">
                                             <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 block">Digital Email</label>
-                                            <input {...register("email", { required: true, pattern: /^\S+@\S+$/i })} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700" placeholder="agent@terminal.io" />
+                                            <input {...register("email", { required: true, pattern: /^\S+@\S+$/i })} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700" placeholder="Email@gmail.com" />
                                         </div>
                                     </div>
 
