@@ -59,7 +59,7 @@ const HomePage = () => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/resume.pdf";
+    link.href = `${import.meta.env.BASE_URL}Monishwaran_K_Resume.pdf`;
     link.download = "Monishwaran_K_Resume.pdf";
     document.body.appendChild(link);
     link.click();
