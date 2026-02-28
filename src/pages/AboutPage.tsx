@@ -106,29 +106,7 @@ const AboutPage = () => {
                     <div className="container mx-auto px-6">
                         {/* Cinematic Hero Header */}
                         <div className="flex flex-col lg:flex-row gap-20 items-center mb-32">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 1.2, ease: "easeOut" }}
-                                className="relative group flex-shrink-0"
-                            >
-                                <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 to-violet-500/30 blur-[60px] opacity-20 group-hover:opacity-100 transition-opacity" />
-                                <div className="w-64 aspect-[3/4] md:w-80 md:h-[500px] rounded-[48px] overflow-hidden glass-card border-white/10 group-hover:border-primary/50 transition-all duration-700 p-2 shadow-2xl relative">
-                                    <div className="w-full h-full rounded-[40px] bg-gray-900 flex items-center justify-center relative overflow-hidden">
-                                        <img
-                                            src="/monish-profile.jpg"
-                                            alt="Monishwaran K"
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 origin-top"
-                                            onError={(e) => { (e.target as HTMLImageElement).src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=Monish' }}
-                                        />
-                                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" />
-                                    </div>
-                                </div>
-                                <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }} className="absolute -bottom-8 -right-8 glass-card p-6 border-primary/20 shadow-glow-sm">
-                                    <div className="text-3xl font-bold gradient-text">7.25</div>
-                                    <div className="text-[10px] font-black text-white/50 tracking-[0.3em] uppercase">Avg CGPA</div>
-                                </motion.div>
-                            </motion.div>
+
 
                             <div className="flex-1 space-y-12">
                                 <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
