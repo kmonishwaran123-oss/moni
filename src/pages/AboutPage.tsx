@@ -102,7 +102,74 @@ const AboutPage = () => {
             <div className="relative z-10">
                 <Navbar />
 
-                <main className="pt-32 pb-24">
+                <main className="pb-24">
+                    {/* Premium Full-width Hero Section */}
+                    <section className="relative h-[80vh] flex items-center justify-center overflow-hidden mb-24">
+                        {/* Background Elements */}
+                        <div className="absolute inset-0 z-0">
+                            <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-950/90 to-transparent" />
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#050505_70%)] opacity-80" />
+
+                            {/* Animated Background Image */}
+                            <motion.div
+                                initial={{ scale: 1.1, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 0.2 }}
+                                transition={{ duration: 2, ease: "easeOut" }}
+                                className="w-full h-full"
+                            >
+                                <img
+                                    src="/about-illustration.jpg"
+                                    alt=""
+                                    className="w-full h-full object-cover grayscale opacity-40 mix-blend-luminosity"
+                                />
+                            </motion.div>
+                        </div>
+
+                        <div className="container mx-auto px-6 relative z-10 text-center">
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.5 }}
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-primary/20 mb-8"
+                            >
+                                <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+                                <span className="text-[10px] font-black tracking-[0.4em] uppercase text-gray-300">
+                                    The Architect's Dossier
+                                </span>
+                            </motion.div>
+
+                            <motion.h1
+                                initial={{ opacity: 0, y: 40 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 1, delay: 0.7 }}
+                                className="text-7xl md:text-9xl font-bold font-sora tracking-tighter mb-8 leading-none"
+                            >
+                                <span className="block text-white">Engineering</span>
+                                <span className="gradient-text">Excellence.</span>
+                            </motion.h1>
+
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 1, delay: 1.2 }}
+                                className="text-gray-400 font-light tracking-[0.5em] uppercase text-xs md:text-sm max-w-2xl mx-auto"
+                            >
+                                Merging Physical Precision with Digital Intelligence
+                            </motion.p>
+
+                            {/* Scroll Indicator */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 2, duration: 1 }}
+                                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+                            >
+                                <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
+                                <span className="text-[8px] font-black tracking-[0.5em] uppercase text-primary/60">Initialize Scroll</span>
+                            </motion.div>
+                        </div>
+                    </section>
+
                     <div className="container mx-auto px-6">
                         {/* Cinematic Hero Header */}
                         <div className="flex flex-col lg:flex-row gap-20 items-center mb-32">
