@@ -1,123 +1,191 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { LayoutGroup, motion } from "framer-motion";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useDarkMode } from "../hooks/useDarkMode";
 
-const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Events', href: '#events' },
-  { label: 'Certificates', href: '#certificates' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
-];
+// Prefetch imports for instant navigation - Adjusted to match current project file structure
+const prefetchModules: Record<string, () => Promise<any>> = {
+  "/": () => import("../pages/HomePage"),
+  "/about": () => import("../pages/AboutPage"),
+  "/projects": () => import("../pages/ProjectsPage"),
+  "/certifications": () => import("../pages/CertificationsPage"),
+  "/events": () => import("../pages/EventsPage"),
+  "/stats": () => import("../pages/StatsPage"),
+  "/contact": () => import("../pages/ContactPage"),
+};
 
-export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const location = useLocation();
+
+  const navItems = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/projects", label: "Projects" },
+    { path: "/certifications", label: "Certifications" },
+    { path: "/events", label: "Events" },
+    { path: "/stats", label: "Stats" },
+    { path: "/contact", label: "Contact" },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  const isActive = (path: string) => location.pathname === path;
+
+  const handlePrefetch = (path: string) => {
+    const prefetch = prefetchModules[path];
+    if (prefetch) {
+      prefetch().catch(() => { });
+    }
+  };
+
   return (
-    <motion.header
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.16, 0.84, 0.26, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass-card py-3' : 'py-6'
-      }`}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className={`fixed top-3 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "backdrop-blur-md" : "backdrop-blur"
+        }`}
     >
-      <nav className="container mx-auto px-6 flex items-center justify-between">
-        <motion.a
-          href="#home"
-          className="text-2xl font-bold font-sora gradient-text"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Portfolio
-        </motion.a>
-        
-        {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navItems.map((item, i) => (
-            <motion.li
-              key={item.label}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
+      <LayoutGroup id="tubelight">
+        <div className="px-2 sm:px-4 md:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20 w-full max-w-7xl mx-auto rounded-full bg-gray-900/70 border border-cyan-500/15 shadow-[0_0_26px_rgba(6,182,212,0.16)] px-3 sm:px-5 lg:px-6">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center"
             >
-              <a
-                href={item.href}
-                className="relative text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium text-sm tracking-wide group"
+              <Link to="/" className="flex items-center">
+                <img
+                  src="/logo.png"
+                  alt="MONISHWARAN K"
+                  className="h-8 md:h-10 w-auto object-contain brightness-110 contrast-125"
+                />
+              </Link>
+            </motion.div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:block">
+              <div className="flex items-center space-x-4 rounded-full bg-gray-900/60 px-2 py-2 border border-cyan-500/10 shadow-[0_0_20px_rgba(6,182,212,0.08)]">
+                {navItems.map((item) => {
+                  const active = isActive(item.path);
+
+                  return (
+                    <motion.div key={item.path} className="relative">
+                      <Link
+                        to={item.path}
+                        onMouseEnter={() => handlePrefetch(item.path)}
+                        className={`relative block px-4 py-2 text-sm font-semibold tracking-wide rounded-full transition-colors duration-200 ${active
+                          ? "text-cyan-100"
+                          : "text-gray-300 hover:text-cyan-200"
+                          }`}
+                      >
+                        {active && (
+                          <motion.span
+                            layoutId="tubelight-desktop"
+                            className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 via-cyan-400/10 to-violet-500/20 border border-cyan-400/25 shadow-[0_0_25px_rgba(6,182,212,0.25)]"
+                            transition={{
+                              type: "spring",
+                              stiffness: 350,
+                              damping: 30,
+                            }}
+                          />
+                        )}
+                        <span className="relative z-10">{item.label}</span>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex items-center gap-2">
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                onClick={toggleDarkMode}
+                className="p-2 rounded-full glass-card border-cyan-500/20 text-gray-400 hover:text-cyan-400 transition-colors"
+                title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
               >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300" />
-              </a>
-            </motion.li>
-          ))}
-        </ul>
-        
-        {/* CTA Button */}
-        <motion.a
-          href="#contact"
-          className="hidden md:block btn-primary text-sm"
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-        >
-          Let's Talk
-        </motion.a>
-        
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isMobileMenuOpen}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
-      
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-card mt-2 mx-4 rounded-2xl overflow-hidden"
-          >
-            <ul className="p-6 space-y-4">
-              {navItems.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="block text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-              <li className="pt-4">
-                <a
-                  href="#contact"
-                  className="btn-primary inline-block w-full text-center"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              </motion.button>
+
+              <div className="lg:hidden">
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="text-gray-300 hover:text-cyan-400 transition-colors p-2"
                 >
-                  Let's Talk
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+                  {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{
+            opacity: isOpen ? 1 : 0,
+            height: isOpen ? "auto" : 0,
+          }}
+          transition={{ duration: 0.15, ease: "easeInOut" }}
+          className="lg:hidden w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6"
+        >
+          <div className="rounded-[28px] bg-gray-900/80 border border-cyan-500/25 shadow-[0_10px_40px_rgba(6,182,212,0.12)] backdrop-blur px-3 sm:px-4 py-3 space-y-1.5 mt-2">
+            {navItems.map((item) => {
+              const active = isActive(item.path);
+
+              return (
+                <motion.div
+                  key={item.path}
+                  whileHover={{ x: 6 }}
+                  className="relative block"
+                >
+                  <Link
+                    to={item.path}
+                    onMouseEnter={() => handlePrefetch(item.path)}
+                    onTouchStart={() => handlePrefetch(item.path)}
+                    className={`relative block px-4 py-2.5 text-base font-semibold transition-colors duration-200 rounded-full overflow-hidden ${active
+                      ? "text-cyan-200"
+                      : "text-gray-300 hover:text-cyan-200"
+                      }`}
+                  >
+                    {active && (
+                      <motion.span
+                        layoutId="tubelight-mobile"
+                        className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 via-cyan-400/10 to-violet-500/20 border border-cyan-400/25 shadow-[0_0_25px_rgba(6,182,212,0.25)]"
+                        transition={{
+                          type: "spring",
+                          stiffness: 350,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                    <span className="relative z-10">{item.label}</span>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+      </LayoutGroup>
+    </motion.nav>
   );
-}
+};
+
+export default Navbar;

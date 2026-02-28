@@ -1,0 +1,365 @@
+import React, { useState } from "react";
+import { AnimatePresence, motion, Variants } from "framer-motion";
+import {
+    Calendar,
+    X,
+    GraduationCap,
+    CircuitBoard,
+    BadgeCheck,
+    Rocket,
+    NotebookPen,
+    Sparkles,
+    Search,
+} from "lucide-react";
+import SearchBar from "../components/SearchBar";
+import Navbar from "@/components/Navbar";
+import ParticleBackground from "@/components/ParticleBackground";
+
+// Premium Assets
+import mongoDBicon from "@/assets/mongodb.jpg";
+import googleicon from "@/assets/google.jpg";
+import pythonlogo from "@/assets/python.jpg";
+import ioticon from "@/assets/The future of IoT is at the edge! ️ Dive into….jpg";
+import upgradlogo from "@/assets/upgrad.jpg";
+import techlogo from "@/assets/tech.jpg";
+import delogo from "@/assets/6 Ways To Start Programming - EMR Industry.jpg";
+import tatalogo from "@/assets/Tata Motors Logo Meaning and History [Tata Motors symbol].jpg";
+
+const CertificationsPage: React.FC = () => {
+    const certifications = [
+        {
+            id: 1,
+            title: "Schema Design Optimization",
+            issuer: "MongoDB",
+            date: "2025",
+            logo: "https://cdn.simpleicons.org/mongodb/47A141",
+            image: mongoDBicon,
+            verifyUrl: "https://learn.mongodb.com/c/jPRqKMxoS32a2xCHBAxH8Q",
+            skills: ["MongoDB"],
+        },
+        {
+            id: 2,
+            title: "Relational To Document Model",
+            issuer: "MongoDB",
+            date: "2025",
+            logo: "https://cdn.simpleicons.org/mongodb/47A141",
+            image: mongoDBicon,
+            verifyUrl: "https://learn.mongodb.com/c/j8yCqbZ2S9uU5yCHWgfz5w",
+            skills: ["MongoDB", "NoSQL"],
+        },
+        {
+            id: 3,
+            title: "Connecting to MongoDB in Python",
+            issuer: "MongoDB",
+            date: "2025",
+            logo: "https://cdn.simpleicons.org/mongodb/47A141",
+            image: mongoDBicon,
+            verifyUrl: "https://learn.mongodb.com/c/_IibyEVCQKecFHe_O4_CBA",
+            skills: ["MongoDB", "Python"],
+        },
+        {
+            id: 4,
+            title: "Data Visualization: Empowering Business With Effective insights",
+            issuer: "Tata Group",
+            date: "2025",
+            logo: "https://cdn.simpleicons.org/tata/004276",
+            image: tatalogo,
+            verifyUrl: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_3TgX7Ncw8tHkDLtum_1750919385252_completion_certificate.pdf",
+            skills: ["Data Visualization", "Business Insights", "Data Analysis"],
+        },
+        {
+            id: 5,
+            title: "Python Programming",
+            issuer: "NSDC & Reliance Foundation",
+            date: "2025",
+            logo: "https://cdn.simpleicons.org/relianceindustrieslimited/004B8C",
+            image: pythonlogo,
+            verifyUrl: "https://rfskillingacademy.com/certificate/group/300/235783",
+            skills: ["Python", "Programming"],
+        },
+        {
+            id: 6,
+            title: "Python 101 for Data Science",
+            issuer: "IBM",
+            date: "2025",
+            logo: "https://cdn.simpleicons.org/ibm/05FEFF",
+            image: pythonlogo,
+            verifyUrl: "https://courses.cognitiveclass.ai/certificates/1ee466a5854e44a4ac5e77a7ba26acd2",
+            skills: ["Python", "Data Science"],
+        },
+        {
+            id: 7,
+            title: "IOT-Network Specialist",
+            issuer: "NSDC & Reliance Foundation",
+            date: "2025",
+            logo: "https://cdn.simpleicons.org/relianceindustrieslimited/004B8C",
+            image: ioticon,
+            verifyUrl: "https://rfskillingacademy.com/certificate/group/500/236025",
+            skills: ["IoT", "Embedded Systems"],
+        },
+        {
+            id: 8,
+            title: "Cyber Security",
+            issuer: "Tech Mahindra & NSDC",
+            date: "2025",
+            logo: "https://cdn.simpleicons.org/techmahindra/FF4C00",
+            image: techlogo,
+            verifyUrl: "https://rfskillingacademy.com/certificate/group/500/236025",
+            skills: ["Cyber Security", "AI Basics"],
+        },
+        {
+            id: 9,
+            title: "Google Certification For Students",
+            issuer: "Google",
+            date: "2025",
+            logo: "https://cdn.simpleicons.org/google/4285F4",
+            image: googleicon,
+            verifyUrl: "https://edu.exceedlms.com/student/award/gXQ5bcu6DsWgq8LcFJwMKBmB",
+            skills: ["AI"],
+        },
+        {
+            id: 10,
+            title: "Advanced Prompt Engineering with ChatGPT",
+            issuer: "upGrad",
+            date: "2026",
+            logo: "https://cdn.simpleicons.org/chatgpt/412991",
+            image: upgradlogo,
+            verifyUrl: "https://www.upgrad.com/certificates/advanced-prompt-engineering-with-chatgpt/KAU6N6YJ",
+            skills: ["Prompt Engineering", "AI"],
+        },
+        {
+            id: 11,
+            title: "Front-End Development",
+            issuer: "Reliance Foundation & NSDC",
+            date: "2026",
+            logo: "https://cdn.simpleicons.org/relianceindustrieslimited/004B8C",
+            image: delogo,
+            verifyUrl: "https://rfskillingacademy.com/certificate/group/300/235782",
+            skills: ["HTML", "CSS", "JavaScript"],
+        },
+
+    ];
+
+    const [selectedCert, setSelectedCert] = useState<
+        (typeof certifications)[0] | null
+    >(null);
+    const [showModal, setShowModal] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const filteredCertifications = certifications.filter((cert) => {
+        const matchesSearch =
+            cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            cert.issuer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            cert.skills.some((skill) =>
+                skill.toLowerCase().includes(searchTerm.toLowerCase()),
+            );
+        return matchesSearch;
+    });
+
+    const openModal = (cert: (typeof certifications)[0]) => {
+        setSelectedCert(cert);
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+        setSelectedCert(null);
+    };
+
+    const containerVariants: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.08 },
+        },
+    };
+
+    const itemVariants: Variants = {
+        hidden: { opacity: 0, y: 30, scale: 0.95 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+        },
+    };
+
+    return (
+        <div className="min-h-screen relative bg-gray-900 text-white overflow-hidden">
+            <ParticleBackground />
+            <Navbar />
+
+            <main className="pt-32 pb-24">
+                <div className="container mx-auto px-6 relative z-10">
+                    {/* HERO */}
+                    <div className="text-center mb-16">
+                        <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-violet-500/20 border border-cyan-500/30 mb-6"
+                        >
+                            <Sparkles className="w-4 h-4 text-cyan-400" />
+                            <span className="text-xs font-bold text-cyan-300 tracking-widest uppercase">
+                                Professional Achievements
+                            </span>
+                        </motion.div>
+
+                        <h1 className="text-5xl md:text-8xl font-bold font-sora tracking-tighter mb-6">
+                            <span className="gradient-text">Certifications</span>
+                        </h1>
+                        <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto">
+                            A curated showcase of my professional growth through technical certifications and academic milestones.
+                        </p>
+                    </div>
+
+                    {/* STATS */}
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={containerVariants}
+                        className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-16"
+                    >
+                        {[
+                            { label: "Certificates", value: certifications.length, icon: BadgeCheck, gradient: "from-cyan-500 to-blue-600" },
+                            { label: "Hackathons", value: "2", icon: CircuitBoard, gradient: "from-purple-500 to-pink-600" },
+                            { label: "Internships", value: "2", icon: GraduationCap, gradient: "from-emerald-500 to-teal-600" },
+                            { label: "Specializations", value: "3+", icon: NotebookPen, gradient: "from-orange-500 to-red-600" },
+                            { label: "Deployments", value: "5+", icon: Rocket, gradient: "from-violet-500 to-purple-600" },
+                        ].map((stat, i) => (
+                            <motion.div
+                                key={i}
+                                variants={itemVariants}
+                                whileHover={{ scale: 1.05, y: -5 }}
+                                className="glass-card p-6 border-white/5 relative group bg-gray-900/40 backdrop-blur-xl"
+                            >
+                                <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-r ${stat.gradient} flex items-center justify-center shadow-lg`}>
+                                    <stat.icon size={20} className="text-white" />
+                                </div>
+                                <div className="text-2xl font-bold text-white text-center">{stat.value}</div>
+                                <div className="text-[10px] font-bold text-gray-500 text-center tracking-widest uppercase mt-1">{stat.label}</div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+
+                    {/* Search Bar */}
+                    <div className="max-w-xl mx-auto mb-16">
+                        <SearchBar
+                            searchTerm={searchTerm}
+                            onSearchChange={setSearchTerm}
+                            placeholder="Search by title, issuer, or skill..."
+                            scrollTargetId="certifications-grid"
+                        />
+                    </div>
+
+                    {/* GRID */}
+                    <div id="certifications-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {filteredCertifications.map((cert) => (
+                            <motion.div
+                                key={cert.id}
+                                onClick={() => openModal(cert)}
+                                className="group glass-card border-white/5 relative cursor-pointer overflow-hidden p-0 bg-gray-900/40 backdrop-blur-xl"
+                                whileHover={{ y: -8 }}
+                            >
+                                {/* Image Banner */}
+                                <div className="relative h-44 overflow-hidden">
+                                    <img
+                                        src={cert.image}
+                                        alt={cert.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        onError={(e) => { (e.target as HTMLImageElement).src = 'https://api.dicebear.com/7.x/shapes/svg?seed=' + cert.title }}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
+
+                                    {/* Date Badge */}
+                                    <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary/80 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase tracking-tighter text-white">
+                                        {cert.date}
+                                    </div>
+                                </div>
+
+                                <div className="p-6">
+                                    <div className="flex gap-4 mb-6">
+                                        <div className="w-12 h-12 rounded-xl bg-gray-800 border border-white/5 flex-shrink-0 flex items-center justify-center p-2 group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-300">
+                                            <img
+                                                src={cert.logo}
+                                                alt={cert.issuer}
+                                                className="w-full h-full object-contain filter brightness-110 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"
+                                            />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-sm font-bold text-white leading-tight line-clamp-2 group-hover:text-primary transition-colors">{cert.title}</h3>
+                                            <div className="text-[10px] font-bold text-primary tracking-widest uppercase mt-2">{cert.issuer}</div>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex flex-wrap gap-2">
+                                        {cert.skills.slice(0, 3).map((skill) => (
+                                            <span key={skill} className="text-[9px] font-bold tracking-[0.15em] px-2 py-1 rounded bg-white/5 text-gray-400 group-hover:text-primary transition-colors border border-white/5 capitalize">
+                                                {skill}
+                                            </span>
+                                        ))}
+                                        {cert.skills.length > 3 && (
+                                            <span className="text-[9px] font-bold text-gray-600">+{cert.skills.length - 3}</span>
+                                        )}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {!filteredCertifications.length && (
+                        <div className="text-center py-24 text-gray-500">No matching certifications found.</div>
+                    )}
+                </div>
+            </main>
+
+
+            {/* MODAL */}
+            <AnimatePresence>
+                {showModal && selectedCert && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
+                        onClick={closeModal}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, y: 20 }}
+                            animate={{ scale: 1, y: 0 }}
+                            exit={{ scale: 0.9, y: 20 }}
+                            className="relative glass-card border-white/10 max-w-4xl w-full bg-gray-900/80 p-6 sm:p-10 overflow-hidden"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="flex justify-between items-center mb-8">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+                                        <BadgeCheck size={20} />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-xl font-bold text-white leading-tight">{selectedCert.title}</h2>
+                                        <p className="text-sm font-bold text-primary uppercase tracking-widest">{selectedCert.issuer}</p>
+                                    </div>
+                                </div>
+                                <button onClick={closeModal} className="p-2 rounded-xl bg-white/5 hover:bg-red-500/20 text-gray-400 hover:text-red-500 transition-all">
+                                    <X size={20} />
+                                </button>
+                            </div>
+
+                            <div className="aspect-video bg-black rounded-xl border border-white/10 relative group overflow-hidden shadow-2xl">
+                                <img
+                                    src={selectedCert.verifyUrl}
+                                    alt="Certificate"
+                                    className="w-full h-full object-contain"
+                                    onError={(e) => { (e.target as HTMLImageElement).src = 'https://api.dicebear.com/7.x/identicon/svg?seed=' + selectedCert.title }}
+                                />
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+};
+
+export default CertificationsPage;
