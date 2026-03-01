@@ -93,8 +93,6 @@ const skillsData = [
     { name: "Docker", icon: "docker", type: "devicon", category: "Utilities", color: "#2496ED" },
 
     // Professional Partners/Skills
-    { name: "IBM", icon: ibmIcon, type: "url", category: "Utilities", color: "#006699" },
-    { name: "Tech Mahindra", icon: techMahindraIcon, type: "url", category: "Utilities", color: "#E32119" },
 ];
 
 
@@ -420,7 +418,7 @@ const AboutPage = () => {
                                                                 <img
                                                                     src={skill.icon}
                                                                     alt={skill.name}
-                                                                    className={`${['SolidWorks', 'AWS', 'IBM', 'Tech Mahindra'].includes(skill.name) ? 'w-14 h-14' : 'w-10 h-10'} object-contain brightness-90 group-hover:brightness-110 relative z-10`}
+                                                                    className={`${['SolidWorks', 'AWS'].includes(skill.name) ? 'w-14 h-14' : 'w-10 h-10'} object-contain brightness-90 group-hover:brightness-110 relative z-10`}
                                                                 />
                                                             )}
                                                         </div>

@@ -23,10 +23,12 @@ import hackathonImage from "@/assets/Hackintym'25 2.0.jpg";
 import symposiumImage from "@/assets/1761585584912.jpg";
 import codingImage from "@/assets/python.jpg";
 import droneImage from "@/assets/Drone workshop.jpeg";
+import maiiyamCard from "@/assets/maiyyam card.png";
 import gbuImage from "@/assets/sairam- GBU.jpeg";
 import innoverseImage from "@/assets/ino.jpeg";
 import brainstormImage from "@/assets/Brainstorm mini hackathon.jpeg";
 import codeNexusImage from "@/assets/Code Nexus.jpeg";
+import droneIcon from "@/assets/nov.jpg";
 
 // PDF Certificates
 import connectionsPDF from "@/assets/cerficate/connections vel tech.pdf";
@@ -38,6 +40,20 @@ const EventsPage: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const events = [
+        {
+            id: 14,
+            title: "Industrial Internship",
+            type: "competition", // Could be experience but let's see available types
+            role: "Internee",
+            date: "2024",
+            location: "Maiiyam Engineering, Chennai",
+            description: "Gained hands-on experience in manufacturing processes and industrial quality standards at a professional engineering firm.",
+            achievement: "Completed",
+            image: maiiyamCard,
+            technologies: ["Manufacturing", "Quality Control", "Industrial Ethics"],
+            featured: false,
+            certificateUrl: maiiyamInternshipPDF,
+        },
         {
             id: 1,
             title: "SAE India H-Baja",
@@ -109,15 +125,16 @@ const EventsPage: React.FC = () => {
             image: droneImage,
             technologies: ["Drones", "Control Systems", "Flight Mechanics"],
             featured: false,
+            logo: droneIcon,
             certificateUrl: droneImage,
         },
         {
             id: 6,
-            title: "Connections - Veltech Symposium",
+            title: "Connections - CEAANS 2025 Symposium",
             type: "competition",
             role: "Participant",
-            date: "2024",
-            location: "Veltech University, Chennai",
+            date: "2025",
+            location: "VelTech High Tech Dr.Rangarajan Dr.sakunthala Engineering College, Chennai",
             description: "A national level engineering symposium event testing logical reasoning and technical cross-connections.",
             achievement: "Participant",
             image: symposiumImage,
@@ -127,11 +144,11 @@ const EventsPage: React.FC = () => {
         },
         {
             id: 7,
-            title: "Paper Presentation - Veltech Symposium",
+            title: "Paper Presentation - CEAANS 2025 Symposium",
             type: "competition",
             role: "Participant",
-            date: "2024",
-            location: "Veltech University, Chennai",
+            date: "2025",
+            location: "VelTech High Tech Dr.Rangarajan Dr.sakunthala Engineering College, Chennai",
             description: "National level symposium event involved in presenting innovative engineering research and solutions.",
             achievement: "Presented",
             image: symposiumImage,

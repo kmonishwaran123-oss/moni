@@ -36,6 +36,8 @@ import droneWorkshopImg from "@/assets/Drone workshop.jpeg";
 import gbuSairamImg from "@/assets/sairam- GBU.jpeg";
 import bajaCeImg from "@/assets/baja ce.jpeg";
 import nsdcLogo from "@/assets/nsdc logo.png";
+import maiiyamCard from "@/assets/maiyyam card.png";
+import maiiyamLogo from "@/assets/maiyyam logo.png";
 
 // PDF Certificates
 import schemaPDF from "@/assets/cerficate/Schema Design Optimization.pdf";
@@ -165,16 +167,6 @@ const CertificationsPage: React.FC = () => {
             skills: ["HTML", "CSS", "JavaScript"],
         },
         {
-            id: 12,
-            title: "AWS Academy Graduate - Cloud Foundations",
-            issuer: "Amazon Web Services (AWS)",
-            date: "2025",
-            logo: awsWine,
-            image: awsWine,
-            verifyUrl: "https://www.credly.com/org/amazon-web-services/badge/aws-academy-graduate-aws-academy-cloud-foundations",
-            skills: ["Cloud Computing", "AWS", "Infrastructure"],
-        },
-        {
             id: 13,
             title: "Innoverse Hackathon",
             issuer: "Meenakshi Sundararajan Engineering College",
@@ -208,9 +200,9 @@ const CertificationsPage: React.FC = () => {
             id: 19,
             title: "Industrial Internship",
             issuer: "Maiiyam Engineering",
-            date: "2024",
-            logo: "https://api.dicebear.com/7.x/shapes/svg?seed=Maiiyam",
-            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+            date: "2026",
+            logo: maiiyamLogo,
+            image: maiiyamCard,
             verifyUrl: maiiyamInternshipPDF,
             skills: ["Industrial Exposure", "Mechanical Engineering", "Manufacturing"],
         },
@@ -219,7 +211,7 @@ const CertificationsPage: React.FC = () => {
             title: "Drone Workshop & Control Systems",
             issuer: "Meenakshi Sundararajan Engineering College",
             date: "2025",
-            logo: "https://api.dicebear.com/7.x/shapes/svg?seed=Drone",
+            logo: innoverseIcon,
             image: droneWorkshopImg,
             verifyUrl: droneWorkshopImg,
             skills: ["Drones", "Control Systems", "Flight Mechanics"],
