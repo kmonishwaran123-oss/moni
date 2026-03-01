@@ -1,4 +1,4 @@
-import { useEffect, Suspense, lazy } from "react";
+import { useEffect, Suspense, lazy, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,6 +10,7 @@ import { Toaster } from "react-hot-toast";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ParticleBackground from '@/components/ParticleBackground';
+import { IntroAnimation } from '@/components/IntroAnimation';
 import { applyPageSEO } from "./utils/seo";
 import { usePrefetch } from "./hooks/usePrefetch";
 
@@ -27,6 +28,9 @@ const StatsPage = lazy(() => import("./pages/StatsPage"));
 
 function AppContent(): JSX.Element {
   const location = useLocation();
+  const [showIntro, setShowIntro] = useState(() => {
+    return !sessionStorage.getItem("introShown");
+  });
 
   usePrefetch();
 
@@ -35,8 +39,19 @@ function AppContent(): JSX.Element {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, [location.pathname]);
 
+  const markIntroAsShown = () => {
+    sessionStorage.setItem("introShown", "true");
+    setShowIntro(false);
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden select-none transition-colors duration-500">
+      <AnimatePresence mode="wait">
+        {showIntro && (
+          <IntroAnimation key="intro-animation" onComplete={markIntroAsShown} />
+        )}
+      </AnimatePresence>
+
       <Suspense fallback={null}>
         <ParticleBackground />
       </Suspense>

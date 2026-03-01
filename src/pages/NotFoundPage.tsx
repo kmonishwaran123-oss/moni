@@ -14,7 +14,6 @@ const NotFound = () => {
   return (
     <div className="relative min-h-screen bg-transparent overflow-hidden">
       <div className="film-grain" aria-hidden="true" />
-      <Navbar />
 
       <main className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-6 pt-20">
         {/* Animated Background Glitch */}

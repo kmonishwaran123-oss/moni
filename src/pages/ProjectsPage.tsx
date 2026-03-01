@@ -49,8 +49,13 @@ const ProjectsPage: React.FC = () => {
     const selectedProject = projects.find(p => p.id === selectedProjectId);
 
     return (
-        <div className="min-h-screen relative bg-gray-900 text-white overflow-hidden">
-            <Navbar />
+        <div className="min-h-screen relative bg-background text-foreground overflow-hidden transition-colors duration-500">
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
+                style={{
+                    backgroundImage: `linear-gradient(rgba(6, 182, 212, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.2) 1px, transparent 1px)`,
+                    backgroundSize: '40px 40px'
+                }}
+            />
 
             <main className="pt-32 pb-24">
                 <div className="container mx-auto px-6 relative z-10">
@@ -85,13 +90,17 @@ const ProjectsPage: React.FC = () => {
                             <motion.div
                                 key={i}
                                 whileHover={{ scale: 1.05, y: -5 }}
-                                className="glass-card p-6 border-white/5 bg-gray-900/40 backdrop-blur-xl group"
+                                className="glass-card p-6 border-white/5 bg-card/40 backdrop-blur-xl group relative overflow-hidden"
                             >
-                                <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-r ${stat.gradient} flex items-center justify-center`}>
+                                {/* HUD Corner Markers */}
+                                <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary/40" />
+                                <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary/40" />
+
+                                <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-r ${stat.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                                     <stat.icon size={20} className="text-white" />
                                 </div>
-                                <div className="text-2xl font-bold text-center">{stat.value}</div>
-                                <div className="text-[10px] font-bold text-gray-500 text-center tracking-widest uppercase mt-1">{stat.label}</div>
+                                <div className="text-2xl font-bold text-center text-foreground transition-colors duration-500">{stat.value}</div>
+                                <div className="text-[10px] font-bold text-muted-foreground text-center tracking-widest uppercase mt-1 transition-colors duration-500">{stat.label}</div>
                             </motion.div>
                         ))}
                     </div>

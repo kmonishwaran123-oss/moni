@@ -47,8 +47,6 @@ const ContactPage = () => {
             <div className="film-grain" aria-hidden="true" />
 
             <div className="relative z-10">
-                <Navbar />
-
                 <main className="pt-32 pb-24">
                     <div className="container mx-auto px-6">
                         {/* Cinematic Header */}

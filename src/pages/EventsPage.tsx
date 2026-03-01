@@ -184,7 +184,6 @@ const EventsPage: React.FC = () => {
         <div className="relative min-h-screen">
             <div className="film-grain" aria-hidden="true" />
             <div className="relative z-10">
-                <Navbar />
                 <main className="min-h-screen pt-16 lg:pt-20 bg-transparent text-white relative">
                     {/* Hero Section */}
                     <section className="py-16 lg:py-24 relative overflow-hidden">

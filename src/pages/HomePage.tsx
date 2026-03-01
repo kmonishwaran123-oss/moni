@@ -19,22 +19,12 @@ import {
   Code2
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '@/components/Navbar';
-import { IntroAnimation } from '@/components/IntroAnimation';
 import TypewriterEffect from '@/components/TypewriterEffect';
 import { Button } from '@/components/ui/button';
 import { useTilt } from '@/hooks/useTilt';
 
 const HomePage = () => {
-  const [showIntro, setShowIntro] = useState(() => {
-    return !sessionStorage.getItem('introShown');
-  });
   const navigate = useNavigate();
-
-  const markIntroAsShown = () => {
-    sessionStorage.setItem('introShown', 'true');
-    setShowIntro(false);
-  };
 
   useEffect(() => {
     document.title = "Monishwaran K | Portfolio";
@@ -74,23 +64,43 @@ const HomePage = () => {
     document.body.removeChild(link);
   };
 
-  if (showIntro) {
-    return <IntroAnimation onComplete={markIntroAsShown} />;
-  }
 
   return (
     <div className="relative min-h-screen">
       <div className="film-grain" aria-hidden="true" />
 
       <div className="relative z-10">
-        <Navbar />
-
         <main>
           {/* Enhanced Hero Section */}
           <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
             {/* Background Glows */}
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] animate-pulse" />
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+
+            {/* Layered HUD Geometry */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden h-full w-full">
+              <motion.div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary/5 rounded-full"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-dashed border-primary/10 rounded-full"
+                animate={{ rotate: -360 }}
+                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+              />
+              {/* Corner Brackets */}
+              <div className="absolute inset-x-10 inset-y-20 border-[1px] border-white/5 opacity-40 pointer-events-none">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/30" />
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30" />
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/30" />
+
+                {/* Tech Readouts */}
+                <div className="absolute top-4 right-4 text-[8px] font-mono text-primary/40 uppercase tracking-[0.5em] origin-right rotate-90 whitespace-nowrap">EXT_UPLINK_STABLE</div>
+                <div className="absolute bottom-10 left-4 text-[8px] font-mono text-primary/40 uppercase tracking-[0.5em] origin-left -rotate-90 whitespace-nowrap">PWR_LEVEL_98%</div>
+              </div>
+            </div>
 
             <div className="container mx-auto px-6 relative z-10 text-center">
               <motion.div

@@ -520,7 +520,6 @@ const StatsPage: React.FC = () => {
         <div className="relative min-h-screen">
             <div className="film-grain" aria-hidden="true" />
             <div className="relative z-10">
-                <Navbar />
                 <main className="min-h-screen py-20 lg:py-28">
                     {/* Hero Section */}
                     <section className="relative overflow-hidden">

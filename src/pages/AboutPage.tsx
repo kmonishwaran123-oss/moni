@@ -22,7 +22,6 @@ import {
     Download,
     ExternalLink
 } from 'lucide-react';
-import Navbar from "@/components/Navbar";
 import TechStackRadar from '@/components/TechStackRadar';
 import { useTilt } from '@/hooks/useTilt';
 
@@ -95,7 +94,7 @@ const skillsData = [
 
 const timeline = [
     { id: 1, year: "2024", title: "Engineering", description: "Began BE.Mechanical at Meenakshi Sundararajan Engineering College.", icon: GraduationCap },
-    { id: 2, year: "2026", title: "Cyber Security & IoT", description: "Launched 'Cyber Shield' AI Phishing Defense and won IoT Hackathon.", icon: Zap, current: true },
+    { id: 2, year: "2026", title: "IoT-Hackathon", description: "Won second prize in IoT Hackathon.", icon: Zap, current: true },
     { id: 3, year: "2027", title: "Gaining Software Knowledge", description: "Spearheading React-based digital transformation projects.", icon: Code },
     { id: 4, year: "2028", title: "Global Impact", description: "Bridging the gap between engineering and software at scale.", icon: Rocket },
 ];
@@ -114,12 +113,23 @@ const AboutPage = () => {
     };
 
     return (
-        <div className="relative min-h-screen">
+        <div className="relative min-h-screen selection:bg-primary/30">
+            {/* High-Fidelity Noise Overlay */}
+            <div className="fixed inset-0 z-50 pointer-events-none opacity-[0.03] overflow-hidden">
+                <div className="absolute inset-0 animate-noise bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
+            </div>
+
+            {/* Vertical Scanlines Effect */}
+            <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[45]"
+                style={{
+                    backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04))',
+                    backgroundSize: '100% 2px, 3px 100%'
+                }}
+            />
+
             <div className="film-grain" aria-hidden="true" />
 
             <div className="relative z-10">
-                <Navbar />
-
                 <main className="pt-32 pb-24">
                     <div className="container mx-auto px-6">
                         {/* Cinematic Hero Header */}
@@ -177,8 +187,17 @@ const AboutPage = () => {
                                         <div className="h-px w-16 bg-gradient-to-r from-primary to-transparent" />
                                         <span className="text-xs font-black tracking-[0.5em] uppercase text-primary text-glow-sm">Core.Identity</span>
                                     </div>
-                                    <h1 className="text-7xl md:text-10xl font-bold font-sora tracking-tighter mb-10 text-white leading-none">
-                                        About <span className="gradient-text">Me</span>
+                                    <h1 className="text-7xl md:text-10xl font-bold font-sora tracking-tighter mb-10 text-white leading-none relative group">
+                                        <span className="relative z-10">About </span>
+                                        <span className="gradient-text relative z-10 italic">Me</span>
+
+                                        {/* Chromatic Aberration Underlays */}
+                                        <span className="absolute inset-0 text-cyan-500 opacity-0 group-hover:opacity-40 transition-opacity -translate-x-1 -z-10 blur-[1px]">
+                                            About Me
+                                        </span>
+                                        <span className="absolute inset-0 text-rose-500 opacity-0 group-hover:opacity-40 transition-opacity translate-x-1 -z-10 blur-[1px]">
+                                            About Me
+                                        </span>
                                     </h1>
                                     <div className="space-y-6 mb-12">
                                         <h2 className="text-5xl lg:text-8xl font-bold text-white tracking-tighter">
@@ -251,6 +270,29 @@ const AboutPage = () => {
                                         ))}
                                     </div>
                                 </div>
+
+                                {/* Floating Data Fragments */}
+                                {[...Array(6)].map((_, i) => (
+                                    <motion.div
+                                        key={`data-${i}`}
+                                        className="absolute text-[8px] font-mono text-primary/10 pointer-events-none whitespace-nowrap hidden lg:block"
+                                        style={{
+                                            top: `${10 + i * 15}%`,
+                                            right: `${5 + (i % 2) * 5}%`,
+                                        }}
+                                        animate={{
+                                            opacity: [0, 0.3, 0],
+                                            x: [0, -30],
+                                        }}
+                                        transition={{
+                                            duration: 5 + i,
+                                            repeat: Infinity,
+                                            delay: i * 2,
+                                        }}
+                                    >
+                                        {`>> LOG_STREAM_${Math.random().toString(16).slice(2, 6).toUpperCase()}`}
+                                    </motion.div>
+                                ))}
                             </div>
                         </div>
 
@@ -379,8 +421,15 @@ const AboutPage = () => {
                                                         <span className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-500 group-hover:text-white transition-colors text-center relative z-10">{skill.name}</span>
 
                                                         <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                            <div className="text-[6px] font-mono text-primary/40 rotate-90 translate-x-1 absolute -right-1 top-4">READ_OUT</div>
                                                             <Sparkles size={8} style={{ color: skill.color }} className="animate-pulse" />
                                                         </div>
+
+                                                        {/* Animated Frame Fragments */}
+                                                        <div className="absolute top-0 left-0 w-2 h-px bg-white/20 group-hover:w-full transition-all duration-700" />
+                                                        <div className="absolute bottom-0 right-0 w-2 h-px bg-white/20 group-hover:w-full transition-all duration-700" />
+                                                        <div className="absolute top-0 left-0 h-2 w-px bg-white/20 group-hover:h-full transition-all duration-700" />
+                                                        <div className="absolute bottom-0 right-0 h-2 w-px bg-white/20 group-hover:h-full transition-all duration-700" />
                                                     </div>
                                                 </motion.div>
                                             ))}

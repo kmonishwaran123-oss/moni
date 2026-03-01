@@ -81,7 +81,7 @@ const CertificationsPage: React.FC = () => {
             title: "Python 101 for Data Science",
             issuer: "IBM",
             date: "2025",
-            logo: "https://cdn.simpleicons.org/ibm/05FEFF",
+            logo: "https://cdn.simpleicons.org/ibm/006699",
             image: pythonlogo,
             verifyUrl: "https://courses.cognitiveclass.ai/certificates/1ee466a5854e44a4ac5e77a7ba26acd2",
             skills: ["Python", "Data Science"],
@@ -101,7 +101,7 @@ const CertificationsPage: React.FC = () => {
             title: "Cyber Security",
             issuer: "Tech Mahindra & NSDC",
             date: "2025",
-            logo: "https://cdn.simpleicons.org/techmahindra/FF4C00",
+            logo: "https://cdn.simpleicons.org/techmahindra/E32119",
             image: techlogo,
             verifyUrl: "https://rfskillingacademy.com/certificate/group/500/236025",
             skills: ["Cyber Security", "AI Basics"],
@@ -121,7 +121,7 @@ const CertificationsPage: React.FC = () => {
             title: "Advanced Prompt Engineering with ChatGPT",
             issuer: "upGrad",
             date: "2026",
-            logo: "https://cdn.simpleicons.org/chatgpt/412991",
+            logo: upgradlogo,
             image: upgradlogo,
             verifyUrl: "https://www.upgrad.com/certificates/advanced-prompt-engineering-with-chatgpt/KAU6N6YJ",
             skills: ["Prompt Engineering", "AI"],
@@ -185,8 +185,6 @@ const CertificationsPage: React.FC = () => {
 
     return (
         <div className="min-h-screen relative bg-gray-900 text-white overflow-hidden">
-            <Navbar />
-
             <main className="pt-32 pb-24">
                 <div className="container mx-auto px-6 relative z-10">
                     {/* HERO */}
@@ -252,57 +250,59 @@ const CertificationsPage: React.FC = () => {
 
                     {/* GRID */}
                     <div id="certifications-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {filteredCertifications.map((cert) => (
-                            <motion.div
-                                key={cert.id}
-                                onClick={() => openModal(cert)}
-                                className="group glass-card border-white/5 relative cursor-pointer overflow-hidden p-0 bg-gray-900/40 backdrop-blur-xl"
-                                whileHover={{ y: -8 }}
-                            >
-                                {/* Image Banner */}
-                                <div className="relative h-44 overflow-hidden">
-                                    <img
-                                        src={cert.image}
-                                        alt={cert.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                        onError={(e) => { (e.target as HTMLImageElement).src = 'https://api.dicebear.com/7.x/shapes/svg?seed=' + cert.title }}
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
+                        {filteredCertifications
+                            .sort((a, b) => b.date.localeCompare(a.date))
+                            .map((cert) => (
+                                <motion.div
+                                    key={cert.id}
+                                    onClick={() => openModal(cert)}
+                                    className="group glass-card border-white/5 relative cursor-pointer overflow-hidden p-0 bg-gray-900/40 backdrop-blur-xl"
+                                    whileHover={{ y: -8 }}
+                                >
+                                    {/* Image Banner */}
+                                    <div className="relative h-44 overflow-hidden">
+                                        <img
+                                            src={cert.image}
+                                            alt={cert.title}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            onError={(e) => { (e.target as HTMLImageElement).src = 'https://api.dicebear.com/7.x/shapes/svg?seed=' + cert.title }}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
 
-                                    {/* Date Badge */}
-                                    <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary/80 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase tracking-tighter text-white">
-                                        {cert.date}
-                                    </div>
-                                </div>
-
-                                <div className="p-6">
-                                    <div className="flex gap-4 mb-6">
-                                        <div className="w-12 h-12 rounded-xl bg-gray-800 border border-white/5 flex-shrink-0 flex items-center justify-center p-2 group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-300">
-                                            <img
-                                                src={cert.logo}
-                                                alt={cert.issuer}
-                                                className="w-full h-full object-contain filter brightness-110 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"
-                                            />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-sm font-bold text-white leading-tight line-clamp-2 group-hover:text-primary transition-colors">{cert.title}</h3>
-                                            <div className="text-[10px] font-bold text-primary tracking-widest uppercase mt-2">{cert.issuer}</div>
+                                        {/* Date Badge */}
+                                        <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary/80 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase tracking-tighter text-white">
+                                            {cert.date}
                                         </div>
                                     </div>
 
-                                    <div className="flex flex-wrap gap-2">
-                                        {cert.skills.slice(0, 3).map((skill) => (
-                                            <span key={skill} className="text-[9px] font-bold tracking-[0.15em] px-2 py-1 rounded bg-white/5 text-gray-400 group-hover:text-primary transition-colors border border-white/5 capitalize">
-                                                {skill}
-                                            </span>
-                                        ))}
-                                        {cert.skills.length > 3 && (
-                                            <span className="text-[9px] font-bold text-gray-600">+{cert.skills.length - 3}</span>
-                                        )}
+                                    <div className="p-6">
+                                        <div className="flex gap-4 mb-6">
+                                            <div className="w-12 h-12 rounded-xl bg-gray-800 border border-white/5 flex-shrink-0 flex items-center justify-center p-2 group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-300">
+                                                <img
+                                                    src={cert.logo}
+                                                    alt={cert.issuer}
+                                                    className="w-full h-full object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all"
+                                                />
+                                            </div>
+                                            <div>
+                                                <h3 className="text-sm font-bold text-white leading-tight line-clamp-2 group-hover:text-primary transition-colors">{cert.title}</h3>
+                                                <div className="text-[10px] font-bold text-primary tracking-widest uppercase mt-2">{cert.issuer}</div>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex flex-wrap gap-2">
+                                            {cert.skills.slice(0, 3).map((skill) => (
+                                                <span key={skill} className="text-[9px] font-bold tracking-[0.15em] px-2 py-1 rounded bg-white/5 text-gray-400 group-hover:text-primary transition-colors border border-white/5 capitalize">
+                                                    {skill}
+                                                </span>
+                                            ))}
+                                            {cert.skills.length > 3 && (
+                                                <span className="text-[9px] font-bold text-gray-600">+{cert.skills.length - 3}</span>
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            ))}
                     </div>
 
                     {!filteredCertifications.length && (
