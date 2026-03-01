@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, MessageCircle, Clock, Globe, ArrowRight, Sparkles, Activity } from 'lucide-react';
-import Navbar from "@/components/Navbar";
 import { Button } from '@/components/ui/button';
 
 interface ContactFormData {
@@ -14,15 +13,58 @@ interface ContactFormData {
 }
 
 const contactInfo = [
-    { icon: Mail, title: "Email", value: "k.monishwaran123@gmail.com", href: "mailto:k.monishwaran123@gmail.com", description: "Inquiry or collaboration" },
-    { icon: Phone, title: "Phone", value: "+91 7358996358", href: "tel:+917358996358", description: "Emergency or consulting" },
-    { icon: MapPin, title: "Location", value: "Chennai, Tamil Nadu", href: "#", description: "Based in South India" },
-    { icon: Activity, title: "Uptime", value: "90.99%", href: "#", description: "Always operational" },
+    {
+        icon: Mail,
+        title: "Email",
+        value: "k.monishwaran123@gmail.com",
+        href: "k.monishwaran123@gmail.com",
+        description: "Send me an email anytime",
+    },
+    {
+        icon: Phone,
+        title: "Phone",
+        value: "+91 7358996358",
+        href: "7358996358",
+        description: "Call me during business hours",
+    },
+    {
+        icon: MapPin,
+        title: "Location",
+        value: "22/45,Palani Amman Kovil South 3rd Street, Triplicane, Chennai-600005, Tamil Nadu",
+        href: "https://www.google.com/maps/place/South+3rd+St,+Triplicane,+Chennai,+Tamil+Nadu+600005/@13.0560718,80.2795493,21z",
+        description: "Available for local meetups",
+    },
+    {
+        icon: Clock,
+        title: "Response Time",
+        value: "Within 24 hours",
+        href: "#",
+        description: "I typically respond quickly",
+    },
 ];
 
 const ContactPage = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>();
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+    };
+
+    const OnCopy = (text: string) => {
+        const cleanText = text.replace(/^(mailto:|tel:)/, '');
+        navigator.clipboard.writeText(cleanText);
+        toast.success("Copied to clipboard!");
+    };
 
     const onSubmit = async (data: ContactFormData) => {
         setIsSubmitting(true);
@@ -69,69 +111,88 @@ const ContactPage = () => {
                         </motion.div>
 
                         {/* Live Status Stats */}
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+                        <motion.div
+                            variants={containerVariants}
+                            initial="hidden"
+                            animate="visible"
+                            className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
+                        >
                             {[
-                                { label: "Successful Pings", value: "95%", icon: Globe, color: "text-emerald-400", bg: "bg-emerald-500/10" },
-                                { label: "Latency Rating", value: "< 24h", icon: Clock, color: "text-amber-400", bg: "bg-amber-500/10" },
-                                { label: "Project Load", value: "Active", icon: Sparkles, color: "text-primary", bg: "bg-primary/10" },
-                                { label: "Active Channels", value: "4+", icon: MessageCircle, color: "text-rose-400", bg: "bg-rose-500/10" }
-                            ].map((stat, i) => (
+                                { label: "Response Rate", value: "95%", icon: MessageCircle },
+                                { label: "Avg Response Time", value: "< 24h", icon: Clock },
+                                { label: "Projects Completed", value: "6+", icon: Globe },
+                                { label: "Happy Clients", value: "1", icon: Mail },
+                            ].map((stat, index) => (
                                 <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: 0.2 + i * 0.1 }}
+                                    key={stat.label}
+                                    variants={itemVariants}
                                     whileHover={{ scale: 1.05, y: -5 }}
-                                    className="glass-card p-10 text-center relative group overflow-hidden"
+                                    className="text-center p-6 lg:p-8 rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 hover:border-cyan-500/50 transition-all duration-300 relative group overflow-hidden"
                                 >
-                                    <div className={`absolute top-0 right-0 w-16 h-16 ${stat.bg} rounded-bl-full opacity-30`} />
-                                    <stat.icon size={24} className={`mx-auto mb-6 ${stat.color} group-hover:scale-110 transition-transform`} />
-                                    <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
-                                    <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">{stat.label}</div>
+                                    <stat.icon className="w-8 h-8 lg:w-10 lg:h-10 mx-auto mb-3 lg:mb-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+                                    <div className="text-2xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-2">
+                                        {stat.value}
+                                    </div>
+                                    <div className="text-sm lg:text-base text-gray-400 font-medium">
+                                        {stat.label}
+                                    </div>
                                 </motion.div>
                             ))}
-                        </div>
+                        </motion.div>
 
-                        <div className="grid lg:grid-cols-2 gap-16 items-start">
-                            {/* Communication Channels */}
-                            <div className="space-y-12">
-                                <div className="space-y-6">
-                                    <h3 className="text-3xl font-bold flex items-center gap-4">
-                                        <div className="w-1.5 h-10 bg-primary rounded-full" />
-                                        Channel Details
-                                    </h3>
-                                    <p className="text-gray-400 text-lg font-light leading-relaxed">
-                                        Always interested in new opportunities, innovative projects, and meaningful collaborations.
+                        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                            {/* Contact Information */}
+                            <motion.div
+                                variants={containerVariants}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="space-y-8 lg:space-y-12"
+                            >
+                                <motion.div variants={itemVariants}>
+                                    <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 lg:mb-8">
+                                        Let's Start a Conversation
+                                    </h2>
+                                    <p className="text-gray-400 text-lg leading-relaxed mb-8 lg:mb-12 font-light">
+                                        I'm always interested in new opportunities, innovative
+                                        projects, and meaningful collaborations. Whether you have a
+                                        project in mind or just want to connect, I'd love to hear from
+                                        you.
                                     </p>
-                                </div>
+                                </motion.div>
 
-                                <div className="grid sm:grid-cols-2 gap-4">
-                                    {contactInfo.map((info, i) => (
+                                {/* Contact Info Cards */}
+                                <div className="grid sm:grid-cols-2 gap-6">
+                                    {contactInfo.map((info, index) => (
                                         <motion.a
-                                            key={i}
-                                            href={info.href}
-                                            whileHover={{ scale: 1.02 }}
-                                            className="glass-card p-8 group relative overflow-hidden flex flex-col items-center text-center cursor-pointer border-white/5 hover:border-primary/30"
+                                            key={index}
+                                            variants={itemVariants}
+                                            onClick={() => OnCopy(info.href)}
+                                            whileHover={{ scale: 1.02, y: -5 }}
+                                            className="block p-6 lg:p-8 rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 hover:border-cyan-500/50 transition-all duration-300 cursor-pointer group"
                                         >
-                                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                                            <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-primary mb-6 shadow-inner group-hover:shadow-glow-sm transition-all group-hover:scale-110">
-                                                <info.icon size={24} />
+                                            <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-cyan-500 to-violet-500 rounded-xl flex items-center justify-center mb-4 lg:mb-6 shadow-inner group-hover:shadow-glow-sm transition-all">
+                                                <info.icon size={26} className="text-white" />
                                             </div>
-                                            <h4 className="text-xl font-bold mb-2 text-white">{info.title}</h4>
-                                            <div className="text-sm font-bold text-primary mb-2 line-clamp-1">{info.value}</div>
-                                            <div className="text-[10px] uppercase font-bold tracking-widest text-gray-500">{info.description}</div>
+                                            <h3 className="font-semibold text-white text-lg lg:text-xl mb-2">
+                                                {info.title}
+                                            </h3>
+                                            <p className="text-cyan-400 text-sm font-medium mb-2">
+                                                {info.value}
+                                            </p>
+                                            <p className="text-gray-500 text-sm">{info.description}</p>
                                         </motion.a>
                                     ))}
                                 </div>
 
                                 {/* Social Nodes */}
-                                <div className="space-y-6">
-                                    <h3 className="text-xl font-bold text-gray-400 tracking-widest uppercase">Peripheral Nodes</h3>
+                                <motion.div variants={itemVariants} className="space-y-6">
+                                    <h3 className="text-[10px] font-bold text-gray-400 tracking-[0.3em] uppercase">Peripheral Nodes</h3>
                                     <div className="flex gap-4">
                                         {[
-                                            { icon: Github, label: "GitHub", href: "https://github.com/kmonishwaran123-oss" },
-                                            { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/monishwaran-k-b463a3363" },
-                                            { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/k._.monish/" }
+                                            { icon: Github, href: "https://github.com/kmonishwaran123-oss" },
+                                            { icon: Linkedin, href: "https://www.linkedin.com/in/monishwaran-k-b463a3363" },
+                                            { icon: Instagram, href: "https://www.instagram.com/k._.monish/" }
                                         ].map((node, i) => (
                                             <motion.a
                                                 key={i}
@@ -139,14 +200,14 @@ const ContactPage = () => {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 whileHover={{ scale: 1.1, y: -5 }}
-                                                className="w-16 h-16 glass-card flex items-center justify-center text-gray-400 hover:text-primary transition-all duration-300 group"
+                                                className="w-14 h-14 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-gray-400 hover:text-primary transition-all duration-300 group"
                                             >
-                                                <node.icon size={24} className="group-hover:rotate-12 transition-transform" />
+                                                <node.icon size={22} className="group-hover:rotate-12 transition-transform" />
                                             </motion.a>
                                         ))}
                                     </div>
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
 
                             {/* Secure Transmission Form */}
                             <motion.div
@@ -158,36 +219,36 @@ const ContactPage = () => {
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[100px] -z-10 animate-pulse" />
                                 <h3 className="text-3xl font-bold mb-10 flex items-center gap-4">
                                     <div className="w-1.5 h-10 bg-violet-500 rounded-full" />
-                                    Signal Encryption
+                                    Let's Start a Conversation
                                 </h3>
 
                                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
-                                            <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 block">Identity Name</label>
-                                            <input {...register("name", { required: true })} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700" placeholder="Name" />
+                                            <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 block">Name</label>
+                                            <input {...register("name", { required: true })} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700" placeholder=" Your Name" />
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 block">Digital Email</label>
-                                            <input {...register("email", { required: true, pattern: /^\S+@\S+$/i })} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700" placeholder="Email@gmail.com" />
+                                            <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 block">Email</label>
+                                            <input {...register("email", { required: true, pattern: /^\S+@\S+$/i })} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700" placeholder="Your@Email.com" />
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 block">Frequency Subject</label>
-                                        <input {...register("subject", { required: true })} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700" placeholder="New Project Proposition" />
+                                        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 block">Subject</label>
+                                        <input {...register("subject", { required: true })} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700" placeholder="What's the about?" />
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 block">Encrypted Message</label>
-                                        <textarea {...register("message", { required: true })} rows={6} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700 resize-none h-40" placeholder="Your signal goes here..." />
+                                        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 block">Message</label>
+                                        <textarea {...register("message", { required: true })} rows={6} className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-5 text-white focus:border-primary/50 focus:bg-white/10 outline-none transition-all placeholder:text-gray-700 resize-none h-40" placeholder=" Tell Me About Your Project Or Just Say Hello" />
                                     </div>
 
                                     <Button type="submit" disabled={isSubmitting} className="w-full h-16 rounded-2xl bg-primary text-white font-bold text-lg shadow-glow hover:shadow-primary/40 transition-all flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50">
                                         {isSubmitting ? (
                                             <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                         ) : (
-                                            <>Transmit Signal <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></>
+                                            <>Send Message <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></>
                                         )}
                                     </Button>
                                 </form>

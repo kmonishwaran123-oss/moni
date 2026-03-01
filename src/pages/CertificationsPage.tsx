@@ -21,8 +21,36 @@ import pythonlogo from "@/assets/python.jpg";
 import ioticon from "@/assets/The future of IoT is at the edge! ️ Dive into….jpg";
 import upgradlogo from "@/assets/upgrad.jpg";
 import techlogo from "@/assets/tech.jpg";
+import techMahindraWine from "@/assets/Tech_Mahindra-Logo.wine.png";
+import ibmWine from "@/assets/IBM-Logo.wine.png";
+import awsWine from "@/assets/Amazon_Web_Services-Logo.wine.png";
 import delogo from "@/assets/6 Ways To Start Programming - EMR Industry.jpg";
 import tatalogo from "@/assets/Tata Motors Logo Meaning and History [Tata Motors symbol].jpg";
+import innoverseLogo from "@/assets/ino.jpeg";
+import brainstormLogo from "@/assets/Brainstorm mini hackathon.jpeg";
+import codeNexusLogo from "@/assets/Code Nexus.jpeg";
+import nexusIcon from "@/assets/logo2.png";
+import brainstormIcon from "@/assets/pr.png";
+import innoverseIcon from "@/assets/nov.jpg";
+import droneWorkshopImg from "@/assets/Drone workshop.jpeg";
+import gbuSairamImg from "@/assets/sairam- GBU.jpeg";
+import bajaCeImg from "@/assets/baja ce.jpeg";
+import nsdcLogo from "@/assets/nsdc logo.png";
+
+// PDF Certificates
+import schemaPDF from "@/assets/cerficate/Schema Design Optimization.pdf";
+import relationalPDF from "@/assets/cerficate/Relational to Document Model.pdf";
+import mongodbPythonPDF from "@/assets/cerficate/Connecting to MongoDB in Python.pdf";
+import dataVizPDF from "@/assets/cerficate/Data Visualization.pdf";
+import pythonPDF from "@/assets/cerficate/certificate-python .pdf";
+import ibmDataSciencePDF from "@/assets/cerficate/Certificate of Completion-ibm.pdf";
+import cyberSecurityPDF from "@/assets/cerficate/certificate-cyber sercity.pdf";
+import googlePDF from "@/assets/cerficate/certificate-google.pdf";
+import upgradPDF from "@/assets/cerficate/upgrad certificate.pdf";
+import frontendPDF from "@/assets/cerficate/Certificate of Completion-frontend.pdf";
+import connectionsPDF from "@/assets/cerficate/connections vel tech.pdf";
+import paperPresentationPDF from "@/assets/cerficate/certificate- paper Presentation- vel tecch.pdf";
+import maiiyamInternshipPDF from "@/assets/cerficate/internship certificate- maiiyam.pdf";
 
 const CertificationsPage: React.FC = () => {
     const certifications = [
@@ -33,7 +61,7 @@ const CertificationsPage: React.FC = () => {
             date: "2025",
             logo: "https://cdn.simpleicons.org/mongodb/47A141",
             image: mongoDBicon,
-            verifyUrl: "https://learn.mongodb.com/c/jPRqKMxoS32a2xCHBAxH8Q",
+            verifyUrl: schemaPDF,
             skills: ["MongoDB"],
         },
         {
@@ -43,7 +71,7 @@ const CertificationsPage: React.FC = () => {
             date: "2025",
             logo: "https://cdn.simpleicons.org/mongodb/47A141",
             image: mongoDBicon,
-            verifyUrl: "https://learn.mongodb.com/c/j8yCqbZ2S9uU5yCHWgfz5w",
+            verifyUrl: relationalPDF,
             skills: ["MongoDB", "NoSQL"],
         },
         {
@@ -53,7 +81,7 @@ const CertificationsPage: React.FC = () => {
             date: "2025",
             logo: "https://cdn.simpleicons.org/mongodb/47A141",
             image: mongoDBicon,
-            verifyUrl: "https://learn.mongodb.com/c/_IibyEVCQKecFHe_O4_CBA",
+            verifyUrl: mongodbPythonPDF,
             skills: ["MongoDB", "Python"],
         },
         {
@@ -63,7 +91,7 @@ const CertificationsPage: React.FC = () => {
             date: "2025",
             logo: "https://cdn.simpleicons.org/tata/004276",
             image: tatalogo,
-            verifyUrl: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_3TgX7Ncw8tHkDLtum_1750919385252_completion_certificate.pdf",
+            verifyUrl: dataVizPDF,
             skills: ["Data Visualization", "Business Insights", "Data Analysis"],
         },
         {
@@ -71,9 +99,9 @@ const CertificationsPage: React.FC = () => {
             title: "Python Programming",
             issuer: "NSDC & Reliance Foundation",
             date: "2025",
-            logo: "https://cdn.simpleicons.org/relianceindustrieslimited/004B8C",
+            logo: nsdcLogo,
             image: pythonlogo,
-            verifyUrl: "https://rfskillingacademy.com/certificate/group/300/235783",
+            verifyUrl: pythonPDF,
             skills: ["Python", "Programming"],
         },
         {
@@ -81,9 +109,9 @@ const CertificationsPage: React.FC = () => {
             title: "Python 101 for Data Science",
             issuer: "IBM",
             date: "2025",
-            logo: "https://cdn.simpleicons.org/ibm/006699",
-            image: pythonlogo,
-            verifyUrl: "https://courses.cognitiveclass.ai/certificates/1ee466a5854e44a4ac5e77a7ba26acd2",
+            logo: ibmWine,
+            image: ibmWine,
+            verifyUrl: ibmDataSciencePDF,
             skills: ["Python", "Data Science"],
         },
         {
@@ -91,7 +119,7 @@ const CertificationsPage: React.FC = () => {
             title: "IOT-Network Specialist",
             issuer: "NSDC & Reliance Foundation",
             date: "2025",
-            logo: "https://cdn.simpleicons.org/relianceindustrieslimited/004B8C",
+            logo: nsdcLogo,
             image: ioticon,
             verifyUrl: "https://rfskillingacademy.com/certificate/group/500/236025",
             skills: ["IoT", "Embedded Systems"],
@@ -101,9 +129,9 @@ const CertificationsPage: React.FC = () => {
             title: "Cyber Security",
             issuer: "Tech Mahindra & NSDC",
             date: "2025",
-            logo: "https://cdn.simpleicons.org/techmahindra/E32119",
-            image: techlogo,
-            verifyUrl: "https://rfskillingacademy.com/certificate/group/500/236025",
+            logo: techMahindraWine,
+            image: techMahindraWine,
+            verifyUrl: cyberSecurityPDF,
             skills: ["Cyber Security", "AI Basics"],
         },
         {
@@ -113,7 +141,7 @@ const CertificationsPage: React.FC = () => {
             date: "2025",
             logo: "https://cdn.simpleicons.org/google/4285F4",
             image: googleicon,
-            verifyUrl: "https://edu.exceedlms.com/student/award/gXQ5bcu6DsWgq8LcFJwMKBmB",
+            verifyUrl: googlePDF,
             skills: ["AI"],
         },
         {
@@ -123,7 +151,7 @@ const CertificationsPage: React.FC = () => {
             date: "2026",
             logo: upgradlogo,
             image: upgradlogo,
-            verifyUrl: "https://www.upgrad.com/certificates/advanced-prompt-engineering-with-chatgpt/KAU6N6YJ",
+            verifyUrl: upgradPDF,
             skills: ["Prompt Engineering", "AI"],
         },
         {
@@ -131,10 +159,70 @@ const CertificationsPage: React.FC = () => {
             title: "Front-End Development",
             issuer: "Reliance Foundation & NSDC",
             date: "2026",
-            logo: "https://cdn.simpleicons.org/relianceindustrieslimited/004B8C",
+            logo: nsdcLogo,
             image: delogo,
-            verifyUrl: "https://rfskillingacademy.com/certificate/group/300/235782",
+            verifyUrl: frontendPDF,
             skills: ["HTML", "CSS", "JavaScript"],
+        },
+        {
+            id: 12,
+            title: "AWS Academy Graduate - Cloud Foundations",
+            issuer: "Amazon Web Services (AWS)",
+            date: "2025",
+            logo: awsWine,
+            image: awsWine,
+            verifyUrl: "https://www.credly.com/org/amazon-web-services/badge/aws-academy-graduate-aws-academy-cloud-foundations",
+            skills: ["Cloud Computing", "AWS", "Infrastructure"],
+        },
+        {
+            id: 13,
+            title: "Innoverse Hackathon",
+            issuer: "Meenakshi Sundararajan Engineering College",
+            date: "2026",
+            logo: innoverseIcon,
+            image: innoverseLogo,
+            verifyUrl: innoverseLogo,
+            skills: ["IOT", "Hardware Integration", "Prototyping"],
+        },
+        {
+            id: 14,
+            title: "Brainstorm Mini Hackathon",
+            issuer: "Meenakshi Sundararajan Engineering College",
+            date: "2026",
+            logo: brainstormIcon,
+            image: brainstormLogo,
+            verifyUrl: brainstormLogo,
+            skills: ["Product Development", "Design Thinking", "Innovation"],
+        },
+        {
+            id: 15,
+            title: "Code Nexus Hackathon",
+            issuer: "Meenakshi Sundararajan Engineering College",
+            date: "2026",
+            logo: nexusIcon,
+            image: codeNexusLogo,
+            verifyUrl: codeNexusLogo,
+            skills: ["IT", "Software Development", "Problem Solving"],
+        },
+        {
+            id: 19,
+            title: "Industrial Internship",
+            issuer: "Maiiyam Engineering",
+            date: "2024",
+            logo: "https://api.dicebear.com/7.x/shapes/svg?seed=Maiiyam",
+            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+            verifyUrl: maiiyamInternshipPDF,
+            skills: ["Industrial Exposure", "Mechanical Engineering", "Manufacturing"],
+        },
+        {
+            id: 20,
+            title: "Drone Workshop & Control Systems",
+            issuer: "Meenakshi Sundararajan Engineering College",
+            date: "2025",
+            logo: "https://api.dicebear.com/7.x/shapes/svg?seed=Drone",
+            image: droneWorkshopImg,
+            verifyUrl: droneWorkshopImg,
+            skills: ["Drones", "Control Systems", "Flight Mechanics"],
         },
 
     ];
@@ -218,7 +306,7 @@ const CertificationsPage: React.FC = () => {
                     >
                         {[
                             { label: "Certificates", value: certifications.length, icon: BadgeCheck, gradient: "from-cyan-500 to-blue-600" },
-                            { label: "Hackathons", value: "2", icon: CircuitBoard, gradient: "from-purple-500 to-pink-600" },
+                            { label: "Hackathons", value: "5", icon: CircuitBoard, gradient: "from-purple-500 to-pink-600" },
                             { label: "Internships", value: "2", icon: GraduationCap, gradient: "from-emerald-500 to-teal-600" },
                             { label: "Specializations", value: "3+", icon: NotebookPen, gradient: "from-orange-500 to-red-600" },
                             { label: "Deployments", value: "5+", icon: Rocket, gradient: "from-violet-500 to-purple-600" },
@@ -344,13 +432,33 @@ const CertificationsPage: React.FC = () => {
                                 </button>
                             </div>
 
-                            <div className="aspect-video bg-black rounded-xl border border-white/10 relative group overflow-hidden shadow-2xl">
-                                <img
-                                    src={selectedCert.verifyUrl}
-                                    alt="Certificate"
-                                    className="w-full h-full object-contain"
-                                    onError={(e) => { (e.target as HTMLImageElement).src = 'https://api.dicebear.com/7.x/identicon/svg?seed=' + selectedCert.title }}
-                                />
+                            <div className="aspect-[4/3] bg-black rounded-xl border border-white/10 relative group overflow-hidden shadow-2xl">
+                                {selectedCert.verifyUrl.endsWith('.pdf') ? (
+                                    <iframe
+                                        src={`${selectedCert.verifyUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+                                        className="w-full h-full border-none"
+                                        title="Certificate PDF"
+                                    />
+                                ) : (
+                                    <img
+                                        src={selectedCert.verifyUrl}
+                                        alt="Certificate"
+                                        className="w-full h-full object-contain"
+                                        onError={(e) => { (e.target as HTMLImageElement).src = 'https://api.dicebear.com/7.x/identicon/svg?seed=' + selectedCert.title }}
+                                    />
+                                )}
+
+                                <div className="absolute bottom-4 right-4 flex gap-2">
+                                    <a
+                                        href={selectedCert.verifyUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="px-4 py-2 rounded-lg bg-primary/90 text-white text-xs font-bold backdrop-blur-md border border-white/10 hover:bg-primary transition-all flex items-center gap-2"
+                                    >
+                                        View Full Document
+                                        <Rocket size={14} />
+                                    </a>
+                                </div>
                             </div>
                         </motion.div>
                     </motion.div>

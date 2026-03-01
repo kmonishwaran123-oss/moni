@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import solidWorksIcon from '../assets/solidwords.png';
-import awsIcon from '../assets/aws.png';
+import awsIcon from '../assets/Amazon_Web_Services-Logo.wine.png';
+import ibmIcon from '../assets/IBM-Logo.wine.png';
+import techMahindraIcon from '../assets/Tech_Mahindra-Logo.wine.png';
 import {
     GraduationCap,
     Target,
@@ -89,6 +91,10 @@ const skillsData = [
     { name: "Netlify", icon: "https://cdn.simpleicons.org/netlify/00ADBB", type: "url", category: "Utilities", color: "#00ADBB" },
     { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E", type: "url", category: "Utilities", color: "#F24E1E" },
     { name: "Docker", icon: "docker", type: "devicon", category: "Utilities", color: "#2496ED" },
+
+    // Professional Partners/Skills
+    { name: "IBM", icon: ibmIcon, type: "url", category: "Utilities", color: "#006699" },
+    { name: "Tech Mahindra", icon: techMahindraIcon, type: "url", category: "Utilities", color: "#E32119" },
 ];
 
 
@@ -414,7 +420,7 @@ const AboutPage = () => {
                                                                 <img
                                                                     src={skill.icon}
                                                                     alt={skill.name}
-                                                                    className={`${['SolidWorks', 'AWS'].includes(skill.name) ? 'w-14 h-14' : 'w-10 h-10'} object-contain brightness-90 group-hover:brightness-110 relative z-10`}
+                                                                    className={`${['SolidWorks', 'AWS', 'IBM', 'Tech Mahindra'].includes(skill.name) ? 'w-14 h-14' : 'w-10 h-10'} object-contain brightness-90 group-hover:brightness-110 relative z-10`}
                                                                 />
                                                             )}
                                                         </div>

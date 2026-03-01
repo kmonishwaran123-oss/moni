@@ -166,6 +166,151 @@ export const projects: Project[] = [
   },
 ];
 
+export interface TimelineItem {
+  id: number;
+  year: string;
+  title: string;
+  company: string;
+  description: string;
+}
+
+export const timeline: TimelineItem[] = [
+  {
+    id: 1,
+    year: "2024",
+    title: "Engineering",
+    company: "Meenakshi Sundararajan Engineering College",
+    description: "Began BE.Mechanical - Focused on core engineering foundations and first steps in technical problem solving."
+  },
+  {
+    id: 5,
+    year: "2024",
+    title: "National Level Symposium",
+    company: "Veltech University",
+    description: "Participated in 'Connections' and 'Paper Presentation' at a national level platform, honing technical research and competitive problem-solving skills."
+  },
+  {
+    id: 2,
+    year: "2025",
+    title: "IoT-Hackathon Runner-up",
+    company: "Symposium",
+    description: "Won second prize in IoT Hackathon - Demonstrated proficiency in smart hardware integration."
+  },
+  {
+    id: 3,
+    year: "2026",
+    title: "Software Evolution",
+    company: "Digital Transformation",
+    description: "Spearheading React-based projects - Bridging the gap between hardware logic and software innovation."
+  },
+  {
+    id: 4,
+    year: "2028",
+    title: "Global Impact",
+    company: "Engineering at Scale",
+    description: "Engineering and software leadership - Delivering high-impact hybrid solutions globally."
+  }
+];
+
+export const certifications = [
+  {
+    id: 1,
+    title: "Schema Design Optimization",
+    issuer: "MongoDB",
+    date: "2025"
+  },
+  {
+    id: 2,
+    title: "Relational To Document Model",
+    issuer: "MongoDB",
+    date: "2025"
+  },
+  {
+    id: 6,
+    title: "Python 101 for Data Science",
+    issuer: "IBM",
+    date: "2025"
+  },
+  {
+    id: 10,
+    title: "Advanced Prompt Engineering with ChatGPT",
+    issuer: "upGrad",
+    date: "2026"
+  },
+  {
+    id: 12,
+    title: "AWS Academy Graduate - Cloud Foundations",
+    issuer: "Amazon Web Services (AWS)",
+    date: "2025"
+  }
+];
+
+export const events = [
+  {
+    id: 1,
+    title: "SAE India H-Baja",
+    date: "2025 - Present",
+    achievement: "Finalist",
+    description: "Designing and fabricating a Hydrogen-Petrol dual-fuel engine system and battery thermal management."
+  },
+  {
+    id: 3,
+    title: "Guess Build Unlock",
+    date: "October 2025",
+    achievement: "Winner",
+    description: "Won first prize in structural innovation symposium at Sri Sai Ram Engineering College."
+  },
+  {
+    id: 2,
+    title: "Hackintym'25 2.0",
+    date: "October 2025",
+    achievement: "Top 10 Finalist",
+    description: "Solved real-world engineering problems through modern software and hardware integration in a 48-hour sprint."
+  },
+  {
+    id: 6,
+    title: "Connections - Veltech Symposium",
+    date: "2024",
+    achievement: "Participant",
+    description: "Competed in the national level 'Connections' event, enhancing cross-disciplinary technical reasoning."
+  },
+  {
+    id: 7,
+    title: "Paper Presentation - Veltech Symposium",
+    date: "2024",
+    achievement: "Presented",
+    description: "Documented and presented engineering research at a national symposium platform."
+  },
+  {
+    id: 8,
+    title: "Guess Build Code (GBU)",
+    date: "October 2025",
+    achievement: "Winner",
+    description: "Secured 1st place in the technical coding challenge at Sri Sai Ram Engineering College."
+  },
+  {
+    id: 9,
+    title: "Innoverse Hackathon",
+    date: "2026",
+    achievement: "Participant",
+    description: "IoT-focused hackathon involving hardware-software integration."
+  },
+  {
+    id: 10,
+    title: "Brainstorm Mini Hackathon",
+    date: "2026",
+    achievement: "Participant",
+    description: "Product development competition focused on design thinking."
+  },
+  {
+    id: 11,
+    title: "Code Nexus Hackathon",
+    date: "2026",
+    achievement: "Participant",
+    description: "IT-based hackathon solving complex software challenges."
+  }
+];
+
 export const skills = {
   programming: [
     { name: "Python", level: 70 },

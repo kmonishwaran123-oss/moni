@@ -21,7 +21,7 @@ export function Timeline() {
             My path through education, work, and accomplishments.
           </p>
         </motion.div>
-        
+
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Career Timeline */}
           <div>
@@ -34,14 +34,14 @@ export function Timeline() {
               <Calendar className="text-primary" />
               Timeline
             </motion.h3>
-            
+
             <div className="relative">
               {/* Vertical Line */}
               <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent" />
-              
+
               {timeline.map((item, index) => (
                 <motion.div
-                  key={item.year}
+                  key={item.id}
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -50,7 +50,7 @@ export function Timeline() {
                 >
                   {/* Dot */}
                   <div className="absolute left-2 top-1 w-4 h-4 rounded-full bg-primary border-4 border-background" />
-                  
+
                   <div className="glass-card p-5">
                     <span className="text-xs font-semibold text-primary uppercase tracking-wider">
                       {item.year}
@@ -62,9 +62,10 @@ export function Timeline() {
                 </motion.div>
               ))}
             </div>
-            
+
             <motion.a
-              href="/Monishwaran_K_Resume.pdf"
+              href={`${import.meta.env.BASE_URL}Monishwaran_K_Resume.pdf`}
+              download="Monishwaran_K_Resume.pdf"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -75,7 +76,7 @@ export function Timeline() {
               Download Full Resume
             </motion.a>
           </div>
-          
+
           {/* Events & Achievements */}
           <div>
             <motion.h3
@@ -87,7 +88,7 @@ export function Timeline() {
               <Award className="text-accent" />
               Events & Achievements
             </motion.h3>
-            
+
             <div className="space-y-4">
               {events.map((event, index) => (
                 <motion.div
@@ -113,7 +114,7 @@ export function Timeline() {
                 </motion.div>
               ))}
             </div>
-            
+
             {/* Certifications */}
             <motion.h4
               initial={{ opacity: 0 }}
@@ -123,7 +124,7 @@ export function Timeline() {
             >
               Certifications
             </motion.h4>
-            
+
             <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
               {certifications.map((cert, index) => (
                 <motion.div

@@ -12,16 +12,26 @@ import {
     Award,
     Briefcase,
     GraduationCap,
+    Rocket,
 } from "lucide-react";
 import SearchBar from "../components/SearchBar";
 import Navbar from "@/components/Navbar";
 
 // Images
-import bajaImage from "@/assets/baja-e.jpg";
+import bajaImage from "@/assets/baja ce.jpeg";
 import hackathonImage from "@/assets/Hackintym'25 2.0.jpg";
 import symposiumImage from "@/assets/1761585584912.jpg";
 import codingImage from "@/assets/python.jpg";
-import droneImage from "@/assets/The future of IoT is at the edge! ️ Dive into….jpg";
+import droneImage from "@/assets/Drone workshop.jpeg";
+import gbuImage from "@/assets/sairam- GBU.jpeg";
+import innoverseImage from "@/assets/ino.jpeg";
+import brainstormImage from "@/assets/Brainstorm mini hackathon.jpeg";
+import codeNexusImage from "@/assets/Code Nexus.jpeg";
+
+// PDF Certificates
+import connectionsPDF from "@/assets/cerficate/connections vel tech.pdf";
+import paperPresentationPDF from "@/assets/cerficate/certificate- paper Presentation- vel tecch.pdf";
+import maiiyamInternshipPDF from "@/assets/cerficate/internship certificate- maiiyam.pdf";
 
 const EventsPage: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState("all");
@@ -41,11 +51,12 @@ const EventsPage: React.FC = () => {
             image: bajaImage,
             technologies: ["Electric Vehicle", "CAD", "Simulations", "Dynamics"],
             featured: true,
+            certificateUrl: bajaImage,
         },
         {
             id: 2,
             title: "Hackintym'25 2.0",
-            type: "hackathon",
+            type: ["hackathon", "Club Event"],
             role: "Participant",
             date: "October 2025",
             location: "Chennai, India",
@@ -59,17 +70,17 @@ const EventsPage: React.FC = () => {
         },
         {
             id: 3,
-            title: "Guess Build Unlock",
+            title: "Guess Build Code (GBU)",
             type: "competition",
             role: "Winner",
             date: "October 2025",
             location: "Sri Sai Ram Engineering College",
-            description:
-                "Innovation-focused symposium encouraging creative engineering solutions for complex infrastructural challenges.",
+            description: "Intensive technical coding competition involving 'Guessing' the output and 'Building' optimized logic for complex C-programming challenges.",
             achievement: "Winner",
-            image: symposiumImage,
-            technologies: ["Design Thinking", "Prototyping", "Structure"],
+            image: gbuImage,
+            technologies: ["C-Programming", "Logic Building", "Code Optimization"],
             featured: true,
+            certificateUrl: gbuImage,
         },
         {
             id: 4,
@@ -98,6 +109,77 @@ const EventsPage: React.FC = () => {
             image: droneImage,
             technologies: ["Drones", "Control Systems", "Flight Mechanics"],
             featured: false,
+            certificateUrl: droneImage,
+        },
+        {
+            id: 6,
+            title: "Connections - Veltech Symposium",
+            type: "competition",
+            role: "Participant",
+            date: "2024",
+            location: "Veltech University, Chennai",
+            description: "A national level engineering symposium event testing logical reasoning and technical cross-connections.",
+            achievement: "Participant",
+            image: symposiumImage,
+            technologies: ["Logical Reasoning", "Problem Solving"],
+            featured: false,
+            certificateUrl: connectionsPDF,
+        },
+        {
+            id: 7,
+            title: "Paper Presentation - Veltech Symposium",
+            type: "competition",
+            role: "Participant",
+            date: "2024",
+            location: "Veltech University, Chennai",
+            description: "National level symposium event involved in presenting innovative engineering research and solutions.",
+            achievement: "Presented",
+            image: symposiumImage,
+            technologies: ["Research", "Public Speaking"],
+            featured: false,
+            certificateUrl: paperPresentationPDF,
+        },
+        {
+            id: 9,
+            title: "Innoverse Hackathon",
+            type: ["hackathon", "Club Event"],
+            role: "Participant",
+            date: "2026",
+            location: "Meenakshi Sundararajan Engineering College",
+            description: "An IoT-focused hackathon involving hardware-software integration and real-time data monitoring.",
+            achievement: "Participant",
+            image: innoverseImage,
+            technologies: ["IOT", "Hardware Integration", "Prototyping"],
+            featured: false,
+            certificateUrl: innoverseImage,
+        },
+        {
+            id: 10,
+            title: "Brainstorm Mini Hackathon",
+            type: ["hackathon", "Club Event"],
+            role: "Participant",
+            date: "2026",
+            location: "Meenakshi Sundararajan Engineering College",
+            description: "Fast-paced product development competition focused on design thinking and innovative solutions.",
+            achievement: "Participant",
+            image: brainstormImage,
+            technologies: ["Product Development", "Design Thinking", "Innovation"],
+            featured: false,
+            certificateUrl: brainstormImage,
+        },
+        {
+            id: 11,
+            title: "Code Nexus Hackathon",
+            type: ["hackathon", "Club Event"],
+            role: "Participant",
+            date: "2026",
+            location: "Meenakshi Sundararajan Engineering College",
+            description: "IT-based hackathon solving complex software challenges through collaborative coding.",
+            achievement: "Participant",
+            image: codeNexusImage,
+            technologies: ["IT", "Software Development", "Problem Solving"],
+            featured: false,
+            certificateUrl: codeNexusImage,
         },
     ];
 
@@ -111,7 +193,10 @@ const EventsPage: React.FC = () => {
 
     const filteredEvents = events.filter((event) => {
         const matchesCategory =
-            selectedCategory === "all" || event.type === selectedCategory;
+            selectedCategory === "all" ||
+            (Array.isArray(event.type)
+                ? event.type.includes(selectedCategory)
+                : event.type === selectedCategory);
         const matchesSearch =
             event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
             event.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -174,7 +259,7 @@ const EventsPage: React.FC = () => {
         },
         {
             label: "Prize Money Won",
-            value: "₹500+",
+            value: "₹1000+",
             icon: Star,
             gradient: "from-violet-500 to-purple-600",
         },
@@ -333,7 +418,9 @@ const EventsPage: React.FC = () => {
 
                                                 {/* Type Badge */}
                                                 <div className="absolute bottom-4 left-4 px-3 py-1 bg-gray-900/80 backdrop-blur-sm rounded-lg text-xs font-medium text-cyan-400 border border-cyan-500/30">
-                                                    {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
+                                                    {Array.isArray(event.type)
+                                                        ? event.type[0].charAt(0).toUpperCase() + event.type[0].slice(1)
+                                                        : event.type.charAt(0).toUpperCase() + event.type.slice(1)}
                                                 </div>
 
                                                 {/* Role Badge */}
@@ -385,6 +472,21 @@ const EventsPage: React.FC = () => {
                                                         </span>
                                                     )}
                                                 </div>
+
+                                                {/* Action Link */}
+                                                {event.certificateUrl && (
+                                                    <div className="mt-6 pt-6 border-t border-gray-700/50">
+                                                        <a
+                                                            href={event.certificateUrl}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gray-900/50 border border-gray-700/50 text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300 text-sm font-medium"
+                                                        >
+                                                            Verify Certificate
+                                                            <Rocket size={14} />
+                                                        </a>
+                                                    </div>
+                                                )}
                                             </div>
 
                                             {/* Decorative Corner */}
