@@ -130,7 +130,7 @@ export function Hero() {
               className="flex gap-4 justify-center lg:justify-start"
             >
               {[
-                { icon: Github, href: "https://github.com/kmonishwaran123-oss" },
+                { icon: Github, href: "https://github.com/Monishwarann" },
                 { icon: Linkedin, href: "https://www.linkedin.com/in/monishwaran-k-b463a3363" },
                 { icon: Instagram, href: "https://www.instagram.com/k._.monish/" },
                 { icon: Mail, href: "mailto:k.monishwaran123@gmail.com" },

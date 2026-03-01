@@ -172,7 +172,7 @@ const HomePage = () => {
                 className="mt-16 flex justify-center gap-8"
               >
                 {[
-                  { icon: Github, href: "https://github.com/kmonishwaran123-oss" },
+                  { icon: Github, href: "https://github.com/Monishwarann" },
                   { icon: Linkedin, href: "https://www.linkedin.com/in/monishwaran-k-b463a3363" },
                   { icon: Instagram, href: "https://www.instagram.com/k._.monish/" }
                 ].map((social, i) => (

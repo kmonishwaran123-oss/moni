@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
   const socialLinks = [
     {
       icon: Github,
-      href: "https://github.com/kmonishwaran123-oss",
+      href: "https://github.com/Monishwarann",
       label: "GitHub",
       color: "text-gray-500",
       bg: "gray-600",

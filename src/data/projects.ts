@@ -77,7 +77,7 @@ export const projects: Project[] = [
     result: "Successfully extracted key information from resumes with high accuracy and provided actionable insights for recruiters.",
     images: [resumeImage],
     tech: ['Streamlit', 'LangChain', 'Ollama'],
-    repoUrl: "https://github.com/kmonishwaran123-oss/RAG-ChatBot",
+    repoUrl: "https://github.com/Monishwarann/RAG-ChatBot",
     featured: true,
   },
   {
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     result: "Successfully analyzed F1 race data with high accuracy and provided actionable insights for teams and drivers.",
     images: [f1Image],
     tech: ['Python', 'Machine Learning', 'Data Analysis'],
-    repoUrl: "https://github.com/kmonishwaran123-oss/F1",
+    repoUrl: "https://github.com/Monishwarann/F1",
     featured: false,
   },
   {
@@ -105,7 +105,7 @@ export const projects: Project[] = [
     result: "Successfully launched the e-commerce platform with a growing user base and positive feedback from customers.",
     images: [mscart],
     tech: ['React', 'Node.js', 'Stripe', 'MongoDB', 'Express', 'Tailwind CSS'],
-    repoUrl: "https://github.com/kmonishwaran123-oss/E-commerce",
+    repoUrl: "https://github.com/Monishwarann/E-commerce",
     featured: true,
   },
   {
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     result: "Achieved high detection rates for zero-day phishing attempts with an average response time of 1041ms, as demonstrated in live security trials.",
     images: [cyberShieldImage],
     tech: ['React', 'Gemini AI', 'Python', 'ML Ensemble', 'API Integration', 'Tailwind CSS'],
-    repoUrl: "https://github.com/kmonishwaran123-oss/Cyber-Security-Project",
+    repoUrl: "https://github.com/Monishwarann/Cyber-Security-Project",
     featured: true,
   },
   {
@@ -133,7 +133,7 @@ export const projects: Project[] = [
     result: "Successfully demonstrated a transparent tracking system that reduces recall times and improves consumer confidence.",
     images: [trustBiteImage],
     tech: ['Blockchain', 'IoT', 'React', 'Smart Contracts'],
-    repoUrl: "https://github.com/kmonishwaran123-oss/trustbite",
+    repoUrl: "https://github.com/Monishwarann/trustbite",
     featured: false,
   },
   {
@@ -147,7 +147,7 @@ export const projects: Project[] = [
     result: "Created a highly shareable platform with over 90% positive user engagement score.",
     images: [hbdImage],
     tech: ['React', 'Framer Motion', 'CSS3 Animation'],
-    repoUrl: "https://github.com/kmonishwaran123-oss/Birthday",
+    repoUrl: "https://github.com/Monishwarann/Birthday",
     featured: false,
   },
   {
@@ -161,7 +161,7 @@ export const projects: Project[] = [
     result: "Reduced manual inspection time by 40% and improved response time to potential leaks by 3x.",
     images: [safeFlowImage],
     tech: ['IoT', 'Embedded Systems', 'React', 'Dashboard'],
-    repoUrl: "https://github.com/kmonishwaran123-oss/Safe-Flow",
+    repoUrl: "https://github.com/Monishwarann/Safe-Flow",
     featured: false,
   },
 ];
