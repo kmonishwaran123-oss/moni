@@ -71,16 +71,16 @@ const ProjectsPage: React.FC = () => {
                             </span>
                         </motion.div>
 
-                        <h1 className="text-5xl md:text-8xl font-bold font-sora tracking-tighter mb-6">
+                        <h1 className="text-4xl md:text-6xl font-bold font-sora tracking-tighter mb-4">
                             <span className="gradient-text">Projects</span>
                         </h1>
-                        <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto">
+                        <p className="text-lg text-gray-400 font-light max-w-2xl mx-auto">
                             Engineering solutions that scale. A collection of works spanning across web systems, machine learning, and core engineering.
                         </p>
                     </div>
 
                     {/* STATS */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
                         {[
                             { label: "Total Projects", value: projects.length, icon: Rocket, gradient: "from-cyan-500 to-blue-600" },
                             { label: "Featured", value: projects.filter(p => p.featured).length, icon: Star, gradient: "from-yellow-500 to-orange-600" },
@@ -90,14 +90,14 @@ const ProjectsPage: React.FC = () => {
                             <motion.div
                                 key={i}
                                 whileHover={{ scale: 1.05, y: -5 }}
-                                className="glass-card p-6 border-white/5 bg-card/40 backdrop-blur-xl group relative overflow-hidden"
+                                className="glass-card p-4 border-white/5 bg-card/40 backdrop-blur-xl group relative overflow-hidden"
                             >
                                 {/* HUD Corner Markers */}
                                 <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary/40" />
                                 <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary/40" />
 
-                                <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-r ${stat.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
-                                    <stat.icon size={20} className="text-white" />
+                                <div className={`w-10 h-10 mx-auto mb-3 rounded-lg bg-gradient-to-r ${stat.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                                    <stat.icon size={18} className="text-white" />
                                 </div>
                                 <div className="text-2xl font-bold text-center text-foreground transition-colors duration-500">{stat.value}</div>
                                 <div className="text-[10px] font-bold text-muted-foreground text-center tracking-widest uppercase mt-1 transition-colors duration-500">{stat.label}</div>
@@ -105,7 +105,7 @@ const ProjectsPage: React.FC = () => {
                         ))}
                     </div>
 
-                    <div className="max-w-xl mx-auto mb-16">
+                    <div className="max-w-xl mx-auto mb-10">
                         <SearchBar
                             searchTerm={searchTerm}
                             onSearchChange={setSearchTerm}
@@ -114,7 +114,7 @@ const ProjectsPage: React.FC = () => {
                         />
                     </div>
 
-                    <div className="flex flex-wrap justify-center gap-4 mb-16">
+                    <div className="flex flex-wrap justify-center gap-3 mb-10">
                         {categories.map((cat) => (
                             <button
                                 key={cat.id}
@@ -130,7 +130,7 @@ const ProjectsPage: React.FC = () => {
                         ))}
                     </div>
 
-                    <div id="projects-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div id="projects-grid" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         {filteredProjects.map((project) => (
                             <motion.div
                                 key={project.id}
@@ -138,7 +138,7 @@ const ProjectsPage: React.FC = () => {
                                 className="group glass-card border-white/5 relative cursor-pointer overflow-hidden p-0 bg-gray-900/40 backdrop-blur-xl"
                                 whileHover={{ y: -10 }}
                             >
-                                <div className="relative h-48 overflow-hidden">
+                                <div className="relative h-36 overflow-hidden">
                                     <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onError={(e) => { (e.target as HTMLImageElement).src = 'https://api.dicebear.com/7.x/shapes/svg?seed=' + project.title }} />
                                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
                                     {project.featured && (
@@ -147,7 +147,7 @@ const ProjectsPage: React.FC = () => {
                                         </div>
                                     )}
                                 </div>
-                                <div className="p-8">
+                                <div className="p-4">
                                     <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
                                     <p className="text-xs text-gray-400 line-clamp-2 mb-4">{project.shortDesc}</p>
                                     <div className="flex flex-wrap gap-2 mt-4">

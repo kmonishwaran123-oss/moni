@@ -281,10 +281,10 @@ const CertificationsPage: React.FC = () => {
                             </span>
                         </motion.div>
 
-                        <h1 className="text-5xl md:text-8xl font-bold font-sora tracking-tighter mb-6">
+                        <h1 className="text-4xl md:text-6xl font-bold font-sora tracking-tighter mb-4">
                             <span className="gradient-text">Certifications</span>
                         </h1>
-                        <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto">
+                        <p className="text-lg text-gray-400 font-light max-w-2xl mx-auto">
                             A curated showcase of my professional growth through technical certifications and academic milestones.
                         </p>
                     </div>
@@ -294,7 +294,7 @@ const CertificationsPage: React.FC = () => {
                         initial="hidden"
                         animate="visible"
                         variants={containerVariants}
-                        className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-16"
+                        className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10"
                     >
                         {[
                             { label: "Certificates", value: certifications.length, icon: BadgeCheck, gradient: "from-cyan-500 to-blue-600" },
@@ -307,10 +307,10 @@ const CertificationsPage: React.FC = () => {
                                 key={i}
                                 variants={itemVariants}
                                 whileHover={{ scale: 1.05, y: -5 }}
-                                className="glass-card p-6 border-white/5 relative group bg-gray-900/40 backdrop-blur-xl"
+                                className="glass-card p-4 border-white/5 relative group bg-gray-900/40 backdrop-blur-xl"
                             >
-                                <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-r ${stat.gradient} flex items-center justify-center shadow-lg`}>
-                                    <stat.icon size={20} className="text-white" />
+                                <div className={`w-10 h-10 mx-auto mb-3 rounded-lg bg-gradient-to-r ${stat.gradient} flex items-center justify-center shadow-lg`}>
+                                    <stat.icon size={18} className="text-white" />
                                 </div>
                                 <div className="text-2xl font-bold text-white text-center">{stat.value}</div>
                                 <div className="text-[10px] font-bold text-gray-500 text-center tracking-widest uppercase mt-1">{stat.label}</div>
@@ -319,7 +319,7 @@ const CertificationsPage: React.FC = () => {
                     </motion.div>
 
                     {/* Search Bar */}
-                    <div className="max-w-xl mx-auto mb-16">
+                    <div className="max-w-xl mx-auto mb-10">
                         <SearchBar
                             searchTerm={searchTerm}
                             onSearchChange={setSearchTerm}
@@ -329,7 +329,7 @@ const CertificationsPage: React.FC = () => {
                     </div>
 
                     {/* GRID */}
-                    <div id="certifications-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div id="certifications-grid" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6">
                         {filteredCertifications
                             .sort((a, b) => b.date.localeCompare(a.date))
                             .map((cert) => (
@@ -340,7 +340,7 @@ const CertificationsPage: React.FC = () => {
                                     whileHover={{ y: -8 }}
                                 >
                                     {/* Image Banner */}
-                                    <div className="relative h-44 overflow-hidden">
+                                    <div className="relative h-32 overflow-hidden">
                                         <img
                                             src={cert.image}
                                             alt={cert.title}
@@ -355,9 +355,9 @@ const CertificationsPage: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    <div className="p-6">
-                                        <div className="flex gap-4 mb-6">
-                                            <div className="w-12 h-12 rounded-xl bg-gray-800 border border-white/5 flex-shrink-0 flex items-center justify-center p-2 group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-300">
+                                    <div className="p-4">
+                                        <div className="flex gap-3 mb-4">
+                                            <div className="w-10 h-10 rounded-lg bg-gray-800 border border-white/5 flex-shrink-0 flex items-center justify-center p-2 group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-300">
                                                 <img
                                                     src={cert.logo}
                                                     alt={cert.issuer}

@@ -308,14 +308,13 @@ const EventsPage: React.FC = () => {
                                     </span>
                                 </motion.div>
 
-                                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+                                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
                                     <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400 bg-clip-text text-transparent bg-[length:200%] animate-gradient">
                                         Events & Competitions
                                     </span>
                                 </h1>
-                                <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                                    Participating in hackathons, workshops, and tech competitions to grow
-                                    and learn
+                                <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                                    Participating in hackathons, workshops, and tech competitions to grow and learn
                                 </p>
                             </motion.div>
 
@@ -324,7 +323,7 @@ const EventsPage: React.FC = () => {
                                 initial="hidden"
                                 animate="visible"
                                 variants={containerVariants}
-                                className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 mb-12"
+                                className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10"
                             >
                                 {stats.map((stat, i) => (
                                     <motion.div
@@ -333,13 +332,13 @@ const EventsPage: React.FC = () => {
                                         whileHover={{ scale: 1.05, y: -5 }}
                                         className="relative group"
                                     >
-                                        <div className="text-center p-5 lg:p-6 rounded-2xl bg-gray-800/60 border border-gray-700/50 backdrop-blur-xl hover:border-cyan-500/50 transition-all duration-500">
+                                        <div className="text-center p-4 rounded-2xl bg-gray-800/60 border border-gray-700/50 backdrop-blur-xl hover:border-cyan-500/50 transition-all duration-500">
                                             <div
-                                                className={`w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-r ${stat.gradient} flex items-center justify-center shadow-lg`}
+                                                className={`w-10 h-10 mx-auto mb-2 rounded-xl bg-gradient-to-r ${stat.gradient} flex items-center justify-center shadow-lg`}
                                             >
-                                                <stat.icon className="w-6 h-6 text-white" />
+                                                <stat.icon size={18} className="text-white" />
                                             </div>
-                                            <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+                                            <div className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
                                                 {stat.value}
                                             </div>
                                             <div className="text-xs lg:text-sm text-gray-400 mt-1">
@@ -368,7 +367,7 @@ const EventsPage: React.FC = () => {
                                 initial={{ opacity: 0, y: 15 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4, duration: 0.4 }}
-                                className="flex flex-wrap justify-center gap-3 lg:gap-4"
+                                className="flex flex-wrap justify-center gap-3"
                             >
                                 {categories.map((category) => (
                                     <motion.button
@@ -380,12 +379,12 @@ const EventsPage: React.FC = () => {
                                             e.preventDefault();
                                             setSelectedCategory(category.id);
                                         }}
-                                        className={`flex items-center gap-2 px-5 lg:px-6 py-2.5 lg:py-3 rounded-xl font-medium transition-all duration-300 ${selectedCategory === category.id
+                                        className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold tracking-widest uppercase transition-all duration-300 ${selectedCategory === category.id
                                             ? "bg-gradient-to-r from-cyan-600 via-violet-600 to-purple-600 text-white shadow-lg shadow-cyan-500/25"
                                             : "bg-gray-800/60 text-gray-400 hover:text-cyan-300 hover:bg-gray-700/60 border border-gray-700/50 hover:border-cyan-500/30"
                                             }`}
                                     >
-                                        <category.icon size={18} />
+                                        <category.icon size={14} />
                                         {category.label}
                                     </motion.button>
                                 ))}
@@ -395,8 +394,8 @@ const EventsPage: React.FC = () => {
 
                     {/* Events Grid */}
                     <section id="events-grid" className="pt-8 pb-24 relative">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                                 {filteredEvents.map((event) => (
                                     <div
                                         key={event.id}
@@ -424,7 +423,7 @@ const EventsPage: React.FC = () => {
                                             )}
 
                                             {/* Image */}
-                                            <div className="relative h-48 lg:h-52 overflow-hidden">
+                                            <div className="relative h-36 lg:h-40 overflow-hidden">
                                                 <img
                                                     src={event.image}
                                                     alt={event.title}
@@ -451,19 +450,19 @@ const EventsPage: React.FC = () => {
                                             </div>
 
                                             {/* Content */}
-                                            <div className="p-5 lg:p-6">
-                                                <h3 className="text-lg lg:text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors duration-300 line-clamp-1">
+                                            <div className="p-4">
+                                                <h3 className="text-base lg:text-lg font-bold text-white mb-1 group-hover:text-cyan-300 transition-colors duration-300 line-clamp-1">
                                                     {event.title}
                                                 </h3>
 
                                                 <div className="flex items-center gap-4 text-gray-400 text-sm mb-3">
                                                     <div className="flex items-center gap-1">
-                                                        <Calendar size={14} />
+                                                        <Calendar size={12} />
                                                         {event.date}
                                                     </div>
                                                     {event.duration && (
                                                         <div className="flex items-center gap-1">
-                                                            <Timer size={14} />
+                                                            <Timer size={12} />
                                                             {event.duration}
                                                         </div>
                                                     )}
@@ -478,13 +477,13 @@ const EventsPage: React.FC = () => {
                                                     {event.technologies.slice(0, 3).map((tech) => (
                                                         <span
                                                             key={tech}
-                                                            className="text-xs px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500/10 to-violet-500/10 border border-cyan-500/20 text-cyan-300 group-hover:border-cyan-400/40 transition-colors duration-300"
+                                                            className="text-[10px] px-2 py-1 rounded-lg bg-gradient-to-r from-cyan-500/10 to-violet-500/10 border border-cyan-500/20 text-cyan-300 group-hover:border-cyan-400/40 transition-colors duration-300"
                                                         >
                                                             {tech}
                                                         </span>
                                                     ))}
                                                     {event.technologies.length > 3 && (
-                                                        <span className="text-xs px-3 py-1.5 rounded-lg bg-gray-800/60 border border-gray-700/50 text-gray-400">
+                                                        <span className="text-[10px] px-2 py-1 rounded-lg bg-gray-800/60 border border-gray-700/50 text-gray-400">
                                                             +{event.technologies.length - 3}
                                                         </span>
                                                     )}
@@ -492,15 +491,15 @@ const EventsPage: React.FC = () => {
 
                                                 {/* Action Link */}
                                                 {event.certificateUrl && (
-                                                    <div className="mt-6 pt-6 border-t border-gray-700/50">
+                                                    <div className="mt-4 pt-4 border-t border-gray-700/50">
                                                         <a
                                                             href={event.certificateUrl}
                                                             target="_blank"
                                                             rel="noopener noreferrer"
-                                                            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gray-900/50 border border-gray-700/50 text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300 text-sm font-medium"
+                                                            className="flex items-center justify-center gap-2 w-full py-2 rounded-xl bg-gray-900/50 border border-gray-700/50 text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300 text-xs font-medium"
                                                         >
                                                             Verify Certificate
-                                                            <Rocket size={14} />
+                                                            <Rocket size={12} />
                                                         </a>
                                                     </div>
                                                 )}
@@ -534,7 +533,7 @@ const EventsPage: React.FC = () => {
                     </section>
                 </main>
             </div>
-        </div>
+        </div >
     );
 };
 

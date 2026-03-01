@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import solidWorksIcon from '../assets/solidwords.png';
+import solidWorksIcon from '../assets/solidworks.svg';
 import awsIcon from '../assets/Amazon_Web_Services-Logo.wine.png';
 import ibmIcon from '../assets/IBM-Logo.wine.png';
 import techMahindraIcon from '../assets/Tech_Mahindra-Logo.wine.png';
@@ -60,6 +60,7 @@ const skillsData = [
     { name: "Raspberry Pi", icon: "raspberrypi", type: "devicon", category: "Physical Computing", color: "#C51A4A" },
     { name: "Linux", icon: "linux", type: "devicon", category: "Physical Computing", color: "#FCC624" },
 
+
     // Mechanical Intelligence
     {
         name: "AutoCAD (via Autodesk)",
@@ -83,6 +84,7 @@ const skillsData = [
         color: "#FFB71B"
     },
 
+
     // Utilities
     { name: "Git", icon: "git", type: "devicon", category: "Utilities", color: "#F05032" },
     { name: "GitHub", icon: "github", type: "devicon", category: "Utilities", color: "#FFFFFF" },
@@ -91,6 +93,7 @@ const skillsData = [
     { name: "Netlify", icon: "https://cdn.simpleicons.org/netlify/00ADBB", type: "url", category: "Utilities", color: "#00ADBB" },
     { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E", type: "url", category: "Utilities", color: "#F24E1E" },
     { name: "Docker", icon: "docker", type: "devicon", category: "Utilities", color: "#2496ED" },
+
 
     // Professional Partners/Skills
 ];
@@ -191,7 +194,7 @@ const AboutPage = () => {
                                         <div className="h-px w-16 bg-gradient-to-r from-primary to-transparent" />
                                         <span className="text-xs font-black tracking-[0.5em] uppercase text-primary text-glow-sm">Core.Identity</span>
                                     </div>
-                                    <h1 className="text-7xl md:text-10xl font-bold font-sora tracking-tighter mb-10 text-white leading-none relative group">
+                                    <h1 className="text-6xl md:text-8xl font-bold font-sora tracking-tighter mb-8 text-white leading-none relative group">
                                         <span className="relative z-10">About </span>
                                         <span className="gradient-text relative z-10 italic">Me</span>
 
@@ -204,7 +207,7 @@ const AboutPage = () => {
                                         </span>
                                     </h1>
                                     <div className="space-y-6 mb-12">
-                                        <h2 className="text-5xl lg:text-8xl font-bold text-white tracking-tighter">
+                                        <h2 className="text-4xl lg:text-6xl font-bold text-white tracking-tighter">
                                             Monishwaran <span className="text-primary italic">K</span>
                                         </h2>
                                         <div className="flex flex-wrap items-center gap-6">
@@ -300,218 +303,166 @@ const AboutPage = () => {
                             </div>
                         </div>
 
-                        {/* Narrative Cards */}
-                        <div className="grid lg:grid-cols-2 gap-12 mb-32">
-                            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass-card p-10 relative overflow-hidden group border-white/5 bg-gray-950/40 backdrop-blur-3xl">
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] -z-10 group-hover:bg-primary/10 transition-colors duration-700" />
+                        {/* MAIN CONTENT GRID (Narrative + Skills on Left, Timeline on Right) */}
+                        <div className="grid lg:grid-cols-12 gap-12 mb-32 items-start">
 
-                                {/* Decorative HUD Elements */}
-                                <div className="absolute top-6 right-6 flex gap-1 transform group-hover:scale-110 transition-transform duration-500">
-                                    <div className="w-1 h-3 bg-primary/20 rounded-full" />
-                                    <div className="w-1 h-3 bg-primary/40 rounded-full" />
-                                    <div className="w-1 h-3 bg-primary/60 rounded-full animate-pulse" />
-                                </div>
-
-                                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-5">
-                                    <div className="p-3 rounded-2xl bg-primary/10 border border-primary/20 group-hover:border-primary/50 transition-colors">
-                                        <Brain className="text-primary w-6 h-6" />
-                                    </div>
-                                    <span className="tracking-tight">The Origin Story</span>
-                                </h3>
-                                <p className="text-gray-400 leading-relaxed font-light text-lg">
-                                    I am a Second-Year Mechanical Engineering student with a deep-seated passion for the digital realm. My journey is defined by the intersection of <span className="text-white font-medium">physical precision</span> and <span className="text-primary font-medium">software scalability</span>. I don't just write code; I engineer systems that are built to last and designed to inspire.
-                                </p>
-
-                                <div className="mt-10 pt-8 border-t border-white/5 flex items-center justify-between text-[10px] font-black tracking-[0.3em] uppercase text-gray-500">
-                                    <span>Core.Experience</span>
-                                    <span className="text-primary/60">Active_Status: Stable</span>
-                                </div>
-                            </motion.div>
-
-                            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="glass-card p-10 relative overflow-hidden group border-white/5 bg-gray-950/40 backdrop-blur-3xl">
-                                <div className="absolute bottom-0 left-0 w-64 h-64 bg-violet-600/5 rounded-full blur-[100px] -z-10 group-hover:bg-violet-600/10 transition-colors duration-700" />
-
-                                {/* Decorative HUD Elements */}
-                                <div className="absolute top-6 right-6 flex gap-2">
-                                    <div className="w-8 h-[1px] bg-violet-500/20" />
-                                    <div className="w-2 h-[1px] bg-violet-500/50 animate-pulse" />
-                                </div>
-
-                                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-5">
-                                    <div className="p-3 rounded-2xl bg-violet-500/10 border border-violet-500/20 group-hover:border-violet-500/50 transition-colors">
-                                        <Rocket className="text-violet-400 w-6 h-6" />
-                                    </div>
-                                    <span className="tracking-tight">Technical Mission</span>
-                                </h3>
-                                <p className="text-gray-400 leading-relaxed font-light text-lg">
-                                    My motivation lies in bridging the gap between <span className="text-white font-medium">mechanical complexity</span> and <span className="text-violet-400 font-medium">elegant UX</span>. Whether I'm optimizing a CAD model or architecting a React component, I thrive on the challenge of turning abstract problems into performant, user-centric realities.
-                                </p>
-
-                                <div className="mt-10 pt-8 border-t border-white/5 flex items-center justify-between text-[10px] font-black tracking-[0.3em] uppercase text-gray-500">
-                                    <span>System.Vision</span>
-                                    <span className="text-violet-400/60">Optimization_Level: High</span>
-                                </div>
-                            </motion.div>
-                        </div>
-
-                        {/* Tech Stack: Organized by Category */}
-                        <div className="mb-32">
-                            <div className="flex flex-col items-center mb-16">
-                                <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                                    <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-center text-white mb-4 uppercase">
-                                        Technical <span className="text-primary italic"> Stacks</span>
-                                    </h2>
-                                    <div className="h-1 w-24 bg-gradient-to-r from-primary to-transparent rounded-full mx-auto" />
-                                </motion.div>
-                            </div>
-
-                            <div className="space-y-24">
-                                {Array.from(new Set(skillsData.map(s => s.category))).map((category, idx) => (
-                                    <div key={idx} className="space-y-10">
-                                        <div className="flex items-center gap-6">
-                                            <h3 className="text-[10px] font-black tracking-[0.6em] uppercase text-primary/40">{category}</h3>
-                                            <div className="h-px flex-1 bg-white/5" />
+                            {/* LEFT COLUMN: Narrative & Skills */}
+                            <div className="lg:col-span-7 space-y-12">
+                                <div className="space-y-8">
+                                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="glass-card p-6 lg:p-8 relative overflow-hidden group border-white/5 bg-gray-950/40 backdrop-blur-3xl min-h-[220px]">
+                                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] -z-10 group-hover:bg-primary/10 transition-colors duration-700" />
+                                        <div className="absolute top-6 right-6 flex gap-1">
+                                            <div className="w-1 h-3 bg-primary/20 rounded-full" />
+                                            <div className="w-1 h-3 bg-primary/40 rounded-full" />
+                                            <div className="w-1 h-3 bg-primary/60 rounded-full animate-pulse" />
                                         </div>
-                                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
-                                            {skillsData.filter(s => s.category === category).map((skill, i) => (
-                                                <motion.div
-                                                    key={i}
-                                                    whileHover={{ y: -8, scale: 1.02 }}
-                                                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                                                    className="group relative h-40"
-                                                >
-                                                    {/* Brand Specific Glow */}
+                                        <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-4">
+                                            <div className="p-2.5 rounded-xl bg-primary/10 border border-primary/20">
+                                                <Brain className="text-primary w-5 h-5" />
+                                            </div>
+                                            <span className="tracking-tight">My Journey</span>
+                                        </h3>
+                                        <p className="text-gray-400 leading-relaxed font-light text-base">
+                                            I am a Second-Year Mechanical Engineering student with a deep-seated passion for the digital realm. My journey is defined by the intersection of <span className="text-white font-medium">physical precision</span> and <span className="text-primary font-medium">software scalability</span>. I don't just write code; I engineer systems that are built to last and designed to inspire.
+                                        </p>
+                                    </motion.div>
+
+                                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="glass-card p-6 lg:p-8 relative overflow-hidden group border-white/5 bg-gray-950/40 backdrop-blur-3xl min-h-[220px]">
+                                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-violet-600/5 rounded-full blur-[100px] -z-10 group-hover:bg-violet-600/10 transition-colors duration-700" />
+                                        <div className="absolute top-6 right-6 flex gap-2">
+                                            <div className="w-8 h-[1px] bg-violet-500/20" />
+                                            <div className="w-2 h-[1px] bg-violet-500/50 animate-pulse" />
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-4">
+                                            <div className="p-2.5 rounded-xl bg-violet-500/10 border border-violet-500/20">
+                                                <Rocket className="text-violet-400 w-5 h-5" />
+                                            </div>
+                                            <span className="tracking-tight">What Drives Me</span>
+                                        </h3>
+                                        <p className="text-gray-400 leading-relaxed font-light text-base">
+                                            My motivation lies in bridging the gap between <span className="text-white font-medium">mechanical complexity</span> and <span className="text-violet-400 font-medium">elegant UX</span>. Whether I'm optimizing a CAD model or architecting a React component, I thrive on the challenge of turning abstract problems into performant, user-centric realities.
+                                        </p>
+                                    </motion.div>
+                                </div>
+
+                                {/* Skills Section Injected Here */}
+                                <div className="pt-12">
+                                    <h2 className="text-3xl font-black tracking-tight text-white mb-10 uppercase flex items-center gap-4">
+                                        Developer <span className="text-primary italic">Skills</span>
+                                        <div className="h-px flex-1 bg-white/5" />
+                                    </h2>
+
+                                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                                        {skillsData.map((skill, i) => (
+                                            <motion.div
+                                                key={i}
+                                                whileHover={{ y: -5, scale: 1.02 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                className="group relative h-32 cursor-pointer"
+                                            >
+                                                <div className="relative glass-card h-full p-4 flex flex-col items-center justify-center border-white/5 bg-gray-900/40 backdrop-blur-xl overflow-hidden rounded-2xl group-hover:border-white/10 transition-colors">
+                                                    {/* Dynamic Background Glow */}
                                                     <div
-                                                        className="absolute inset-0 rounded-[32px] blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                                                        className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
                                                         style={{ backgroundColor: skill.color }}
                                                     />
 
                                                     <div
-                                                        className="relative glass-card h-full p-6 flex flex-col items-center justify-center border-white/5 transition-all duration-500 overflow-hidden"
+                                                        className="relative z-10 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 mb-3 bg-gray-950/50 border border-white/5 group-hover:border-white/20"
                                                         style={{
-                                                            borderColor: 'rgba(255, 255, 255, 0.05)'
-                                                        } as React.CSSProperties}
+                                                            boxShadow: `0 0 20px -5px ${skill.color}00`,
+                                                        }}
                                                     >
-                                                        {/* Dynamic Border Glow on Hover */}
+                                                        {/* Icon Glow Layer */}
                                                         <div
-                                                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                                                            style={{
-                                                                border: `1px solid ${skill.color}40`,
-                                                                borderRadius: 'inherit'
-                                                            }}
+                                                            className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-500"
+                                                            style={{ backgroundColor: skill.color }}
                                                         />
 
-                                                        <div className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 mb-4 bg-gray-950/50 border border-white/5 group-hover:border-primary/20 shadow-inner overflow-hidden">
-                                                            {/* Background Light Beam */}
-                                                            <div
-                                                                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-                                                                style={{ backgroundColor: skill.color }}
+                                                        {skill.type === 'devicon' ? (
+                                                            <img
+                                                                src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
+                                                                alt={skill.name}
+                                                                className="w-8 h-8 object-contain relative z-10"
                                                             />
-
-                                                            {skill.type === 'devicon' ? (
-                                                                <img
-                                                                    src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
-                                                                    alt={skill.name}
-                                                                    className="w-10 h-10 object-contain brightness-90 group-hover:brightness-110 relative z-10"
-                                                                />
-                                                            ) : (
-                                                                <img
-                                                                    src={skill.icon}
-                                                                    alt={skill.name}
-                                                                    className={`${['SolidWorks', 'AWS'].includes(skill.name) ? 'w-14 h-14' : 'w-10 h-10'} object-contain brightness-90 group-hover:brightness-110 relative z-10`}
-                                                                />
-                                                            )}
-                                                        </div>
-                                                        <span className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-500 group-hover:text-white transition-colors text-center relative z-10">{skill.name}</span>
-
-                                                        <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                            <div className="text-[6px] font-mono text-primary/40 rotate-90 translate-x-1 absolute -right-1 top-4">READ_OUT</div>
-                                                            <Sparkles size={8} style={{ color: skill.color }} className="animate-pulse" />
-                                                        </div>
-
-                                                        {/* Animated Frame Fragments */}
-                                                        <div className="absolute top-0 left-0 w-2 h-px bg-white/20 group-hover:w-full transition-all duration-700" />
-                                                        <div className="absolute bottom-0 right-0 w-2 h-px bg-white/20 group-hover:w-full transition-all duration-700" />
-                                                        <div className="absolute top-0 left-0 h-2 w-px bg-white/20 group-hover:h-full transition-all duration-700" />
-                                                        <div className="absolute bottom-0 right-0 h-2 w-px bg-white/20 group-hover:h-full transition-all duration-700" />
+                                                        ) : (
+                                                            <img
+                                                                src={skill.icon}
+                                                                alt={skill.name}
+                                                                className="w-10 h-10 object-contain relative z-10"
+                                                            />
+                                                        )}
                                                     </div>
-                                                </motion.div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                                                    <span
+                                                        className="text-[9px] font-black tracking-[0.15em] uppercase text-gray-400 group-hover:text-white transition-colors text-center truncate w-full px-2 relative z-10"
+                                                        style={{
+                                                            textShadow: `0 0 10px ${skill.color}50`
+                                                        }}
+                                                    >
+                                                        {skill.name}
+                                                    </span>
 
-                        {/* Ecosystem Expertise (Radar + Skill Progress) */}
-                        <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
-                            <TechStackRadar />
-                            <div className="space-y-6">
-                                <h3 className="text-2xl font-bold text-white mb-8">Ecosystem Expertise</h3>
-                                {[
-                                    { area: "Frontend Development", value: 85, icon: Layout },
-                                    { area: "Backend Development", value: 75, icon: Server },
-                                    { area: "Database Management", value: 72, icon: Database },
-                                    { area: "Embedded Systems", value: 70, icon: Cpu },
-                                ].map((item, i) => (
-                                    <div key={i} className="space-y-3">
-                                        <div className="flex justify-between items-center text-xs font-bold uppercase tracking-widest text-gray-400">
-                                            <div className="flex items-center gap-2"><item.icon size={14} className="text-primary" /> {item.area}</div>
-                                            <div className="text-white">{item.value}%</div>
-                                        </div>
-                                        <div className="h-2 bg-white/5 rounded-full overflow-hidden border border-white/5">
+                                                    {/* Side border decoration */}
+                                                    <div
+                                                        className="absolute top-0 right-0 w-8 h-8 border-t border-r border-white/5 rounded-tr-2xl group-hover:border-white/20 transition-colors"
+                                                        style={{
+                                                            borderColor: `${skill.color}20`
+                                                        }}
+                                                    />
+                                                </div>
+                                            </motion.div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* RIGHT COLUMN: Timeline */}
+                            <div className="lg:col-span-5 sticky top-32">
+                                <div className="text-center mb-16 lg:text-left lg:pl-16">
+                                    <h2 className="text-4xl font-bold font-sora text-white">My <span className="gradient-text">Timeline</span></h2>
+                                </div>
+
+                                <div className="relative pl-8 md:pl-16">
+                                    {/* Vertical Line */}
+                                    <div className="absolute left-8 md:left-16 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-violet-500 to-transparent opacity-20" />
+
+                                    <div className="space-y-12">
+                                        {timeline.map((item, i) => (
                                             <motion.div
-                                                initial={{ width: 0 }}
-                                                whileInView={{ width: `${item.value}%` }}
+                                                key={i}
+                                                initial={{ opacity: 0, x: 20 }}
+                                                whileInView={{ opacity: 1, x: 0 }}
                                                 viewport={{ once: true }}
-                                                transition={{ duration: 1.5, delay: i * 0.1 }}
-                                                className="h-full bg-gradient-to-r from-primary via-violet-500 to-cyan-500"
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                                                className="relative pl-12"
+                                            >
+                                                {/* Line Dot/Icon */}
+                                                <div className="absolute -left-[18px] z-10 w-9 h-9 rounded-full glass-card border-primary/40 flex items-center justify-center text-primary shadow-glow-sm bg-gray-900 group">
+                                                    {item.current && <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping" />}
+                                                    <item.icon size={14} className="relative z-10" />
+                                                </div>
 
-                        {/* Timeline */}
-                        <div className="relative max-w-4xl mx-auto">
-                            <h2 className="text-4xl font-bold font-sora mb-24 text-center text-white">Operational <span className="gradient-text">Timeline</span></h2>
-                            <div className="absolute left-1/2 -ml-px top-32 bottom-0 w-px bg-gradient-to-b from-primary via-violet-500 to-transparent opacity-20 hidden md:block" />
-                            <div className="space-y-24">
-                                {timeline.map((item, i) => (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        className={`flex flex-col md:flex-row items-center gap-8 ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
-                                    >
-                                        <div className="md:w-1/2 flex justify-end">
-                                            <div className={`p-8 glass-card border-white/10 relative group hover:border-primary/50 transition-all ${i % 2 !== 0 ? 'text-left' : 'text-right'} ${item.current ? 'border-primary/30 bg-primary/5' : ''}`}>
-                                                {item.current && (
-                                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary rounded-full text-[10px] font-black tracking-widest text-white animate-bounce shadow-glow-sm">
-                                                        CURRENT_PHASE
+                                                <div className={`p-6 glass-card border-white/10 relative hover:border-primary/40 transition-all ${item.current ? 'border-primary/30 bg-primary/5' : ''}`}>
+                                                    <div className="flex items-center justify-between mb-2">
+                                                        <div className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 inline-block mb-3">
+                                                            <span className="text-[10px] font-black tracking-widest text-primary">{item.year}</span>
+                                                        </div>
+                                                        {item.current && (
+                                                            <span className="text-[8px] font-black tracking-widest text-primary animate-pulse">ACTIVE_PHASE</span>
+                                                        )}
                                                     </div>
-                                                )}
-                                                <div className={`text-sm font-bold text-primary mb-2 ${i % 2 !== 0 ? '' : 'justify-end'} flex`}>{item.year}</div>
-                                                <h4 className="text-xl font-bold text-white mb-4">{item.title}</h4>
-                                                <p className="text-gray-400 font-light leading-relaxed text-sm">{item.description}</p>
-                                            </div>
-                                        </div>
-                                        <div className="relative z-10 w-14 h-14 rounded-2xl glass-card border-primary/40 flex items-center justify-center text-primary shadow-glow-sm bg-gray-900 group-hover:scale-110 transition-transform">
-                                            {item.current && <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-ping" />}
-                                            <item.icon size={20} className="relative z-10" />
-                                        </div>
-                                        <div className="md:w-1/2" />
-                                    </motion.div>
-                                ))}
+                                                    <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
+                                                    <p className="text-gray-400 font-light leading-relaxed text-sm">{item.description}</p>
+                                                </div>
+                                            </motion.div>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </main>
-
-            </div >
-        </div >
+            </div>
+        </div>
     );
 };
 
