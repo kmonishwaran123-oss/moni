@@ -201,7 +201,7 @@ export function Contact() {
                 { icon: Github, label: 'GitHub', href: 'https://github.com/Monishwarann', username: 'Monishwaran K' },
                 { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/monishwaran-k-b463a3363', username: 'Monishwaran' },
                 { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/k._.monish/', username: '@k._.monish' },
-                { icon: Mail, label: 'Email', href: 'https://www.k.monishwaran123@gmail.com', username: 'Monishwaran K' },
+                { icon: Mail, label: 'Email', href: 'mailto:k.monishwaran123@gmail.com', username: 'Monishwaran K' },
               ].map(({ icon: Icon, label, href, username }) => (
                 <a
                   key={label}

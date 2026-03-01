@@ -141,7 +141,9 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
             </span>
             <div className="flex items-center gap-2">
               <span className="text-[9px] font-mono text-white/40">
-                {progress === 100 ? "READY" : "LOADING SYSTEMS..."}
+                {progress < 40 ? "INITIALIZING SYSTEMS..." :
+                  progress < 70 ? "SYNCING GITHUB CORE..." :
+                    progress < 90 ? "VERCEL DEPLOYMENT READY..." : "SYSTEMS ONLINE"}
               </span>
               <span className="text-[9px] font-mono text-primary/80">
                 {Math.floor(progress)}%

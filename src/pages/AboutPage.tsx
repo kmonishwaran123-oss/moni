@@ -49,17 +49,16 @@ const skillsData = [
     { name: "PostgreSQL", icon: "postgresql", type: "devicon", category: "Data Engine", color: "#4169E1" },
     { name: "MongoDB", icon: "mongodb", type: "devicon", category: "Data Engine", color: "#47A248" },
 
-    // Cloud Infrastructure
-    { name: "Firebase", icon: "https://cdn.simpleicons.org/firebase/FFCA28", type: "url", category: "Cloud Infrastructure", color: "#FFCA28" },
-    { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/3ECF8E", type: "url", category: "Cloud Infrastructure", color: "#3ECF8E" },
-    { name: "AWS", icon: awsIcon, type: "url", category: "Cloud Infrastructure", color: "#FF9900" },
+    // Cloud Infrastructure & DevOps
+    { name: "GitHub", icon: "github", type: "devicon", category: "Cloud & DevOps", color: "#FFFFFF" },
+    { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/white", type: "url", category: "Cloud & DevOps", color: "#FFFFFF" },
+    { name: "Firebase", icon: "https://cdn.simpleicons.org/firebase/FFCA28", type: "url", category: "Cloud & DevOps", color: "#FFCA28" },
+    { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/3ECF8E", type: "url", category: "Cloud & DevOps", color: "#3ECF8E" },
+
 
     // Physical Computing
     { name: "Arduino", icon: "arduino", type: "devicon", category: "Physical Computing", color: "#00979D" },
     { name: "ESP32", icon: "https://cdn.simpleicons.org/espressif/E7352C", type: "url", category: "Physical Computing", color: "#E7352C" },
-    { name: "Raspberry Pi", icon: "raspberrypi", type: "devicon", category: "Physical Computing", color: "#C51A4A" },
-    { name: "Linux", icon: "linux", type: "devicon", category: "Physical Computing", color: "#FCC624" },
-
 
     // Mechanical Intelligence
     {
@@ -76,25 +75,12 @@ const skillsData = [
         category: "Mechanical Intelligence",
         color: "#DA291C"
     },
-    {
-        name: "ANSYS",
-        icon: "https://cdn.simpleicons.org/ansys/ffb71b",
-        type: "url",
-        category: "Mechanical Intelligence",
-        color: "#FFB71B"
-    },
 
 
     // Utilities
     { name: "Git", icon: "git", type: "devicon", category: "Utilities", color: "#F05032" },
-    { name: "GitHub", icon: "github", type: "devicon", category: "Utilities", color: "#FFFFFF" },
     { name: "VS Code", icon: "vscode", type: "devicon", category: "Utilities", color: "#007ACC" },
-    { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/white", type: "url", category: "Utilities", color: "#FFFFFF" },
     { name: "Netlify", icon: "https://cdn.simpleicons.org/netlify/00ADBB", type: "url", category: "Utilities", color: "#00ADBB" },
-    { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E", type: "url", category: "Utilities", color: "#F24E1E" },
-    { name: "Docker", icon: "docker", type: "devicon", category: "Utilities", color: "#2496ED" },
-
-
     // Professional Partners/Skills
 ];
 

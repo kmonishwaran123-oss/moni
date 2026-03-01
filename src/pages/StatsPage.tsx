@@ -34,7 +34,7 @@ import {
 import Navbar from "@/components/Navbar";
 
 // GitHub Configuration
-const GITHUB_USERNAME = "kmonishwaran123-oss";
+const GITHUB_USERNAME = "Monishwarann";
 const GITHUB_API_URL = "https://api.github.com";
 
 // Pagination Configuration
