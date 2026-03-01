@@ -172,7 +172,7 @@ const EventsPage: React.FC = () => {
         },
         {
             id: 10,
-            title: "Brainstorm Mini Hackathon",
+            title: "Brainstormers Mini Hackathon",
             type: ["hackathon", "Club Event"],
             role: "Participant",
             date: "2026",

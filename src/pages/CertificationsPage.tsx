@@ -178,7 +178,7 @@ const CertificationsPage: React.FC = () => {
         },
         {
             id: 14,
-            title: "Brainstorm Mini Hackathon",
+            title: "Brainstormers Mini Hackathon",
             issuer: "Meenakshi Sundararajan Engineering College",
             date: "2026",
             logo: brainstormIcon,
