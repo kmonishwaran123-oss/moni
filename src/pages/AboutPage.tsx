@@ -51,10 +51,43 @@ const skillsData = [
 
 
 const timeline = [
-    { id: 1, year: "2024", title: "Engineering Journey", description: "Began BE.Mechanical at Meenakshi Sundararajan Engineering College, exploring the synergy between hardware and software.", icon: GraduationCap },
-    { id: 2, year: "2026", title: "Future Goals", description: "Aspiring to become a leading Frontend developer, contribute to impactful open-source projects, and secure a role at a top-tier tech company where innovation meets scale.", icon: Target, current: true },
-    { id: 3, year: "2027", title: "Graduation & Career Launch", description: "Completing Bachelor of Engineering with a strong focus on software integration. Dedicated to advancing as a React Developer and joining a visionary tech company.", icon: Rocket },
-];
+  {
+    id: 1,
+    year: "2024",
+    title: "Engineering Start",
+    description: "Started B.E. Mechanical Engineering while developing strong interest in software and web technologies.",
+    icon: GraduationCap
+  },
+  {
+    id: 2,
+    year: "2025",
+    title: "Software Exploration",
+    description: "Learning React and frontend development alongside core mechanical concepts.",
+    icon: Code
+  },
+  {
+    id: 3,
+    year: "2026",
+    title: "Integration Focus",
+    description: "Building projects that connect mechanical knowledge with modern software solutions.",
+    icon: Cpu
+  },
+  {
+    id: 4,
+    year: "2027",
+    title: "Career Launch",
+    description: "Graduating as a Mechanical Engineer aiming for a software development role.",
+    icon: Rocket
+  },
+  {
+    id: 5,
+    year: "2028",
+    title: "Professional Growth",
+    description: "Growing as a skilled Frontend/Full Stack Developer contributing to impactful tech projects.",
+    icon: Target,
+    current: true
+  }
+]
 
 
 const AboutPage = () => {
@@ -145,7 +178,7 @@ const AboutPage = () => {
                                         <div className="h-px w-16 bg-gradient-to-r from-primary to-transparent" />
                                         <span className="text-xs font-black tracking-[0.5em] uppercase text-primary text-glow-sm">Core.Identity</span>
                                     </div>
-                                    <h1 className="text-6xl md:text-8xl font-bold font-sora tracking-tighter mb-8 text-white leading-none relative group">
+                                    <h1 className="text-5xl md:text-7xl font-bold font-sora tracking-tighter mb-8 text-white leading-none relative group">
                                         <span className="relative z-10">About </span>
                                         <span className="gradient-text relative z-10 italic">Me</span>
 
@@ -158,7 +191,7 @@ const AboutPage = () => {
                                         </span>
                                     </h1>
                                     <div className="space-y-6 mb-12">
-                                        <h2 className="text-4xl lg:text-6xl font-bold text-white tracking-tighter">
+                                        <h2 className="text-3xl lg:text-5xl font-bold text-white tracking-tighter">
                                             Monishwaran <span className="text-primary italic">K</span>
                                         </h2>
                                         <div className="flex flex-wrap items-center gap-6">
@@ -254,127 +287,116 @@ const AboutPage = () => {
                             </div>
                         </div>
 
-                        {/* Narrative Section - Moved Above Grid */}
-                        <div className="grid md:grid-cols-2 gap-8 mb-32">
-                            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass-card p-6 lg:p-8 relative overflow-hidden group border-white/5 bg-gray-950/40 backdrop-blur-3xl min-h-[220px]">
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] -z-10 group-hover:bg-primary/10 transition-colors duration-700" />
-                                <div className="absolute top-6 right-6 flex gap-1">
-                                    <div className="w-1 h-3 bg-primary/20 rounded-full" />
-                                    <div className="w-1 h-3 bg-primary/40 rounded-full" />
-                                    <div className="w-1 h-3 bg-primary/60 rounded-full animate-pulse" />
-                                </div>
-                                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-4">
-                                    <div className="p-2.5 rounded-xl bg-primary/10 border border-primary/20">
-                                        <Brain className="text-primary w-5 h-5" />
-                                    </div>
-                                    <span className="tracking-tight">My Journey</span>
-                                </h3>
-                                <p className="text-gray-400 leading-relaxed font-light text-base">
-                                    I am a Second-Year Mechanical Engineering student with a deep-seated passion for the digital realm. My journey is defined by the intersection of <span className="text-white font-medium">physical precision</span> and <span className="text-primary font-medium">software scalability</span>. I don't just write code; I engineer systems that are built to last and designed to inspire.
-                                </p>
-                            </motion.div>
+                        {/* MAIN CONTENT GRID: Narrative + Skills (Left) | Timeline (Right) */}
+                        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 relative">
+                            {/* Central Aesthetic Vertical Line (Horizontal separator for mobile) */}
+                            <div className="absolute left-1/2 top-0 bottom-32 w-px bg-gradient-to-b from-primary/40 via-violet-500/20 to-transparent hidden lg:block -translate-x-1/2" />
 
-                            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="glass-card p-6 lg:p-8 relative overflow-hidden group border-white/5 bg-gray-950/40 backdrop-blur-3xl min-h-[220px]">
-                                <div className="absolute bottom-0 left-0 w-64 h-64 bg-violet-600/5 rounded-full blur-[100px] -z-10 group-hover:bg-violet-600/10 transition-colors duration-700" />
-                                <div className="absolute top-6 right-6 flex gap-2">
-                                    <div className="w-8 h-[1px] bg-violet-500/20" />
-                                    <div className="w-2 h-[1px] bg-violet-500/50 animate-pulse" />
-                                </div>
-                                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-4">
-                                    <div className="p-2.5 rounded-xl bg-violet-500/10 border border-violet-500/20">
-                                        <Rocket className="text-violet-400 w-5 h-5" />
-                                    </div>
-                                    <span className="tracking-tight">What Drives Me</span>
-                                </h3>
-                                <p className="text-gray-400 leading-relaxed font-light text-base">
-                                    My motivation lies in bridging the gap between <span className="text-white font-medium">mechanical complexity</span> and <span className="text-violet-400 font-medium">elegant UX</span>. Whether I'm optimizing a CAD model or architecting a React component, I thrive on the challenge of turning abstract problems into performant, user-centric realities.
-                                </p>
-                            </motion.div>
-                        </div>
-
-                        {/* SIDE-BY-SIDE SECTION: Skills & Timeline */}
-                        <div className="relative">
-                            {/* Vertical Separator Line for Desktop */}
-                            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-violet-500 to-transparent opacity-20 hidden lg:block -translate-x-1/2" />
-
-                            <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-start">
-                                {/* LEFT COLUMN: Skills Grid */}
+                            {/* LEFT COLUMN: Narrative & Skills */}
+                            <div className="space-y-24">
+                                {/* Narrative Cards */}
                                 <div className="space-y-12">
-                                    <h2 className="text-4xl font-black tracking-tight text-white mb-10 uppercase flex items-center gap-4">
+                                    <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative group">
+                                        <div className="absolute -left-3 -top-3 z-10 w-10 h-10 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary backdrop-blur-xl group-hover:scale-110 transition-transform">
+                                            <Brain size={18} />
+                                        </div>
+                                        <div className="glass-card p-8 pl-12 bg-gray-950/40 border-white/5 group-hover:border-primary/30 transition-all rounded-[32px]">
+                                            <h3 className="text-2xl font-bold text-white mb-6 tracking-tight group-hover:text-primary transition-colors">My Journey</h3>
+                                            <p className="text-gray-400 leading-relaxed font-light text-base">
+                                                I'm a second-year Mechanical Engineering student at Meenakshi Sundararajan Engineering College, passionate about front-end development and constantly honing my skills as an aspiring React developer. I thrive on turning ideas into interactive web experiences and love exploring the latest in modern UI frameworks.
+                                            </p>
+                                        </div>
+                                    </motion.div>
+
+                                    <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="relative group">
+                                        <div className="absolute -left-3 -top-3 z-10 w-10 h-10 rounded-full bg-violet-500/20 border border-violet-500/40 flex items-center justify-center text-violet-400 backdrop-blur-xl group-hover:scale-110 transition-transform">
+                                            <Rocket size={18} />
+                                        </div>
+                                        <div className="glass-card p-8 pl-12 bg-gray-950/40 border-white/5 group-hover:border-violet-500/30 transition-all rounded-[32px]">
+                                            <h3 className="text-2xl font-bold text-white mb-6 tracking-tight group-hover:text-violet-400 transition-colors">What Drives Me</h3>
+                                            <p className="text-gray-400 leading-relaxed font-light text-base">
+                                                I'm driven by a passion to build web experiences that make a real difference. Whether it's crafting clean, user-focused React applications, exploring the frontiers of emerging tech, or contributing to open-source projects, I'm constantly seeking ways to turn ideas into impactful solutions.
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                </div>
+
+                                {/* Skills Section */}
+                                <div className="space-y-12 pt-8">
+                                    <h2 className="text-4xl font-black tracking-tighter text-white mb-10 uppercase inline-block relative">
                                         Developer <span className="text-primary italic">Skills</span>
-                                        <div className="h-px flex-1 bg-white/5 lg:hidden" />
+                                        <div className="absolute -bottom-2 left-0 w-2/3 h-1 bg-gradient-to-r from-primary to-transparent" />
                                     </h2>
 
-                                    <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4">
+                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                         {skillsData.map((skill, i) => (
                                             <motion.div
                                                 key={i}
-                                                whileHover={{ y: -5, scale: 1.02 }}
-                                                whileTap={{ scale: 0.95 }}
-                                                className="group relative h-32 cursor-pointer"
+                                                whileHover={{ y: -5, scale: 1.05 }}
+                                                className="group relative h-36 cursor-pointer"
                                             >
-                                                <div className="relative glass-card h-full p-6 flex flex-col items-center justify-center border-white/5 bg-gray-900/40 backdrop-blur-2xl overflow-hidden rounded-[32px] group-hover:border-white/20 group-hover:bg-gray-900/60 transition-all duration-500 shadow-2xl">
-                                                    {/* Central Halo Glow */}
-                                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-[80px]" style={{ background: `radial-gradient(circle, ${skill.color} 0%, transparent 70%)` }} />
-
-                                                    <div className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 mb-4 bg-gray-950/80 border border-white/10 group-hover:border-white/30 group-hover:shadow-[0_0_30px_-5px_rgba(255,255,255,0.1)]">
-                                                        {/* Icon Specific Glow */}
-                                                        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-500" style={{ backgroundColor: skill.color }} />
+                                                <div className="relative glass-card h-full p-6 flex flex-col items-center justify-center border-white/5 bg-gray-900/40 backdrop-blur-xl overflow-hidden rounded-[24px] group-hover:border-white/20 group-hover:bg-gray-900/60 transition-all duration-300">
+                                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" style={{ backgroundColor: skill.color }} />
+                                                    <div className="relative z-10 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-500 mb-4 bg-gray-950/50 border border-white/5">
                                                         {skill.type === 'devicon' ? (
-                                                            <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`} alt={skill.name} className="w-10 h-10 object-contain relative z-10 drop-shadow-[0_0_10px_rgba(0,0,0,0.5)]" />
+                                                            <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`} alt={skill.name} className="w-8 h-8 object-contain relative z-10" />
                                                         ) : (
-                                                            <img src={skill.icon} alt={skill.name} className="w-12 h-12 object-contain relative z-10 drop-shadow-[0_0_10px_rgba(0,0,0,0.5)]" />
+                                                            <img src={skill.icon} alt={skill.name} className="w-10 h-10 object-contain relative z-10" />
                                                         )}
                                                     </div>
-                                                    <span className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 group-hover:text-white transition-colors text-center truncate w-full px-2 relative z-10" style={{ textShadow: `0 0 15px ${skill.color}40` }}>
+                                                    <span className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 group-hover:text-white transition-colors text-center truncate w-full">
                                                         {skill.name}
                                                     </span>
-
-                                                    {/* Ambient Bottom Light */}
-                                                    <div className="absolute bottom-0 inset-x-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: `linear-gradient(90deg, transparent, ${skill.color}, transparent)` }} />
                                                 </div>
                                             </motion.div>
                                         ))}
                                     </div>
                                 </div>
+                            </div>
 
-                                {/* RIGHT COLUMN: Timeline */}
-                                <div className="space-y-16 relative">
-                                    <div className="lg:pl-16">
-                                        <div className="space-y-16">
-                                            {timeline.map((item, i) => (
-                                                <motion.div
-                                                    key={i}
-                                                    initial={{ opacity: 0, x: 20 }}
-                                                    whileInView={{ opacity: 1, x: 0 }}
-                                                    viewport={{ once: true }}
-                                                    className="relative"
-                                                >
-                                                    {/* Desktop Icon Centered on Vertical Line */}
-                                                    <div className="absolute -left-[16px] lg:-left-[86px] top-12 -translate-y-1/2 z-10 w-11 h-11 rounded-full glass-card border-primary/40 flex items-center justify-center text-primary shadow-glow bg-gray-950 group">
-                                                        <item.icon size={18} className="relative z-10" />
-                                                        <div className="absolute inset-0 rounded-full bg-primary/10 group-hover:bg-primary/20 animate-pulse" />
-                                                    </div>
+                            {/* RIGHT COLUMN: Timeline */}
+                            <div className="space-y-16">
+                                <div className="text-center lg:text-left">
+                                    <h2 className="text-5xl font-black font-sora tracking-tighter text-white mb-20 uppercase">
+                                        My <span className="gradient-text italic">Timeline</span>
+                                    </h2>
+                                </div>
 
-                                                    <div className={`p-8 glass-card border-white/10 relative hover:border-primary/40 transition-all rounded-[32px] group ${item.current ? 'border-primary/30 bg-primary/5' : 'bg-gray-900/40'}`}>
-                                                        <div className="flex items-center justify-between mb-4">
-                                                            <div className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 inline-block">
-                                                                <span className="text-xs font-black tracking-widest text-primary">{item.year}</span>
-                                                            </div>
-                                                            {item.current && (
-                                                                <span className="text-[10px] font-black tracking-widest text-primary animate-pulse uppercase">Active Phase</span>
-                                                            )}
-                                                        </div>
-                                                        <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">{item.title}</h4>
-                                                        <p className="text-gray-400 font-light leading-relaxed text-base">{item.description}</p>
-                                                    </div>
-                                                </motion.div>
-                                            ))}
-                                        </div>
-                                    </div>
+                                <div className="space-y-16 lg:pl-12">
+                                    {timeline.map((item, i) => (
+                                        <motion.div
+                                            key={i}
+                                            initial={{ opacity: 0, x: 20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            className="relative pl-16 group"
+                                        >
+                                            {/* Vertical Line Segment */}
+                                            {i !== timeline.length - 1 && (
+                                                <div className="absolute left-[23px] top-[46px] w-[2px] h-[calc(100%+32px)] bg-gradient-to-b from-primary/30 to-violet-500/30" />
+                                            )}
+
+                                            {/* Icon Circle On Line */}
+                                            <div className="absolute left-0 top-1 w-12 h-12 rounded-full border-2 border-primary/20 bg-gray-950 flex items-center justify-center text-primary z-10 shadow-[0_0_20px_rgba(6,182,212,0.2)] group-hover:border-primary/50 group-hover:scale-110 transition-all duration-300">
+                                                <item.icon size={20} />
+                                                {item.current && (
+                                                    <div className="absolute inset-0 rounded-full bg-primary/10 animate-ping" />
+                                                )}
+                                            </div>
+
+                                            <div className="glass-card p-10 bg-gray-900/40 border-white/5 hover:border-primary/20 transition-all rounded-[32px]">
+                                                <div className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 inline-block mb-4">
+                                                    <span className="text-xs font-black tracking-widest text-primary">{item.year}</span>
+                                                </div>
+                                                <h4 className="text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-primary transition-colors">{item.title}</h4>
+                                                <p className="text-gray-400 font-light leading-relaxed text-base">{item.description}</p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
+
 
                     </div>
                 </main>
