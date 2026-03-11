@@ -51,42 +51,42 @@ const skillsData = [
 
 
 const timeline = [
-  {
-    id: 1,
-    year: "2024",
-    title: "Engineering Start",
-    description: "Started B.E. Mechanical Engineering while developing strong interest in software and web technologies.",
-    icon: GraduationCap
-  },
-  {
-    id: 2,
-    year: "2025",
-    title: "Software Exploration",
-    description: "Learning React and frontend development alongside core mechanical concepts.",
-    icon: Code
-  },
-  {
-    id: 3,
-    year: "2026",
-    title: "Integration Focus",
-    description: "Building projects that connect mechanical knowledge with modern software solutions.",
-    icon: Cpu
-  },
-  {
-    id: 4,
-    year: "2027",
-    title: "Career Launch",
-    description: "Graduating as a Mechanical Engineer aiming for a software development role.",
-    icon: Rocket
-  },
-  {
-    id: 5,
-    year: "2028",
-    title: "Professional Growth",
-    description: "Growing as a skilled Frontend/Full Stack Developer contributing to impactful tech projects.",
-    icon: Target,
-    current: true
-  }
+    {
+        id: 1,
+        year: "2024",
+        title: "Engineering Start",
+        description: "Started B.E. Mechanical Engineering while developing strong interest in software and web technologies.",
+        icon: GraduationCap
+    },
+    {
+        id: 2,
+        year: "2025",
+        title: "Software Exploration",
+        description: "Learning React and frontend development alongside core mechanical concepts.",
+        icon: Code
+    },
+    {
+        id: 3,
+        year: "2026",
+        title: "Integration Focus",
+        description: "Building projects that connect mechanical knowledge with modern software solutions.",
+        icon: Cpu
+    },
+    {
+        id: 4,
+        year: "2027",
+        title: "Career Launch",
+        description: "Graduating as a Mechanical Engineer aiming for a software development role.",
+        icon: Rocket
+    },
+    {
+        id: 5,
+        year: "2028",
+        title: "Professional Growth",
+        description: "Growing as a skilled Frontend/Full Stack Developer contributing to impactful tech projects.",
+        icon: Target,
+        current: true
+    }
 ]
 
 
@@ -132,7 +132,12 @@ const AboutPage = () => {
                                 transition={{ duration: 1.2, ease: "easeOut" }}
                                 className="relative group flex-shrink-0 cursor-crosshair"
                             >
-                                <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 to-violet-500/30 blur-[60px] opacity-20 group-hover:opacity-100 transition-opacity" />
+                                {/* Ultra-Intense Cinematic Background Glows */}
+                                <div className="absolute -inset-16 bg-primary/40 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                                <div className="absolute -inset-24 bg-violet-600/20 rounded-full blur-[120px] opacity-0 group-hover:opacity-70 transition-opacity duration-1000 delay-150 animate-pulse" />
+                                <div className="absolute -inset-32 bg-cyan-400/10 rounded-full blur-[150px] opacity-0 group-hover:opacity-40 transition-opacity duration-1500" />
+                                <div className="absolute -inset-12 bg-primary/30 rounded-full blur-[60px] opacity-40 transition-opacity duration-700" />
+
                                 <div className="w-64 aspect-[3/4] md:w-80 md:h-[520px] rounded-[48px] overflow-hidden glass-card border-white/10 group-hover:border-primary/50 transition-all duration-700 p-2 shadow-[0_0_50px_-12px_rgba(6,182,212,0.3)] relative">
                                     <div className="w-full h-full rounded-[40px] bg-gray-950 flex items-center justify-center relative overflow-hidden">
                                         {/* HUD Scanning Line */}
@@ -174,26 +179,19 @@ const AboutPage = () => {
                             </motion.div>
                             <div className="flex-1 space-y-12">
                                 <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                                    <div className="flex items-center gap-4 mb-8">
-                                        <div className="h-px w-16 bg-gradient-to-r from-primary to-transparent" />
-                                        <span className="text-xs font-black tracking-[0.5em] uppercase text-primary text-glow-sm">Core.Identity</span>
-                                    </div>
                                     <h1 className="text-5xl md:text-7xl font-bold font-sora tracking-tighter mb-8 text-white leading-none relative group">
                                         <span className="relative z-10">About </span>
                                         <span className="gradient-text relative z-10 italic">Me</span>
 
                                         {/* Chromatic Aberration Underlays */}
-                                        <span className="absolute inset-0 text-cyan-500 opacity-0 group-hover:opacity-40 transition-opacity -translate-x-1 -z-10 blur-[1px]">
+                                        <span className="absolute inset-0 text-cyan-400 opacity-0 group-hover:opacity-40 transition-opacity -translate-x-1 -z-10 blur-[1px]">
                                             About Me
                                         </span>
-                                        <span className="absolute inset-0 text-rose-500 opacity-0 group-hover:opacity-40 transition-opacity translate-x-1 -z-10 blur-[1px]">
+                                        <span className="absolute inset-0 text-rose-400 opacity-0 group-hover:opacity-40 transition-opacity translate-x-1 -z-10 blur-[1px]">
                                             About Me
                                         </span>
                                     </h1>
                                     <div className="space-y-6 mb-12">
-                                        <h2 className="text-3xl lg:text-5xl font-bold text-white tracking-tighter">
-                                            Monishwaran <span className="text-primary italic">K</span>
-                                        </h2>
                                         <div className="flex flex-wrap items-center gap-6">
                                             <div className="flex items-center gap-3">
                                                 <span className="h-3 w-3 rounded-full bg-primary animate-pulse shadow-[0_0_10px_rgba(6,182,212,0.8)]" />
@@ -228,62 +226,62 @@ const AboutPage = () => {
                                             </span>
                                         </p>
                                     </motion.div>
-                                </motion.div>
 
-                                <div className="flex flex-wrap items-center gap-5">
-                                    <motion.button
-                                        whileHover={{ scale: 1.05, y: -2 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        onClick={handleDownload}
-                                        className="btn-primary group relative overflow-hidden px-8 py-4 rounded-2xl flex items-center gap-3 shadow-glow"
-                                    >
-                                        <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                                        <Download size={18} className="relative z-10" />
-                                        <span className="text-sm font-bold tracking-widest uppercase relative z-10">Get Resume</span>
-                                    </motion.button>
+                                    <div className="flex flex-wrap items-center gap-5">
+                                        <motion.button
+                                            whileHover={{ scale: 1.05, y: -2 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            onClick={handleDownload}
+                                            className="btn-primary group relative overflow-hidden px-8 py-4 rounded-2xl flex items-center gap-3 shadow-glow"
+                                        >
+                                            <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                                            <Download size={18} className="relative z-10" />
+                                            <span className="text-sm font-bold tracking-widest uppercase relative z-10">Get Resume</span>
+                                        </motion.button>
 
-                                    <div className="flex flex-wrap gap-4">
-                                        {[
-                                            { label: "Self-Learner", icon: Brain, color: "text-rose-400", bg: "bg-rose-500/10" },
-                                            { label: "Quick Learner", icon: Zap, color: "text-amber-400", bg: "bg-amber-500/10" },
-                                            { label: "Creative Thinker", icon: Sparkles, color: "text-emerald-400", bg: "bg-emerald-500/10" },
-                                            { label: "Team Player", icon: Users, color: "text-blue-400", bg: "bg-blue-500/10" },
-                                            { label: "Problem Solver", icon: Puzzle, color: "text-violet-400", bg: "bg-violet-500/10" }
-                                        ].map((badge, i) => (
-                                            <motion.div
-                                                key={i}
-                                                whileHover={{ scale: 1.1, y: -4, rotate: -1 }}
-                                                className={`${badge.bg} ${badge.color} px-5 py-3 rounded-2xl flex items-center gap-3 border border-white/5 backdrop-blur-xl transition-all`}
-                                            >
-                                                <badge.icon size={16} />
-                                                <span className="text-[10px] font-black tracking-[0.1em] uppercase">{badge.label}</span>
-                                            </motion.div>
-                                        ))}
+                                        <div className="flex flex-wrap gap-4">
+                                            {[
+                                                { label: "Self-Learner", icon: Brain, color: "text-rose-400", bg: "bg-rose-500/10" },
+                                                { label: "Quick Learner", icon: Zap, color: "text-amber-400", bg: "bg-amber-500/10" },
+                                                { label: "Creative Thinker", icon: Sparkles, color: "text-emerald-400", bg: "bg-emerald-500/10" },
+                                                { label: "Team Player", icon: Users, color: "text-blue-400", bg: "bg-blue-500/10" },
+                                                { label: "Problem Solver", icon: Puzzle, color: "text-violet-400", bg: "bg-violet-500/10" }
+                                            ].map((badge, i) => (
+                                                <motion.div
+                                                    key={i}
+                                                    whileHover={{ scale: 1.1, y: -4, rotate: -1 }}
+                                                    className={`${badge.bg} ${badge.color} px-5 py-3 rounded-2xl flex items-center gap-3 border border-white/5 backdrop-blur-xl transition-all`}
+                                                >
+                                                    <badge.icon size={16} />
+                                                    <span className="text-[10px] font-black tracking-[0.1em] uppercase">{badge.label}</span>
+                                                </motion.div>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
 
-                                {/* Floating Data Fragments */}
-                                {[...Array(6)].map((_, i) => (
-                                    <motion.div
-                                        key={`data-${i}`}
-                                        className="absolute text-[8px] font-mono text-primary/10 pointer-events-none whitespace-nowrap hidden lg:block"
-                                        style={{
-                                            top: `${10 + i * 15}%`,
-                                            right: `${5 + (i % 2) * 5}%`,
-                                        }}
-                                        animate={{
-                                            opacity: [0, 0.3, 0],
-                                            x: [0, -30],
-                                        }}
-                                        transition={{
-                                            duration: 5 + i,
-                                            repeat: Infinity,
-                                            delay: i * 2,
-                                        }}
-                                    >
-                                        {`>> LOG_STREAM_${Math.random().toString(16).slice(2, 6).toUpperCase()}`}
-                                    </motion.div>
-                                ))}
+                                    {/* Floating Data Fragments */}
+                                    {[...Array(6)].map((_, i) => (
+                                        <motion.div
+                                            key={`data-${i}`}
+                                            className="absolute text-[8px] font-mono text-primary/10 pointer-events-none whitespace-nowrap hidden lg:block"
+                                            style={{
+                                                top: `${10 + i * 15}%`,
+                                                right: `${5 + (i % 2) * 5}%`,
+                                            }}
+                                            animate={{
+                                                opacity: [0, 0.3, 0],
+                                                x: [0, -30],
+                                            }}
+                                            transition={{
+                                                duration: 5 + i,
+                                                repeat: Infinity,
+                                                delay: i * 2,
+                                            }}
+                                        >
+                                            {`>> LOG_STREAM_${Math.random().toString(16).slice(2, 6).toUpperCase()}`}
+                                        </motion.div>
+                                    ))}
+                                </motion.div>
                             </div>
                         </div>
 
@@ -335,16 +333,33 @@ const AboutPage = () => {
                                                 whileHover={{ y: -5, scale: 1.05 }}
                                                 className="group relative h-36 cursor-pointer"
                                             >
-                                                <div className="relative glass-card h-full p-6 flex flex-col items-center justify-center border-white/5 bg-gray-900/40 backdrop-blur-xl overflow-hidden rounded-[24px] group-hover:border-white/20 group-hover:bg-gray-900/60 transition-all duration-300">
-                                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" style={{ backgroundColor: skill.color }} />
-                                                    <div className="relative z-10 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-500 mb-4 bg-gray-950/50 border border-white/5">
+                                                <div className="relative h-full overflow-hidden rounded-[24px] bg-[#0c121d] border border-white/5 group-hover:border-primary/30 transition-all duration-300 p-6 flex flex-col items-center justify-between shadow-2xl">
+                                                    {/* Top-Down Glassy Highlight */}
+                                                    <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none" />
+
+                                                    {/* Color-Matched Dynamic Glow behind Icon */}
+                                                    <div
+                                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/3 w-16 h-16 blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full"
+                                                        style={{ backgroundColor: skill.color }}
+                                                    />
+
+                                                    <div className="relative z-10 w-16 h-16 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
                                                         {skill.type === 'devicon' ? (
-                                                            <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`} alt={skill.name} className="w-8 h-8 object-contain relative z-10" />
+                                                            <img
+                                                                src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
+                                                                alt={skill.name}
+                                                                className="w-12 h-12 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all"
+                                                            />
                                                         ) : (
-                                                            <img src={skill.icon} alt={skill.name} className="w-10 h-10 object-contain relative z-10" />
+                                                            <img
+                                                                src={skill.icon}
+                                                                alt={skill.name}
+                                                                className="w-12 h-12 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all"
+                                                            />
                                                         )}
                                                     </div>
-                                                    <span className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 group-hover:text-white transition-colors text-center truncate w-full">
+
+                                                    <span className="relative z-10 text-xs font-bold tracking-wider text-white mt-4 brightness-90 group-hover:brightness-100 transition-all">
                                                         {skill.name}
                                                     </span>
                                                 </div>
@@ -396,8 +411,6 @@ const AboutPage = () => {
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </main>
             </div>

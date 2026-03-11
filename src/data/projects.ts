@@ -9,6 +9,8 @@ import trustBiteImage from "@/assets/trustbite.png";
 import hbdImage from "@/assets/hbd.png";
 import safeFlowImage from "@/assets/safe flow.png";
 import jarvisImage from "@/assets/jarvis.png";
+import ambientClinicalImage from "@/assets/ambient-clinical.png";
+
 
 export interface Project {
   id: string;
@@ -21,12 +23,30 @@ export interface Project {
   result: string;
   images: string[];
   repoUrl?: string;
+  backendUrl?: string; // Added for multiple repo support
   liveUrl?: string;
   tech: string[];
   featured?: boolean;
 }
 
 export const projects: Project[] = [
+  {
+    id: "ambient-clinical",
+    title: "AmbientClinical",
+    tags: ['ALL', 'IT', 'AI'],
+    shortDesc: "Intelligent AI-powered medical note generator and doctor's dashboard.",
+    longDesc: "AmbientClinical is an advanced AI system designed for healthcare professionals. It automatically captures and records physician-patient conversations, generating comprehensive SOAP notes, prescriptions, and ICD-11 codes. The platform includes a real-time analytics dashboard, diagnosis trends, and quick-action tools to streamline clinical workflows.",
+    challenge: "Developing a low-latency pipeline to convert ambient clinical conversations into structured medical documentation while ensuring high accuracy and security.",
+    approach: "Utilized Gemini AI for medical transcript processing, integrated ICD-11 coding APIs, and built a high-performance React dashboard with real-time data visualization.",
+    result: "Improved clinical documentation efficiency, reduced physician burnout, and provided actionable diagnosis analytics in a pilot clinical setting.",
+    images: [ambientClinicalImage],
+    tech: ['React', 'Gemini AI', 'Tailwind CSS', 'Node.js', 'NLP'],
+    liveUrl: "https://comsci-hackathon.vercel.app/",
+    repoUrl: "https://github.com/Monishwarann/comsci-hackathon",
+    backendUrl: "https://github.com/Monishwarann/Comsic-Hackathon",
+    featured: true,
+  },
+
   {
     id: "Hydrogen-baja",
     title: "Hydrogen Baja Competition",
@@ -148,6 +168,7 @@ export const projects: Project[] = [
     images: [hbdImage],
     tech: ['React', 'Framer Motion', 'CSS3 Animation'],
     repoUrl: "https://github.com/Monishwarann/Birthday",
+    liveUrl: "https://moni-hbd.vercel.app/",
     featured: false,
   },
   {
@@ -162,6 +183,7 @@ export const projects: Project[] = [
     images: [safeFlowImage],
     tech: ['IoT', 'Embedded Systems', 'React', 'Dashboard'],
     repoUrl: "https://github.com/Monishwarann/Safe-Flow",
+    liveUrl: "https://cyber-safe-sheild.vercel.app/",
     featured: false,
   },
 ];

@@ -30,6 +30,7 @@ import innoverseImage from "@/assets/ino.jpeg";
 import brainstormImage from "@/assets/Brainstorm mini hackathon.jpeg";
 import codeNexusImage from "@/assets/Code Nexus.jpeg";
 import droneIcon from "@/assets/nov.jpg";
+import soarCard from "@/assets/Soar-Card.png";
 
 // PDF Certificates
 import connectionsPDF from "@/assets/cerficate/connections vel tech.pdf";
@@ -60,7 +61,7 @@ const EventsPage: React.FC = () => {
             id: 2,
             title: "Hackintym'25 2.0",
             type: ["hackathon", "Club Event"],
-            role: "Participant",
+            role: "Top 10 Finalist",
             date: "October 2025",
             location: "Chennai, India",
             description:
@@ -147,11 +148,11 @@ const EventsPage: React.FC = () => {
             id: 9,
             title: "Innoverse Hackathon",
             type: ["hackathon", "Club Event"],
-            role: "Participant",
+            role: "Runner Up",
             date: "2026",
             location: "Meenakshi Sundararajan Engineering College",
             description: "An IoT-focused hackathon involving hardware-software integration and real-time data monitoring.",
-            achievement: "Participant",
+            achievement: "Runner Up",
             image: innoverseImage,
             technologies: ["IOT", "Hardware Integration", "Prototyping"],
             featured: false,
@@ -185,6 +186,7 @@ const EventsPage: React.FC = () => {
             featured: false,
             certificateUrl: codeNexusImage,
         },
+
     ];
 
     const categories = [

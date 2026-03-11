@@ -214,7 +214,18 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                       className="px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-bold flex items-center gap-3 hover:bg-white/10 transition-all hover:-translate-y-1 active:scale-95"
                     >
                       <Github size={20} />
-                      Audit Source
+                      Source Code {project.backendUrl ? "(Frontend)" : ""}
+                    </a>
+                  )}
+                  {project.backendUrl && (
+                    <a
+                      href={project.backendUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-bold flex items-center gap-3 hover:bg-white/10 transition-all hover:-translate-y-1 active:scale-95"
+                    >
+                      <Github size={20} />
+                      Source Code (Backend)
                     </a>
                   )}
                 </div>

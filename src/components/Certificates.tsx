@@ -10,12 +10,14 @@ import upgradlogo from "@/assets/upgrad.jpg";
 import techlogo from "@/assets/tech.jpg";
 import delogo from "@/assets/6 Ways To Start Programming - EMR Industry.jpg";
 import tatalogo from "@/assets/Tata Motors Logo Meaning and History [Tata Motors symbol].jpg";
+import soarCard from "@/assets/Soar-Card.png";
+import soarCertificate from "@/assets/Soar-Cerficate.png";
 
 
 const certificates = [
   {
     title: "Schema Design Optimization",
-   issuer: "MongoDB",
+    issuer: "MongoDB",
     date: "2025",
     image: mongoDBicon,
     credentialUrl: "https://learn.mongodb.com/c/jPRqKMxoS32a2xCHBAxH8Q",
@@ -110,7 +112,14 @@ const certificates = [
       "https://rfskillingacademy.com/certificate/group/300/235782",
     skills: ["HTML", "CSS", "JavaScript"],
   },
-
+  {
+    title: "SOAR - AI to be Aware",
+    issuer: "HCL Technologies Ltd, NSDC",
+    date: "2026",
+    image: soarCard,
+    credentialUrl: soarCertificate,
+    skills: ["AI Awareness", "Embedded Assessment", "Prompt Engineering"],
+  },
 ];
 
 const containerVariants: Variants = {

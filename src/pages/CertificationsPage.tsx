@@ -58,6 +58,8 @@ import frontendPDF from "@/assets/cerficate/Certificate of Completion-frontend.p
 import connectionsPDF from "@/assets/cerficate/connections vel tech.pdf";
 import paperPresentationPDF from "@/assets/cerficate/certificate- paper Presentation- vel tecch.pdf";
 import maiiyamInternshipPDF from "@/assets/cerficate/internship certificate- maiiyam.pdf";
+import soarCard from "@/assets/Soar-Card.png";
+import soarCertificate from "@/assets/Soar-Cerficate.png";
 
 const CertificationsPage: React.FC = () => {
     const certifications = [
@@ -236,6 +238,17 @@ const CertificationsPage: React.FC = () => {
             verifyUrl: droneWorkshopImg,
             skills: ["Drones", "Control Systems", "Flight Mechanics"],
             category: "workshop",
+        },
+        {
+            id: 21,
+            title: "SOAR - AI to be Aware",
+            issuer: "HCL Technologies Ltd, NSDC",
+            date: "2026",
+            logo: nsdcLogo,
+            image: soarCard,
+            verifyUrl: soarCertificate,
+            skills: ["AI Awareness", "Embedded Assessment", "Prompt Engineering"],
+            category: "certification",
         },
 
     ];
