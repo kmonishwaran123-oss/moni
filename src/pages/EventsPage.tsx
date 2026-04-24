@@ -31,11 +31,16 @@ import brainstormImage from "@/assets/Brainstorm mini hackathon.jpeg";
 import codeNexusImage from "@/assets/Code Nexus.jpeg";
 import droneIcon from "@/assets/nov.jpg";
 import soarCard from "@/assets/Soar-Card.png";
+import bajaCertificate from "@/assets/baja ce.jpeg";
+import gbuCertificate from "@/assets/1761585584912.jpg";
+import droneCertificate from "@/assets/Drone workshop.jpeg";
 
 // PDF Certificates
 import connectionsPDF from "@/assets/cerficate/connections vel tech.pdf";
 import paperPresentationPDF from "@/assets/cerficate/certificate- paper Presentation- vel tecch.pdf";
 import maiiyamInternshipPDF from "@/assets/cerficate/internship certificate- maiiyam.pdf";
+import atvcCertificatePDF from "@/assets/cerficate/atvc.pdf";
+import atvcHydrogenBajaImage from "@/assets/baja-e.jpg";
 
 const EventsPage: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState("all");
@@ -55,7 +60,7 @@ const EventsPage: React.FC = () => {
             image: bajaCard,
             technologies: ["Electric Vehicle", "CAD", "Simulations", "Dynamics"],
             featured: true,
-            certificateUrl: bajaCard,
+            certificateUrl: bajaCertificate,
         },
         {
             id: 2,
@@ -84,7 +89,7 @@ const EventsPage: React.FC = () => {
             image: gbuCard,
             technologies: ["C-Programming", "Logic Building", "Code Optimization"],
             featured: true,
-            certificateUrl: gbuCard,
+            certificateUrl: gbuCertificate,
         },
         {
             id: 4,
@@ -114,7 +119,7 @@ const EventsPage: React.FC = () => {
             technologies: ["Drones", "Control Systems", "Flight Mechanics"],
             featured: false,
             logo: droneIcon,
-            certificateUrl: droneWorkshopCard,
+            certificateUrl: droneCertificate,
         },
         {
             id: 6,
@@ -160,33 +165,19 @@ const EventsPage: React.FC = () => {
         },
         {
             id: 10,
-            title: "Brainstormers Mini Hackathon",
-            type: ["hackathon", "Club Event"],
-            role: "Participant",
-            date: "2026",
-            location: "Meenakshi Sundararajan Engineering College",
-            description: "Fast-paced product development competition focused on design thinking and innovative solutions.",
+            title: "ATVC Hydrogen Baja Vehicle Competition",
+            type: "competition",
+            role: "Suspension",
+            date: "2025",
+            location: "India",
+            description: "Participated in the Advanced Technology Vehicle Challenge (ATVC), focusing on the design and development of a hydrogen-powered Baja vehicle. The competition emphasized sustainable mobility, engineering design, and innovation in alternative fuel technologies.",
             achievement: "Participant",
-            image: brainstormImage,
-            technologies: ["Product Development", "Design Thinking", "Innovation"],
-            featured: false,
-            certificateUrl: brainstormImage,
+            image: atvcHydrogenBajaImage,
+            technologies: ["Hydrogen Fuel Systems", "Vehicle Design", "Sustainable Engineering", "Team Collaboration"],
+            featured: true,
+            certificateUrl: atvcCertificatePDF,
         },
-        {
-            id: 11,
-            title: "Code Nexus Hackathon",
-            type: ["hackathon", "Club Event"],
-            role: "Participant",
-            date: "2026",
-            location: "Meenakshi Sundararajan Engineering College",
-            description: "IT-based hackathon solving complex software challenges through collaborative coding.",
-            achievement: "Participant",
-            image: codeNexusImage,
-            technologies: ["IT", "Software Development", "Problem Solving"],
-            featured: false,
-            certificateUrl: codeNexusImage,
-        },
-
+       
     ];
 
     const categories = [
